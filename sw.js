@@ -315,41 +315,36 @@ self.addEventListener('activate', (event) => {
 });
 
 // 3. FETCH: Intercept requests and serve from cache first
+// 3. FETCH: Intercept requests and serve from cache first
 self.addEventListener('fetch', (event) => {
-    // We only want to handle standard GET requests
+    // Mes norime tik GET užklausų
     if (event.request.method !== 'GET') return;
 
     event.respondWith(
-        caches.match(event.request).then((cachedResponse) => {
-            // Return cached response if found
+        // Svarbu: pridedame {ignoreSearch: true, ignoreVary: true}, kad būtų atlaidesnis
+        caches.match(event.request, {ignoreSearch: true, ignoreVary: true}).then((cachedResponse) => {
             if (cachedResponse) {
-                // Optional: console.log('[Service Worker] Serving from cache:', event.request.url);
+                console.log('[Service Worker] Serving from cache:', event.request.url);
                 return cachedResponse;
             }
 
-            // If not in cache, try to fetch from network
             return fetch(event.request).then((networkResponse) => {
-                // Check if we received a valid response
+                // Jei nepavyko gauti iš tinklo (pvz., offline ir nėra cache)
                 if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
                     return networkResponse;
                 }
 
-                // Clone the response (streams can only be consumed once)
+                // Įrašome naujus failus į talpyklą ateičiai
                 const responseToCache = networkResponse.clone();
-
-                // Dynamically cache new files (like audio files you didn't pre-cache)
                 caches.open(CACHE_NAME).then((cache) => {
                     cache.put(event.request, responseToCache);
                 });
 
                 return networkResponse;
             }).catch((error) => {
-                console.error('[Service Worker] Fetch failed; completely offline and asset not cached:', event.request.url);
-                // Optional: You could return a generic offline fallback page here if it was a navigation request
+                console.error('[Service Worker] Fetch failed (offline and not cached):', event.request.url);
             });
         })
     );
-
 });
-
 
