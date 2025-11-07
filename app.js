@@ -246,28 +246,30 @@ function onScanFailure(error) {
  * Paleidžia QR kodo skaitytuvą ir parodo nuskaitymo ekraną
  */
 function startQrScan() {
+    // 1. Pirmiausia parodome ekraną
     showScreen('qr-scan-screen');
 
-    // Konfigūracija: prašome galinės kameros
-    
+    // 2. Duodame šiek tiek laiko naršyklei "nupiešti" ekraną,
+    //    kad konteineris turėtų realų dydį prieš paleidžiant kamerą.
     setTimeout(() => {
-    const config = {
-        fps: 10, // Kadrų per sekundę
-        qrbox: { width: 250, height: 250 } // Nuskaitymo dėžutės dydis
-    };
+        const config = {
+            fps: 10,
+            qrbox: { width: 250, height: 250 }
+        };
 
-    // Paleidžiame skaitytuvą
-    html5QrCode.start(
-        { facingMode: "environment" }, // Prašome galinės kameros
-        config,
-        onScanSuccess,
-        onScanFailure
-    ).catch(err => {
-        console.error("Nepavyko paleisti QR skaitytuvo", err);
-        showToast("Nepavyko paleisti kameros.");
-        showScreen('game-screen'); // Grįžtame atgal, jei nepavyko
-    });
-    }, 100);
+        // 3. Paleidžiame skaitytuvą TIK po pauzės
+        html5QrCode.start(
+            { facingMode: "environment" },
+            config,
+            onScanSuccess,
+            onScanFailure
+        ).catch(err => {
+            console.error("Nepavyko paleisti QR skaitytuvo", err);
+            showToast("Nepavyko paleisti kameros.");
+            // Jei nepavyko, grįžtame atgal
+            showScreen('game-screen');
+        });
+    }, 300); // 300ms pauzė
 }
 
 /**
