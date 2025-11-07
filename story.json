@@ -775,7 +775,7 @@
   },
   "DARKO_d2b_response": {
     "npc": "THE DARK ONE",
-    "text": "'Yesterday evening, right here, when we were sitting around the fire, sharing a mug of midus. Not soon after they all fell asleep, and I left for the night.'",
+    "text": "'Yesterday evening, right here, when we were sitting around the fire, sharing a mug of mead. Not soon after they all fell asleep, and I left for the night.'",
     "is_key_statement": true,
     "statement_title": "THE DARK ONE'S Testimony",
     "set_flag": "asked_d2b = true",
@@ -792,7 +792,7 @@
   },
   "DARKO_d2b_sub1_response": {
     "npc": "THE DARK ONE",
-    "text": "He gives you a puzzled look. 'I'm not sure if you're trying to be funny, but the midus we drink here in the forest is a bit stronger than what you, city dwelers, usually have.'",
+    "text": "He gives you a puzzled look. 'I'm not sure if you're trying to be funny, but the mead we drink here in the forest is a bit stronger than what you, city dwelers, usually have.'",
     "is_chain_link": true,
     "choices": [
       {
@@ -3543,7 +3543,7 @@
   },
   "SIAURINIS_Se1_response_A": {
     "npc": "ŠIAURINIS",
-    "text": "– \"I'll be honest I wasn't paying much attention to him after the last activity that we did together. But, before I left, I remember him sitting and drinking midus with the beast and that human... Oh, what's his name?\" He visibly tries to remember. \"Sorry, I can't recall. Short male.\" He shows you with his hand how tall he was.",
+    "text": "– \"I'll be honest I wasn't paying much attention to him after the last activity that we did together. But, before I left, I remember him sitting and drinking mead with the beast and that human... Oh, what's his name?\" He visibly tries to remember. \"Sorry, I can't recall. Short male.\" He shows you with his hand how tall he was.",
     "is_key_statement": true,
     "statement_title": "ŠIAURINIS's Testimony",
     "choices": [
@@ -3695,7 +3695,7 @@
   },
   "SIAURINIS_Se2_sub1_response": {
     "npc": "ŠIAURINIS",
-    "text": "- \"Let's just say that he was enjoying midus a bit too much yesterday.\"",
+    "text": "- \"Let's just say that he was enjoying mead a bit too much yesterday.\"",
     "is_key_statement": true,
     "statement_title": "ŠIAURINIS's Testimony",
     "choices": [
@@ -4306,7 +4306,7 @@
         "target_node": "LAUME_Le2_response_A"
       },
       {
-        "text": "\"Who were the boys that he was enjoying midus together?\"",
+        "text": "\"Who were the boys that he was enjoying mead together?\"",
         "target_node": "LAUME_Le7_response_A"
       }
     ]
@@ -4338,7 +4338,7 @@
         "target_node": "LAUME_Le2_response_A"
       },
       {
-        "text": "\"Who were the boys that he was enjoying midus together?\"",
+        "text": "\"Who were the boys that he was enjoying mead together?\"",
         "target_node": "LAUME_Le7_response_A"
       },
       {
@@ -4777,7 +4777,7 @@
   },
   "RAPOLAS_BODY_Ba2_A": {
     "npc": "THE NARRATOR",
-    "text": "You gently open the frog's wide mouth. There is no water, no algae, no river mud. You lean in closer. Beneath the damp, river-scent, another smell hits you, powerful and sweet: fermented honey. It's midus (mead), and it's so strong it almost makes your eyes water.",
+    "text": "You gently open the frog's wide mouth. There is no water, no algae, no river mud. You lean in closer. Beneath the damp, river-scent, another smell hits you, powerful and sweet: fermented honey. It's mead (midus), and it's so strong it almost makes your eyes water.",
     "choices": [
       {
         "text": "...",
@@ -4941,6 +4941,59 @@
   "RAPOLAS_log_end": {
     "npc": "THE NARRATOR",
     "text": "Rapolas was a mole working for the Thunder Police Force. If The Dark One—or any of the band members—found this out, they would have had an immediate, lethal motive.",
+    "is_end": true,
+    "choices": []
+  },
+
+
+"NUSIKALTIMO_VIETA2_identity": {
+    "npc": "RITUAL SITE"
+  },
+  "NUSIKALTIMO_VIETA2_intro": {
+    "npc": "THE NARRATOR",
+    "text": "You discover something that looks like a set up for some sort of a ritual.",
+    "choices": [
+      {
+        "text": "(Examine the crime scene.)",
+        "target_node": "NUSIKALTIMO_VIETA2_examine_1"
+      },
+      {
+        "text": "(Leave.)",
+        "target_node": "NUSIKALTIMO_VIETA2_end"
+      }
+    ]
+  },
+  "NUSIKALTIMO_VIETA2_examine_1": {
+    "npc": "THE LUNAR EYE",
+    "text": "The forest floor is covered with bits of wet, dead leaves, and particles of hard dirt -- the same that we recovered from the victim's toe pads.",
+    "is_key_statement": true,
+    "statement_title": "Crime Scene Findings",
+    "choices": [
+      {
+        "text": "(Look closer.)",
+        "target_node": "NUSIKALTIMO_VIETA2_examine_2"
+      },
+      {
+        "text": "(Conclude the examination.)",
+        "target_node": "NUSIKALTIMO_VIETA2_end"
+      }
+    ]
+  },
+  "NUSIKALTIMO_VIETA2_examine_2": {
+    "npc": "THE LUNAR EYE",
+    "text": "And there it is! On one side of the set up, almost hidden by the dirt and leaves, you discover small traces of blood. We can't say for sure that it belonged to the victim but it's very likely.",
+    "is_key_statement": true,
+    "statement_title": "Crime Scene Findings",
+    "choices": [
+      {
+        "text": "(Conclude the examination.)",
+        "target_node": "NUSIKALTIMO_VIETA2_end"
+      }
+    ]
+  },
+  "NUSIKALTIMO_VIETA2_end": {
+    "npc": "THE NARRATOR",
+    "text": "You step away from the ritual site.",
     "is_end": true,
     "choices": []
   }
