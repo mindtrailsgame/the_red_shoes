@@ -556,65 +556,63 @@ body {
 
 /* --- QR Scanner Screen --- */
 #qr-scan-screen {
-    position: fixed;
+    /* NAUDOJAME ABSOLUTE, KAD LIKTŲ .phone-wrapper RIBOSE */
+    position: absolute; 
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 5000;
     background-color: #000;
-    
-    /* Svarbu: naudojame flexbox elementų centravimui */
-    display: none; /* JS pakeis į 'flex' */
+
+    /* Išdėstymas: Antraštė viršuje, Mygtukas apačioje */
+    display: none; /* JS pakeis į flex */
     flex-direction: column;
+    justify-content: space-between; /* Išstumia elementus į kraštus */
     align-items: center;
-    justify-content: space-between; /* Paskirsto vietą: viršus, vidurys, apačia */
     
-    padding: 40px 20px; /* Saugūs atstumai nuo kraštų */
+    /* Saugūs atstumai nuo telefono kraštų */
+    padding: 60px 30px; 
     box-sizing: border-box;
 }
 
 #qr-scan-screen.active {
-    display: flex; /* Rodome kaip flex konteinerį */
+    display: flex;
+}
+
+/* UI elementai turi būti virš kameros */
+#qr-scan-screen h2,
+#cancel-scan-btn {
+    position: relative;
+    z-index: 2; /* Aukščiau už kamerą */
+    flex-shrink: 0; /* Neleidžiame susitraukti */
+    margin: 0;
 }
 
 #qr-scan-screen h2 {
-    /* Tekstas viršuje */
     color: white;
-    text-align: center;
-    margin: 0;
-    z-index: 5002; /* Aukščiau už kamerą */
-    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
-    flex-shrink: 0; /* Neleidžiame susitraukti */
+    text-shadow: 0 2px 5px rgba(0,0,0,1);
 }
 
 #cancel-scan-btn {
-    /* Mygtukas apačioje */
-    width: 80%;
-    max-width: 300px;
-    z-index: 5002; /* Aukščiau už kamerą */
-    flex-shrink: 0; /* Neleidžiame susitraukti */
-    margin-bottom: 20px; /* Papildomas tarpas nuo apačios */
+    width: 100%;
+    max-width: 250px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
 
-/* KAMEROS KONTEINERIS */
+/* Kamera nustumiama į foną */
 #qr-reader {
-    /* Pozicionuojame absoliučiai, kad užimtų visą ekraną */
     position: absolute !important;
     top: 0;
     left: 0;
     width: 100% !important;
     height: 100% !important;
+    z-index: 1; /* Žemiausias sluoksnis */
     border: none !important;
-    z-index: 5001; /* Tarp fono ir mygtukų */
 }
 
-/* Priverstiniai stiliai pačiam <video> elementui */
 #qr-reader video {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important; /* Užpildo visą ekraną */
-    display: block !important;
+    object-fit: cover !important;
 }
 
 /* --- Galutinio kaltinimo stiliai (TAMSŪS) --- */
