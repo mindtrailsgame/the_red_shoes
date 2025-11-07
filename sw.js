@@ -17,7 +17,7 @@ const APP_SHELL = [
     'opening_background.png',
     'accusation_icon.png',
     'case_files.png',
-    'main_game_background.jpeg',    
+    'main_game_background.jpg',    
 
 
 // --- DARKO AUDIO ---
