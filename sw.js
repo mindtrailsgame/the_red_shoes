@@ -12,8 +12,8 @@ const APP_SHELL = [
     'story.json',
     'manifest.json',
     'html5-qrcode.min.js',
-    'icon-192.png',
-    'icon-512.png',
+    'images/icon-192.png',
+    'images/icon-512.png',
 
 // --- DARKO AUDIO ---
     'audio/darko/DARKO_apology_response.mp3',
