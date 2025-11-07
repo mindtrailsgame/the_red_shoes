@@ -4,7 +4,7 @@ const CACHE_NAME = 'red-shoes-v4';
 
 // LIST ALL FILES REQUIRED FOR THE GAME HERE.
 // Crucial: If a file is missing from this list, it won't work offline.
-const ASSETS_TO_CACHE = [
+const APP_SHELL = [
     './',              // Alias for the root folder
     'index.html',     // YOUR main html file (instead of index.html)
     'style.css',
