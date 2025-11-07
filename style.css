@@ -776,3 +776,31 @@ body {
 #motive-group {
     display: none;
 }
+
+/* --- Loading Screen Styles --- */
+#loading-screen {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--primary-color);
+    color: white;
+    z-index: 1000; /* Užtikriname, kad jis visada viršuje */
+}
+
+#loading-screen h2 {
+    margin-top: 20px;
+}
+
+/* Paprastas CSS suktukas (spinner) */
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}

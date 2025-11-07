@@ -23,29 +23,57 @@ document.addEventListener('DOMContentLoaded', () => {
         "Victim asked to be killed (Euthanasia)", "To collect on a debt"
     ];
 
+    const loadingScreen = document.getElementById('loading-screen');
+    const startScreen = document.getElementById('start-screen');
+
+    // Pagalbinė funkcija krovimo ekranui paslėpti
+    function hideLoadingScreen() {
+        // Slepiame tik jei jis dar rodomas
+        if (loadingScreen.classList.contains('active')) {
+             loadingScreen.classList.remove('active');
+             startScreen.classList.add('active');
+        }
+    }
+
     // --- SERVICE WORKER REGISTRATION ---
     if ('serviceWorker' in navigator) {
-        // Naudojame absoliutų kelią nuo domeno šaknies, kad būtume tikri
+        // PATIKRINIMAS STARTUOJANT: Ar SW jau valdo puslapį?
+        // Jei taip, vadinasi failai jau buvo atsiųsti anksčiau.
+        if (navigator.serviceWorker.controller) {
+            console.log("⚡ Service Worker already controlling. Fast start.");
+            hideLoadingScreen();
+        }
+
         navigator.serviceWorker.register('/the_red_shoes/sw.js', { scope: '/the_red_shoes/' })
             .then((registration) => {
-                console.log('✅ Service Worker registered successfully with scope:', registration.scope);
+                console.log('✅ SW registered', registration.scope);
 
+                // Jei SW jau aktyvus (pvz., grįžus į puslapį), slepiame krovimą
+                if (registration.active) {
+                    hideLoadingScreen();
+                }
+
+                // Jei SW dar tik diegiasi (pirmas kartas arba atnaujinimas)
                 if (registration.installing) {
-                    console.log('⚙️ Service Worker is installing...');
                     const sw = registration.installing;
                     sw.addEventListener('statechange', (e) => {
+                        // Kai būsena pasikeičia į 'activated', vadinasi viskas atsisiuntė!
                         if (e.target.state === 'activated') {
-                            console.log('🎉 Service Worker activated! Ready for offline.');
-                            showToast("Game is ready for offline use! 📶🚫");
+                            console.log("🎉 SW installed and activated!");
+                            showToast("Game ready for offline!");
+                            hideLoadingScreen(); // <--- SLEPIAME EKRANĄ ČIA
                         }
                     });
-                } else if (registration.active) {
-                     console.log('👍 Service Worker is already active.');
                 }
             })
             .catch((error) => {
-                console.error('❌ Service Worker registration failed:', error);
+                console.error('SW registration failed:', error);
+                // Svarbu: jei SW nepavyksta, vis tiek turime leisti žaisti (su internetu)
+                hideLoadingScreen();
             });
+    } else {
+        // Jei naršyklė nepalaiko SW, tiesiog slepiame krovimą
+        hideLoadingScreen();
     }
 
     // --- Story Data ---
