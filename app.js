@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const loadingScreen = document.getElementById('loading-screen');
     const startScreen = document.getElementById('start-screen');
+    let isGameLoaded = false;
 
     // Pagalbinė funkcija krovimo ekranui paslėpti
     function hideLoadingScreen() {
