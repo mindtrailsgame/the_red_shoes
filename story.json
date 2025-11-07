@@ -1,0 +1,4875 @@
+
+{
+ "DAUMANTAS_identity": {
+    "npc": "DAUMANTAS (WEREWOLF)"
+  },
+ 
+  "DAUMANTAS_intro": {
+    "npc": "THE NARRATOR",
+    "text": "You approach a creature that from afar gives you an impression of a ferocious beast capable of ripping a body in half just with its bair hands, but what you find has more the body language of a scared dog.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DAUMANTAS_intro_b"
+      }
+    ]
+  },
+  "DAUMANTAS_intro_b": {
+    "npc": "THE NARRATOR",
+    "text": "I guess I would be scared too -- if I was guilty of something like murder and The Dark One was out to get me.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DAUMANTAS_intro_c"
+      }
+    ]
+  },
+  "DAUMANTAS_intro_c": {
+    "npc": "THE NARRATOR",
+    "text": "You can make out that the werewolf is wearing a dirty brown collar-once white-which reveals something tragic: he was once a man, soon to be wed.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DAUMANTAS_player_choices_1_A"
+      }
+    ]
+  },
+  "DAUMANTAS_player_choices_1_A": {
+    "npc": "DAUMANTAS (WEREWOLF)",
+    "text": "'Grrr-ARRGH.' He greets you with a low and sustained growl. His breathing is shallow, chest-based.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DAUMANTAS_player_choices_1_B"
+      }
+    ]
+  },
+  "DAUMANTAS_player_choices_1_B": {
+    "npc": "DAUMANTAS (WEREWOLF)",
+    "text": null,
+    "choices": [
+      {
+        "text": "'I'm not a threat. I just need your help to figure out what happened to Rapolas. He was my friend. Will you help me?' (Approach him with an open body language.)",
+        "target_node": "DAUMANTAS_W1_W2_response",
+        "set_flag": "daumantas_approach = friendly"
+      },
+      {
+        "text": "'I'm detective Moon.' You show him your badge. 'I just want to ask you a couple of questions about the dead body over there. Is that okay with you?'",
+        "target_node": "DAUMANTAS_W1_W2_response",
+        "set_flag": "daumantas_approach = formal"
+      },
+      {
+        "text": "'Sit!'",
+        "target_node": "DAUMANTAS_W3_response"
+      },
+      {
+        "text": "I don't have anymore questions for you. (Leave.)",
+        "target_node": "DAUMANTAS_end_conversation"
+      }
+    ]
+  },
+  "DAUMANTAS_W1_W2_response": {
+    "npc": "DAUMANTAS (WEREWOLF)",
+    "text": "'Grrr.' His breathing becomes a bit deeper, and then he growls again but this time it's shorter and less threatening.",
+    "choices": [
+      {
+        "text": "'I assume that's a 'yes'?'",
+        "target_node": "DAUMANTAS_part2_hub"
+      },
+      {
+        "text": "'All this growling is not going to get us anywhere. Can we please switch to human language?'",
+        "target_node": "DAUMANTAS_speak_human_response"
+      }
+    ]
+  },
+  "DAUMANTAS_speak_human_response": {
+    "npc": "DAUMANTAS (WEREWOLF)",
+    "text": "'Grrrrrrr.'",
+    "choices": [
+      {
+        "text": "'I suppose that's a 'no'. Alright then'",
+        "target_node": "DAUMANTAS_part2_hub"
+      }
+    ]
+  },
+  "DAUMANTAS_W3_response": {
+    "npc": "DAUMANTAS (WEREWOLF)",
+    "text": "'Grrr-ARRGH.' He continues.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DAUMANTAS_W3_narrator_response_A"
+      }
+    ]
+  },
+  "DAUMANTAS_W3_narrator_response_A": {
+    "npc": "THE NARRATOR",
+    "text": "'Did you really just try to use the 'sit' command on a werewolf?!'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DAUMANTAS_W3_narrator_response_B"
+      }
+    ]
+  },
+  "DAUMANTAS_W3_narrator_response_B": {
+    "npc": "THE NARRATOR",
+    "text": null,
+    "choices": [
+      {
+        "text": "It was worth a shot. It works with dogs so I thought it might work with an oversized one as well.",
+        "target_node": "DAUMANTAS_W3_response_2_A"
+      },
+      {
+        "text": "You're right, my bad. I better find a different approach before things get out of hand.",
+        "target_node": "DAUMANTAS_player_choices_1_B"
+      }
+    ]
+  },
+  "DAUMANTAS_W3_response_2_A": {
+    "npc": "THE NARRATOR",
+    "text": "An oversized dog on two legs, with pants and a human-level comprehension of the spoken language?",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DAUMANTAS_W3_response_2_B"
+      }
+    ]
+  },
+  "DAUMANTAS_W3_response_2_B": {
+    "npc": "THE NARRATOR",
+    "text": null,
+    "choices": [
+      {
+        "text": "Uh-huh.",
+        "target_node": "DAUMANTAS_player_choices_1_B"
+      },
+      {
+        "text": "You're right, my bad. I better find a different approach before things get out of hand.",
+        "target_node": "DAUMANTAS_player_choices_1_B"
+      }
+    ]
+  },
+  "DAUMANTAS_re_entry_part2": {
+    "npc": "THE NARRATOR",
+    "text": "You approach Daumantas again.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DAUMANTAS_part2_hub"
+      }
+    ]
+  },
+  "DAUMANTAS_part2_hub": {
+    "npc": "DAUMANTAS (WEREWOLF)",
+    "text": null,
+    "set_flag": "daumantas_reached_part2 = true",
+    "choices": [
+      {
+        "text": "'Do you know who's responsible for the death of Rapolas?'",
+        "target_node": "DAUMANTAS_part2_q1",
+        "set_flag": "daumantas_asked_responsible = true"
+      },
+      {
+        "text": "'Is there something that you can tell me that could help me figure out what happened to Rapolas?'",
+        "target_node": "DAUMANTAS_part2_q2_router",
+        "set_flag": "daumantas_asked_tellme = true"
+      },
+      {
+        "text": "'Do you know who cursed you?'",
+        "target_node": "DAUMANTAS_part2_q3",
+        "set_flag": "daumantas_asked_curse = true"
+      },
+      {
+        "text": "'I noticed the collar around your neck. I assume marriage was in the plans?'",
+        "target_node": "DAUMANTAS_part2_q4",
+        "set_flag": "daumantas_asked_collar = true"
+      },
+      {
+        "text": "'I know you're scared, but if you just confess, I'm sure I can get you out of here alive. (Interrogate)",
+        "target_node": "DAUMANTAS_interrogate_start"
+      },
+      {
+        "text": "I have no more questions for you. (Leave)",
+        "target_node": "DAUMANTAS_end_conversation"
+      }
+    ]
+  },
+  "DAUMANTAS_part2_q1": {
+    "npc": "DAUMANTAS (WEREWOLF)",
+    "text": "'Grrrrrrr.'",
+    "is_key_statement": true,
+    "statement_title": "Werewolf's Testimony",
+    "set_flag": "daumantas_asked_responsible = true",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DAUMANTAS_part2_hub"
+      }
+    ]
+  },
+
+  "DAUMANTAS_part2_q2_router": {
+    "npc": "DAUMANTAS (WEREWOLF)",
+    "text": "He doesn't growl, but you can see that he's thinking or rather deliberating with himself.",
+    "is_chain_link": true,
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DAUMANTAS_part2_q2_friendly_A",
+        "condition": "daumantas_approach == friendly"
+      },
+      {
+        "text": "...",
+        "target_node": "DAUMANTAS_part2_q2_formal_A",
+        "condition": "daumantas_approach == formal"
+      }
+    ]
+  },
+  "DAUMANTAS_part2_q2_friendly_A": {
+    "npc": "DAUMANTAS (WEREWOLF)",
+    "text": "He goes down on all fours and with the claw of his forefinger scribbles something on the ground that you can barely read: 'RAPOLAS SMELL SILVER.'",
+    "is_key_statement": true,
+    "statement_title": "Werewolf's Testimony",
+    "set_flag": "daumantas_asked_tellme = true",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DAUMANTAS_part2_q2_friendly_B"
+      }
+    ]
+  },
+  "DAUMANTAS_part2_q2_friendly_B": {
+    "npc": "DAUMANTAS (WEREWOLF)",
+    "text": null,
+    "choices": [
+      {
+        "text": "'Hmm, interesting.'",
+        "target_node": "DAUMANTAS_part2_hub"
+      }
+    ]
+  },
+  "DAUMANTAS_part2_q2_formal_A": {
+    "npc": "DAUMANTAS (WEREWOLF)",
+    "text": "He goes down on all fours and for a moment it looks as if he's about to write something with the claw of his forefinger but then he stops himself and sits on the ground.",
+    "is_key_statement": true,
+    "statement_title": "Werewolf's Testimony.",
+    "set_flag": "daumantas_asked_tellme = true",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DAUMANTAS_part2_q2_formal_B"
+      }
+    ]
+  },
+  "DAUMANTAS_part2_q2_formal_B": {
+    "npc": "DAUMANTAS (WEREWOLF)",
+    "text": null,
+    "choices": [
+      {
+        "text": "Hmm, interesting.",
+        "target_node": "DAUMANTAS_part2_hub"
+      }
+    ]
+  },
+  
+  "DAUMANTAS_part2_q3": {
+    "npc": "DAUMANTAS (WEREWOLF)",
+    "text": "'He shakes his head.'",
+    "set_flag": "daumantas_asked_curse = true",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DAUMANTAS_part2_hub"
+      }
+    ]
+  },
+  "DAUMANTAS_part2_q4": {
+    "npc": "DAUMANTAS (WEREWOLF)",
+    "text": "It takes time for him to respond as if he's trying to find a lost memory. As the memory becomes a bit clearer his expression changes, and he lets out an unsettling sound that could only be described as a deep longing mixed with rage.",
+    "set_flag": "daumantas_asked_collar = true",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DAUMANTAS_part2_hub"
+      }
+    ]
+  },
+  "DAUMANTAS_interrogate_start": {
+    "npc": "DAUMANTAS (WEREWOLF)",
+    "text": "'Grrr-ARRGH. He responds with an even louder growl. He lowers his head a bit, his eyes are laser focused on your neck. His fear turns into anger as he's readying to attack you.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DAUMANTAS_interrogate_prompt_1"
+      }
+    ]
+  },
+  "DAUMANTAS_interrogate_prompt_1": {
+    "npc": "THE INTERROGATOR",
+    "text": "There's no doubt that we found the killer. We need to restrain him first before we can get the full confession out of him.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DAUMANTAS_interrogate_prompt_2_A"
+      }
+    ]
+  },
+  "DAUMANTAS_interrogate_prompt_2_A": {
+    "npc": "THE INTERROGATOR",
+    "text": "In order to restrain the werewolf you need to put nine pegs on him. But BE CAREFUL: if he manages to scratch your left shoulder (YOU = ALL YOUR VOICES), you've lost.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DAUMANTAS_interrogate_prompt_2_B"
+      }
+    ]
+  },
+  "DAUMANTAS_interrogate_prompt_2_B": {
+    "npc": "THE INTERROGATOR",
+    "text": null,
+    "choices": [
+      {
+        "text": "We won the challenge.",
+        "target_node": "DAUMANTAS_interrogate_win_1"
+      },
+      {
+        "text": "We lost the challenge.",
+        "target_node": "DAUMANTAS_interrogate_loss"
+      }
+    ]
+  },
+  "DAUMANTAS_interrogate_loss": {
+    "npc": "THE NARRATOR",
+    "text": "You just barely escape the deadly claws of the angry beast. You are no match for his strength and agility -- it's time to retreat.",
+    "set_flag": "daumantas_state = lost",
+    "is_end": true,
+    "choices": []
+  },
+  "DAUMANTAS_interrogate_win_1": {
+    "npc": "DAUMANTAS (WEREWOLF)",
+    "text": "Exhausted and defeated, he retreats with his tail tucked between his legs.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DAUMANTAS_interrogate_win_2_intro"
+      }
+    ]
+  },
+  "DAUMANTAS_interrogate_win_2_intro": {
+    "npc": "THE INTERROGATOR",
+    "text": "Good job! We have him right where we wanted to. Time to ask the hard hitting questions.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DAUMANTAS_interrogate_win_2_hub"
+      }
+    ]
+  },
+  "DAUMANTAS_interrogate_win_2_hub": {
+    "npc": "THE INTERROGATOR",
+    "text": null,
+    "choices": [
+      {
+        "text": "Did you kill Rapolas because you felt threatened by him?",
+        "target_node": "DAUMANTAS_interrogate_win_confession",
+        "set_flag": "daumantas_asked_threatened = true"
+      },
+      {
+        "text": "Did you kill Rapolas because someone told you to do it?",
+        "target_node": "DAUMANTAS_interrogate_win_confession",
+        "set_flag": "daumantas_asked_toldto = true"
+      },
+      {
+        "text": "Did you kill Rapolas because it was the full moon?",
+        "target_node": "DAUMANTAS_interrogate_win_confession",
+        "set_flag": "daumantas_asked_fullmoon = true"
+      },
+      {
+        "text": "I'm done here. (Leave)",
+        "target_node": "DAUMANTAS_interrogate_win_end"
+      }
+    ]
+  },
+  "DAUMANTAS_interrogate_win_confession": {
+    "npc": "DAUMANTAS (WEREWOLF)",
+    "text": "'He tries to growl but the sounds breaks into a pleading whimper.'",
+    "is_key_statement": true,
+    "statement_title": "The 'Confession'",
+    "set_flag": "daumantas_state = won",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DAUMANTAS_interrogate_win_2_hub"
+      }
+    ]
+  },
+  "DAUMANTAS_interrogate_win_end": {
+    "npc": "NARRATOR",
+    "text": "You leave the defeated werewolf.",
+    "set_flag": "daumantas_state = won",
+    "is_end": true,
+    "choices": []
+  },
+  "DAUMANTAS_post_win_text": {
+    "npc": "DAUMANTAS (WEREWOLF)",
+    "text": "'He refuses to talk to you.'",
+    "choices": [
+      {
+        "text": "(Leave)",
+        "target_node": "DAUMANTAS_end_conversation"
+      }
+    ]
+  },
+  "DAUMANTAS_post_loss_text": {
+    "npc": "THE NARRATOR",
+    "text": "It's better for you to stay the hell away.",
+    "choices": [
+      {
+        "text": "(Leave)",
+        "target_node": "DAUMANTAS_end_conversation"
+      }
+    ]
+  },
+  "DAUMANTAS_end_conversation": {
+    "text": "You walk away from the werewolf.",
+    "is_end": true,
+    "choices": []
+  },
+
+
+
+
+"DARKO_identity": {
+    "npc": "THE DARK ONE"
+  },
+  "DARKO_intro": {
+    "npc": "THE DARK ONE",
+    "text": "'Detective,' he greets you with a self-satisfied smirk. 'I had a feeling that you will not be able to resist this one.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_intro_b"
+      }
+    ]
+  },
+  "DARKO_intro_b": {
+    "npc": "THE NARRATOR",
+    "text": "Before you're able to respond, in a split second, as your eyes scan the lifeless body on the ground, you understand what you've gotten yourself into: the victim is someone you knew.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_intro_c"
+      }
+    ]
+  },
+  "DARKO_intro_c": {
+    "npc": "THE NARRATOR",
+    "text": "The game begins. Is this a trap? You better be careful with what you say next or, more importantly, WHAT YOU SHOW.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_prologue_choices"
+      }
+    ]
+  },
+  "DARKO_prologue_choices": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "'What game are you playing!?' (Grab him by the lapels and show him who's the boss.)",
+        "target_node": "DARKO_d1a_response",
+        "set_flag": "darko_prologue_style = aggressive"
+      },
+      {
+        "text": "'You know me -- I can't resist a good mystery. Who's the green fella -- your friend?'(Hide your affiliation and don't reveal how you're feeling.)",
+        "target_node": "DARKO_d2a_response",
+        "set_flag": "darko_prologue_style = cunning"
+      },
+      {
+        "text": "(Fall on your knees next to the dead body and begin to sob uncontrollably.)",
+        "target_node": "DARKO_d3a_response",
+        "set_flag": "darko_prologue_style = emotional"
+      },
+      {
+        "text": "'Do you want to tell me what happened here?'(Remain calm and professional.)",
+        "target_node": "DARKO_d4a_response",
+        "set_flag": "darko_prologue_style = professional"
+      }
+    ]
+  },
+  "DARKO_d1a_response": {
+    "npc": "THE NARRATOR",
+    "text": "You see red. You throw yourself towards the Dark One like an unhinged bull and grab him by his lapels. The Dark One stares at you almost unfaized. He finds your anger amusing. This is not a victory for you.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_d1a_response_b"
+      }
+    ]
+  },
+  "DARKO_d1a_response_b": {
+    "npc": "THE DARK ONE",
+    "text": "'I guess living among the mortals has made you a bit forgetful and rash.'",
+    "choices": [
+      {
+        "text": "'Forgive me, Rapolas was my friend...'",
+        "target_node": "DARKO_apology_response",
+        "set_flag": "knows_rapolas_name = true"
+      },
+      {
+        "text": "'You're the one who's forgetful and rash! There's a reason why you are living here, in the forest -- you're scared of what's beyond it.'(Try to intimidate.)",
+        "target_node": "DARKO_intimidate_response"
+      },
+      {
+        "text": "'Fine.'(Let go of THE DARK ONE)",
+        "target_node": "DARKO_fine_response"
+      }
+    ]
+  },
+  "DARKO_apology_response": {
+    "npc": "THE DARK ONE",
+    "text": "'I see,' he says in a voice that almost signals compassion. 'In that case no need for such harshness -- we both want the same thing -- to catch the one who's responsible for the death of your green friend.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_focus_response"
+      }
+    ]
+  },
+  "DARKO_intimidate_response": {
+    "npc": "THE NARRATOR",
+    "text": "The Dark One pushes you away almost without effort. If you were to engage him in a physical battle, you would lose horribly. Get yourself together -- NOW!",
+    "choices": [
+      {
+        "text": "'You're a strong fella, aren't you? Let's get on with the murder, shall we?'(Backpedal and focus on the case.)",
+        "target_node": "DARKO_focus_response"
+      },
+      {
+        "text": "(Turn to the dead body and focus on the case pretending your ego wasn't hurt by what just happened.)",
+        "target_node": "DARKO_focus_response"
+      }
+    ]
+  },
+  "DARKO_fine_response": {
+    "npc": "THE NARRATOR",
+    "text": "Time to focus. For the moment you leave your assumptions and feelings about The Dark One behind and switch into detective mode. Let's crack this case wide open!",
+    "is_chain_link": true,
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_start_part2"
+      }
+    ]
+  },
+  "DARKO_d2a_response": {
+    "npc": "THE DARK ONE",
+    "text": "'He,' he pauses for a moment as he looks at the lifeless body of Rapolas, 'was.'",
+    "set_flag": "knows_rapolas_name = true",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_d2a_response_b"
+      }
+    ]
+  },
+  "DARKO_d2a_response_b": {
+    "npc": "THE NARRATOR",
+    "text": "You detect a tinge of sadness in his voice, which takes you aback a little: did you both just lose someone you cared about?",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_focus_response"
+      }
+    ]
+  },
+  "DARKO_d3a_response": {
+    "npc": "THE DARK ONE",
+    "text": "He stares at you with both amusement and confusion. 'I assume you knew each other?'",
+    "choices": [
+      {
+        "text": "'I did.'(Wipe your tears off and stand up.)",
+        "target_node": "DARKO_d3a_confession_response",
+        "set_flag": "darko_d3a_choice = confirmed"
+      },
+      {
+        "text": "'Not really, I just get very emotional whenever I see a life taken away before it's time.'(Wipe your tears off and stand up.)",
+        "target_node": "DARKO_d3a_confession_response",
+        "set_flag": "darko_d3a_choice = denied"
+      },
+      {
+        "text": "(Continue to sob for a bit longer and then stand up without saying a word.)",
+        "target_node": "DARKO_d3a_confession_response",
+        "set_flag": "darko_d3a_choice = silent"
+      }
+    ]
+  },
+  "DARKO_d3a_confession_response": {
+    "npc": "THE NARRATOR",
+    "text": "You recollect yourself and move away from your dead friend on the ground, leaving the crime scene wetter. Collecting DNA evidence is out of the question now.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_focus_response"
+      }
+    ]
+  },
+  "DARKO_d4a_response": {
+    "npc": "THE DARK ONE",
+    "text": "'Betrayal.' He turns his head towards the five shadowy figures that you have yet to become acquainted with. 'Most likely.'",
+    "is_chain_link": true,
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_start_part2"
+      }
+    ]
+  },
+  "DARKO_focus_response": {
+    "npc": "THE NARRATOR",
+    "text": "Time to focus. You switch into detective mode. Let's crack this case wide open!",
+    "is_chain_link": true,
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_start_part2"
+      }
+    ]
+  },
+  "DARKO_start_part2": {
+    "npc": "THE NARRATOR",
+    "text": "The investigation begins.",
+    "is_chain_link": true,
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_part2_hub"
+      }
+    ]
+  },
+
+  "DARKO_re_entry_part2": {
+    "npc": "THE NARRATOR",
+    "text": "You approach The Dark One again.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_part2_hub"
+      }
+    ]
+  },
+
+  "DARKO_part2_hub": {
+    "npc": "YOU",
+    "set_flag": "darko_reached_part2 = true",
+    "text": null,
+    "choices": [
+      {
+        "text": [
+          {
+            "condition": "knows_rapolas_name == true",
+            "value": "'How did you know Rapolas?'"
+          },
+          {
+            "value": "'How did you know the victim?'"
+          }
+        ],
+        "target_node": "DARKO_d1b_response",
+        "set_flag": "asked_d1b = true"
+      },
+      {
+        "text": "'When was the last time you saw him alive?'",
+        "target_node": "DARKO_d2b_response",
+        "set_flag": "asked_d2b = true"
+      },
+      {
+        "text": "'Who do you think is responsible for his death?'",
+        "target_node": "DARKO_d3b_response",
+        "set_flag": "asked_d3b = true"
+      },
+      {
+        "text": "'What makes you think it wasn't an accident?'",
+        "target_node": "DARKO_d4b_response",
+        "set_flag": "asked_d4b = true"
+      },
+      {
+        "text": "'Did you kill him?'",
+        "target_node": "DARKO_d5b_response",
+        "set_flag": "asked_d5b = true"
+      },
+      {
+        "text": "'Let's cut the chase: you and I both know that YOU killed Rapolas.'",
+        "target_node": "DARKO_d6b_router",
+        "set_flag": "asked_d6b = true"
+      },
+      {
+        "text": "'I'm done with questions for now.' (Leave)",
+        "target_node": "DARKO_end_conversation"
+      }
+    ]
+  },
+  "DARKO_d1b_response": {
+    "npc": "THE DARK ONE",
+    "text": "'He was a dear friend of mine. Being aware of Rapolas work as a facilitator, I asked him to help me with my team building retreat.'",
+    "set_flag": "asked_d1b = true",
+    "choices": [
+      {
+        "text": "'How did you two meet?'",
+        "target_node": "DARKO_d1b_sub1_response"
+      },
+      {
+        "text": "'What would a powerful being like yourself need a team for?'",
+        "target_node": "DARKO_d1b_sub2_response"
+      },
+      {
+        "text": "'Forgive my bluntness, but you having a friend sounds rather suspicious to me.'",
+        "target_node": "DARKO_d1b_sub3_response"
+      }
+    ]
+  },
+  "DARKO_d1b_sub1_response": {
+    "npc": "THE DARK ONE",
+    "text": "'During one of my famous dancing parties,' he says gleefully, 'where he almost outdanced me. He was small but he moved like tango on steroids.'",
+    "is_chain_link": true,
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_part2_hub"
+      }
+    ]
+  },
+  "DARKO_d1b_sub2_response": {
+    "npc": "THE DARK ONE",
+    "text": "'You think too little and too much of me. Me and my band of misfits like to play music together. Power, unfortunately, cannot buy you good team dynamics.'",
+    "is_chain_link": true,
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_part2_hub"
+      }
+    ]
+  },
+  "DARKO_d1b_sub3_response": {
+    "npc": "THE DARK ONE",
+    "text": "'If anything you should be suspicious of poor Rapolas there, because he did manage to win over my heart, and you should ask yourself what kind of person you must be to impress me like that.'",
+    "is_key_statement": true,
+    "statement_title": "THE DARK ONE'S Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_d1b_sub3_response_b"
+      }
+    ]
+  },
+  "DARKO_d1b_sub3_response_b": {
+    "npc": "THE SCEPTIC",
+    "text": "You must admit that he's right -- how well did you know Rapolas?",
+    "is_chain_link": true,
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_part2_hub"
+      }
+    ]
+  },
+  "DARKO_d2b_response": {
+    "npc": "THE DARK ONE",
+    "text": "'Yesterday evening, right here, when we were sitting around the fire, sharing a mug of midus. Not soon after they all fell asleep, and I left for the night.'",
+    "is_key_statement": true,
+    "statement_title": "THE DARK ONE'S Testimony",
+    "set_flag": "asked_d2b = true",
+    "choices": [
+      {
+        "text": "'What is 'midus?'",
+        "target_node": "DARKO_d2b_sub1_response"
+      },
+      {
+        "text": "'Why did you leave?'",
+        "target_node": "DARKO_d2b_sub2_response"
+      }
+    ]
+  },
+  "DARKO_d2b_sub1_response": {
+    "npc": "THE DARK ONE",
+    "text": "He gives you a puzzled look. 'I'm not sure if you're trying to be funny, but the midus we drink here in the forest is a bit stronger than what you, city dwelers, usually have.'",
+    "is_chain_link": true,
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_part2_hub"
+      }
+    ]
+  },
+  "DARKO_d2b_sub2_response": {
+    "npc": "THE DARK ONE",
+    "text": "'As you know, my kind don't suffer from this affliction that mortals call 'sleep'. But it saddens me to think that if I would have stayed Rapolas would surely still be alive.'",
+    "is_chain_link": true,
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_part2_hub"
+      }
+    ]
+  },
+  "DARKO_d3b_response": {
+    "npc": "THE DARK ONE",
+    "text": "'This is where things get tricky and interesting for you, detective: I think any one of them could be the killer. After all they are MY band.'",
+    "is_key_statement": true,
+    "statement_title": "THE DARK ONE'S Testimony",
+    "set_flag": "asked_d3b = true",
+    "choices": [
+      {
+        "text": "'How come?'",
+        "target_node": "DARKO_d3b_sub1_response"
+      }
+    ]
+  },
+  "DARKO_d3b_sub1_response": {
+    "npc": "THE DARK ONE",
+    "text": "'Well -- we have Daumantas, half-man, half-beast. He's known to have -- some anger issues, which do come in handy when you give him a pair of drumsticks.'",
+    "is_key_statement": true,
+    "statement_title": "THE DARK ONE'S Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_d3b_sub1_response_b"
+      }
+    ]
+  },
+  "DARKO_d3b_sub1_response_b": {
+    "npc": "THE DARK ONE",
+    "text": "We have Varnalėša, a witch stuck in the body of a crow after a run-in with the police. All that rage inside of her -- makes for a killer vocalist, but she would KILL without hesitation to get her human form back.",
+    "is_key_statement": true,
+    "statement_title": "THE DARK ONE'S Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_d3b_sub1_response_c"
+      }
+    ]
+  },
+  "DARKO_d3b_sub1_response_c": {
+    "npc": "THE DARK ONE",
+    "text": "'Then there's Ričardas. He says that he does some dark stuff on the side, but, besides playing the bass, I cannot imagine what that could be. I think it's probably something to do with,' he thinks for a moment, 'love, because I think he mentioned it during an active listening exercise that Rapola led.'",
+    "is_key_statement": true,
+    "statement_title": "THE DARK ONE'S Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_d3b_sub1_response_d"
+      }
+    ]
+  },
+  "DARKO_d3b_sub1_response_d": {
+    "npc": "THE DARK ONE",
+    "text": "'I have a Laumė as well. To be honest, I don't know much about her, but I probably don't need to tell you that she will literally take your head off if she deems you unworthy of it.'",
+    "is_key_statement": true,
+    "statement_title": "THE DARK ONE'S Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_d3b_sub1_response_e"
+      }
+    ]
+  },
+  "DARKO_d3b_sub1_response_e": {
+    "npc": "THE DARK ONE",
+    "text": "'And finally there's Šiaurinis. He takes after his father -- more or less -- and I probably don't need to tell you who his father is.'",
+    "is_key_statement": true,
+    "statement_title": "THE DARK ONE'S Testimony",
+    "is_chain_link": true,
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_part2_hub"
+      }
+    ]
+  },
+  "DARKO_d4b_response": {
+    "npc": "THE DARK ONE",
+    "text": "'It's just a more probable outcome considering the facts that I hope I don't need to tell you about, DETECTIVE.'",
+    "set_flag": "asked_d4b = true",
+    "choices": [
+      {
+        "text": "'Right... Right. But.. Let's just pretend for a moment that I don't know the facts -- that I definitely DO KNOW -- what would they be?'",
+        "target_node": "DARKO_d4b_sub1_response",
+        "set_flag": "darko_d4b_choice = bluff"
+      },
+      {
+        "text": "Yes, of course, you don't need to tell me about it.",
+        "target_node": "DARKO_part2_hub"
+      }
+    ]
+  },
+  "DARKO_d4b_sub1_response": {
+    "npc": "THE DARK ONE",
+    "text": "'Uhhh-huh.' He looks at you like he's about to explain something to a clueless child. 'For one, Rapolas belongs to the species Hyla arborea, otherwise known as the tree frog. If you're a tree frog, you spend your time in a pond or a ditch, and you don't go for a swim in a river unless you're feeling suicidal.'",
+    "is_key_statement": true,
+    "statement_title": "THE DARK ONE'S Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_d4b_sub1_response_b"
+      }
+    ]
+  },
+  "DARKO_d4b_sub1_response_b": {
+    "npc": "THE SCEPTIC",
+    "text": "'He has a point, but UNLIKELY doesn't mean IMPOSSIBLE.'",
+    "is_chain_link": true,
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_part2_hub"
+      }
+    ]
+  },
+  "DARKO_d5b_response": {
+    "npc": "THE DARK ONE",
+    "text": "'I could have if I wanted to, but Rapolas was more useful to me alive. He was,' a reluctant sigh follows, 'a friend.'",
+    "is_key_statement": true,
+    "statement_title": "THE DARK ONE'S Testimony",
+    "set_flag": "asked_d5b = true",
+    "is_chain_link": true,
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_part2_hub"
+      }
+    ]
+  },
+  "DARKO_d6b_router": {
+    "text": null,
+    "set_flag": "asked_d6b = true",
+    "is_chain_link": true,
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_d6b_aggressive_response",
+        "condition": "darko_prologue_style == aggressive"
+      },
+      {
+        "text": "...",
+        "target_node": "DARKO_d6b_cunning_response",
+        "condition": "darko_prologue_style == cunning"
+      },
+      {
+        "text": "...",
+        "target_node": "DARKO_d6b_emotional_router",
+        "condition": "darko_prologue_style == emotional"
+      },
+      {
+        "text": "...",
+        "target_node": "DARKO_d6b_default_response",
+        "condition": "darko_prologue_style == professional"
+      }
+    ]
+  },
+  "DARKO_d6b_aggressive_response": {
+    "npc": "THE DARK ONE",
+    "text": "He remembers your impotent bravado a few minutes ago. 'Just words without any substance -- you can do better than this, detective.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_d6b_aggressive_response_b"
+      }
+    ]
+  },
+  "DARKO_d6b_aggressive_response_b": {
+    "npc": "YOUR DAMAGED EGO",
+    "text": "You were not a boss before, so don't try to be one now. Just keep your head down and we might survive this.",
+    "is_chain_link": true,
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_part2_hub"
+      }
+    ]
+  },
+  "DARKO_d6b_cunning_response": {
+    "npc": "THE DARK ONE",
+    "text": "'Are you trying to be funny?'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_d6b_cunning_response_b"
+      }
+    ]
+  },
+  "DARKO_d6b_cunning_response_b": {
+    "npc": "THE NARRATOR",
+    "text": "Are you?",
+    "choices": [
+      {
+        "text": "'No, I'm being very serious right now.'",
+        "target_node": "DARKO_d6b_cunning_sub1_response"
+      },
+      {
+        "text": "'Yes, sorry, it was just a bad joke.'",
+        "target_node": "DARKO_d6b_cunning_sub2_response"
+      }
+    ]
+  },
+  "DARKO_d6b_cunning_sub1_response": {
+    "npc": "THE DARK ONE",
+    "text": "'If you were trying to be serious, you wouldn't be standing here and wasting time.'",
+    "is_chain_link": true,
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_part2_hub"
+      }
+    ]
+  },
+  "DARKO_d6b_cunning_sub2_response": {
+    "npc": "THE DARK ONE",
+    "text": "'...'",
+    "is_chain_link": true,
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_part2_hub"
+      }
+    ]
+  },
+  "DARKO_d6b_emotional_router": {
+    "text": null,
+    "is_chain_link": true,
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_d6b_emotional_bluff_response",
+        "condition": "darko_d4b_choice == bluff"
+      },
+      {
+        "text": "...",
+        "target_node": "DARKO_d6b_emotional_default_response"
+      }
+    ]
+  },
+  "DARKO_d6b_emotional_default_response": {
+    "npc": "THE DARK ONE",
+    "text": "He remembers you sobbing while down on your knees. 'I think emotions are getting the better of you, otherwise you would know better.'",
+    "is_chain_link": true,
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_part2_hub"
+      }
+    ]
+  },
+  "DARKO_d6b_emotional_bluff_response": {
+    "npc": "THE DARK ONE",
+    "text": "He attentively scans your face before responding. 'What makes you think that?'",
+    "choices": [
+      {
+        "text": "'I just have a hunch. I don't know why yet but I will -- it's just a matter of time.'",
+        "target_node": "DARKO_d6b_emotional_bluff_sub1_response"
+      },
+      {
+        "text": "'Well, they do call you 'The DARK One', and THAT to me is very suspicious.'",
+        "target_node": "DARKO_d6b_emotional_bluff_sub2_response"
+      }
+    ]
+  },
+  "DARKO_d6b_emotional_bluff_sub1_response": {
+    "npc": "THE DARK ONE",
+    "text": "'I admire your confidence. I hope you put it to GOOD use as you snif out the killer while talking to others.'",
+    "is_chain_link": true,
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_part2_hub"
+      }
+    ]
+  },
+  "DARKO_d6b_emotional_bluff_sub2_response": {
+    "npc": "THE DARK ONE",
+    "text": "'It's more a label given to me by those who are afraid of the unknown, which, I'm sure, is not the case with you. I do hope you're not someone who judges a book by its cover.'",
+    "is_chain_link": true,
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_part2_hub"
+      }
+    ]
+  },
+  "DARKO_d6b_default_response": {
+    "npc": "THE DARK ONE",
+    "text": "He scans your face for a moment and smiles. 'Humor me.'",
+    "choices": [
+      {
+        "text": "'I just have a hunch. I don't know why yet but I will -- it's just a matter of time.'",
+        "target_node": "DARKO_d6b_default_sub1_response"
+      },
+      {
+        "text": "'Well, they do call you 'The DARK One', and THAT to me is very suspicious.'",
+        "target_node": "DARKO_d6b_default_sub2_response"
+      }
+    ]
+  },
+  "DARKO_d6b_default_sub1_response": {
+    "npc": "THE DARK ONE",
+    "text": "'I admire your confidence. Is that what they call an uneducated guess?'",
+    "is_chain_link": true,
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_part2_hub"
+      }
+    ]
+  },
+  "DARKO_d6b_default_sub2_response": {
+    "npc": "THE DARK ONE",
+    "text": "'I see now why they call you a 'genius of deduction'. But I do hope you're not someone who judges a book by its cover.'",
+    "is_chain_link": true,
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "DARKO_part2_hub"
+      }
+    ]
+  },
+  "DARKO_end_conversation": {
+    "text": "You have finished your conversation with THE DARK ONE.",
+    "is_end": true,
+    "choices": []
+  },
+   
+
+
+"VARNALESA_identity": {
+    "npc": "VARNALĖŠA (WITCH)"
+  },
+  "VARNALESA_intro": {
+    "npc": "THE NARRATOR",
+    "text": "You find Varnalėša — a witch stuck in the body of a crow — nervously walking back and forth.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_intro_b"
+      }
+    ]
+  },
+  "VARNALESA_intro_b": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'Fuck. Fuck!' She mutters under her breath.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_player_choices_1_B"
+      }
+    ]
+  },
+  "VARNALESA_player_choices_1_B": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": null,
+    "choices": [
+      {
+        "text": "'Hello,' you say in a friendly voice while flashing your badge. 'I'm detective Moon. I want to ask you a couple of questions about the dead body over there. Is that okay with you?'",
+        "target_node": "VARNALESA_Va1_response_A"
+      },
+      {
+        "text": "'You're under arrest for swearing!' (Say it like you meant it.)",
+        "target_node": "VARNALESA_Va2_response_A"
+      },
+      {
+        "text": "I don't have anymore questions for you. (Leave.)",
+        "target_node": "VARNALESA_end_conversation"
+      }
+    ]
+  },
+  "VARNALESA_end_conversation": {
+    "text": "You walk away from the witch.",
+    "is_end": true,
+    "choices": []
+  },
+  "VARNALESA_re_entry_part2": {
+    "npc": "THE NARRATOR",
+    "text": "You approach Varnalėša again.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_hub"
+      }
+    ]
+  },
+  "VARNALESA_Va1_response_A": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "She looks at your badge and then at you. 'Hi to you too, Moon. I must say -- I did not expect the famous detective to be one of THE DARK ONE'S puppets.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_Va1_response_B"
+      }
+    ]
+  },
+  "VARNALESA_Va1_response_B": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": null,
+    "choices": [
+      {
+        "text": "'I'm not anyone's puppet. Rapolas was my friend, and I'm not going to stop until I find out what happened to him.'",
+        "target_node": "VARNALESA_Vb1_response"
+      },
+      {
+        "text": "''THE PUPPETS' -- sounds like a fitting name for that music band that THE DARK ONE told me about. You're a vocalist in it, correct?'",
+        "target_node": "VARNALESA_Vb2_response_A"
+      }
+    ]
+  },
+  "VARNALESA_Vb1_response": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'Sure. Okay, I'll play along. Ask away, DETECTIVE, she says in a sarcastic tone of voice.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_hub"
+      }
+    ]
+  },
+  "VARNALESA_Vb2_response_A": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "Her demeanor suddenly shifts to a more open one. 'Not for long, I suppose, with how things are playing out at the moment.' She lowers her voice a bit. 'It's not really what I signed up for.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_Vb2_response_B"
+      }
+    ]
+  },
+  "VARNALESA_Vb2_response_B": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": null,
+    "choices": [
+      {
+        "text": "'What did you sign up for?'",
+        "target_node": "VARNALESA_Vb2_sub1_A"
+      }
+    ]
+  },
+  "VARNALESA_Vb2_sub1_A": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'Oh --' Her facial expression turns all serious. 'I thought you knew.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_Vb2_sub1_B"
+      }
+    ]
+  },
+  "VARNALESA_Vb2_sub1_B": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": null,
+    "choices": [
+      {
+        "text": "'Knew what?'",
+        "target_node": "VARNALESA_knew_what_A"
+      },
+      {
+        "text": "'I see right through you, and it's not going to work. Let's focus on the case, shall we?'",
+        "target_node": "VARNALESA_focus_case"
+      }
+    ]
+  },
+  "VARNALESA_focus_case": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "You can see the disappointment in her eyes. Nonetheless, she agrees to answer your questions.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_hub"
+      }
+    ]
+  },
+  "VARNALESA_knew_what_A": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "You can almost hear the gears in her brain turning at high speed. 'I think I already told you too much. But let's just say it would be of a great benefit for both of us if we worked together and not against each other here -- that is, if you care about surviving today at all.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_knew_what_B"
+      }
+    ]
+  },
+  "VARNALESA_knew_what_B": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": null,
+    "choices": [
+      {
+        "text": "'Are you threatening me?'",
+        "target_node": "VARNALESA_threatening_A"
+      },
+      {
+        "text": "'How about you just tell me what it is and then I'll decide what's beneficial for me here?'",
+        "target_node": "VARNALESA_tell_me_A"
+      },
+      {
+        "text": "'Got it. I'll follow your lead. Right now, I still need to ask you a few questions about the victim.' (Wink at her.)",
+        "target_node": "VARNALESA_wink_A"
+      }
+    ]
+  },
+  "VARNALESA_threatening_A": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'Not at all. I'm just informing you that there are things happening here that you are not fully aware of. If I tell you too much, you won't be able to hide it and probably get us both killed. Just trust me, and when the time is right, I will tell you what to do.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_threatening_B"
+      }
+    ]
+  },
+  "VARNALESA_threatening_B": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": null,
+    "choices": [
+      {
+        "text": "'I guess I don't have a choice here but to trust you. Nonetheless, the case is my priority and I would like to ask you a couple questions about it if you don't mind.'",
+        "target_node": "VARNALESA_trust_you"
+      },
+      {
+        "text": "'From where I'm standing, it seems that you need MY help more than I need yours. And, if you cooperate and answer my questions, who knows, I might become more sympathetic towards your cause. What will you say -- shall we proceed?'",
+        "target_node": "VARNALESA_need_my_help"
+      }
+    ]
+  },
+  "VARNALESA_trust_you": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "She agrees to answer your questions.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_hub"
+      }
+    ]
+  },
+  "VARNALESA_need_my_help": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'I'm all ears, detective.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_hub"
+      }
+    ]
+  },
+  "VARNALESA_tell_me_A": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'If I tell you too much, you won't be able to hide it and probably get us both killed. You just have to trust me, and when the time is right, I will tell you what to do.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_tell_me_B"
+      }
+    ]
+  },
+  "VARNALESA_tell_me_B": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": null,
+    "choices": [
+      {
+        "text": "'Sounds a bit convenient. I'll tell you what: if you cooperate and answer my questions, who knows, I might become more sympathetic towards your cause. What will you say -- shall we proceed?'",
+        "target_node": "VARNALESA_convenient"
+      },
+      {
+        "text": "'Something in me tells me that I can trust you, so I'll play along for now. But right now the case is my priority and I would like to ask you a couple questions about it if you don't mind.'",
+        "target_node": "VARNALESA_trust_play_along"
+      }
+    ]
+  },
+  "VARNALESA_convenient": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'I'm all ears, detective.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_hub"
+      }
+    ]
+  },
+  "VARNALESA_trust_play_along": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "She agrees to answer your questions.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_hub"
+      }
+    ]
+  },
+  "VARNALESA_wink_A": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'I'm all ears, detective.' She winks back to you.",
+    "set_flag": "varnalesa_winked = true",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_wink_B"
+      }
+    ]
+  },
+  "VARNALESA_wink_B": {
+    "npc": "THE SCEPTIC",
+    "text": "I see how you're looking at each other, and I don't like it.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_hub"
+      }
+    ]
+  },
+  "VARNALESA_Va2_response_A": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "She stops and looks at you. The question that she has in her mind at the moment is, 'Who is this clown and is he a threat?'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_Va2_response_B"
+      }
+    ]
+  },
+  "VARNALESA_Va2_response_B": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": null,
+    "choices": [
+      {
+        "text": "'Now that I have your attention, let me introduce myself. I'm detective Moon. Do you mind if I ask you a couple of questions about dead-Rapolas over there?'",
+        "target_node": "VARNALESA_Va1_response_A"
+      },
+      {
+        "text": "'I see that you're lost for words. I would be too if I was caught doing what you just did. Using that kind of language is not okay. I really need you to think about the impact of your words.'",
+        "target_node": "VARNALESA_Va2_sub2_A"
+      }
+    ]
+  },
+  "VARNALESA_Va2_sub2_A": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "You see her body tense up as she's trying to understand what is happening. 'You seem awfuly concerned with words,' she says.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_Va2_sub2_B"
+      }
+    ]
+  },
+  "VARNALESA_Va2_sub2_B": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": null,
+    "choices": [
+      {
+        "text": "'It's just part of my job. It's my duty to make sure that no bad word can roam freely.'",
+        "target_node": "VARNALESA_Vc1_A",
+        "set_flag": "varnalesa_approach = vc1"
+      },
+      {
+        "text": "'I'm just messing with you. I'm detective Moon. I'm here to investigate what happened to poor Rapolas over there. Do you mind if I ask you a couple of questions?'",
+        "target_node": "VARNALESA_messing_with_you_A"
+      }
+    ]
+  },
+  "VARNALESA_Vc1_A": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'What do you want from me?'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_Vc1_B"
+      }
+    ]
+  },
+  "VARNALESA_Vc1_B": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": null,
+    "choices": [
+      {
+        "text": "'I want you to promise not to use any bad words anymore. If you do that, I'll let it slide this time.'",
+        "target_node": "VARNALESA_promise_A"
+      }
+    ]
+  },
+  "VARNALESA_promise_A": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'Sure, I promise, she smiles nervously.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_promise_B"
+      }
+    ]
+  },
+  "VARNALESA_promise_B": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": null,
+    "choices": [
+      {
+        "text": "'Good. Now to a more serious matter. I'm investigating the death of Rapolas over there. Do you mind if I ask you a couple questions about it?'",
+        "target_node": "VARNALESA_serious_matter"
+      }
+    ]
+  },
+  "VARNALESA_serious_matter": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'Uh-huh.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_hub"
+      }
+    ]
+  },
+  "VARNALESA_messing_with_you_A": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'I heared about you. I must say -- I did not expect the famous detective to be one of HIS puppets.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_Va1_response_B"
+      }
+    ]
+  },
+  "VARNALESA_part2_hub": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": null,
+    "set_flag": "varnalesa_reached_part2 = true",
+    "choices": [
+      {
+        "text": "'When I first saw you, you looked quite distressed. What is that about?'",
+        "target_node": "VARNALESA_part2_q1_default",
+        "condition": "varnalesa_approach != vc1",
+        "set_flag": "varnalesa_asked_distressed = true"
+      },
+      {
+        "text": "'When I first saw you, you looked quite distressed. What is that about?'",
+        "target_node": "VARNALESA_part2_q1_vc1",
+        "condition": "varnalesa_approach == vc1",
+        "set_flag": "varnalesa_asked_distressed = true"
+      },
+      {
+        "text": "'When was the last time you saw Rapolas alive'?",
+        "target_node": "VARNALESA_part2_q2_default_A",
+        "condition": "varnalesa_approach != vc1",
+        "set_flag": "varnalesa_asked_last_seen = true"
+      },
+      {
+        "text": "'When was the last time you saw Rapolas alive'?",
+        "target_node": "VARNALESA_part2_q2_vc1_A",
+        "condition": "varnalesa_approach == vc1",
+        "set_flag": "varnalesa_asked_last_seen = true"
+      },
+      {
+        "text": "'Do you have any suspicions about who might be responsible for Rapolas' death?'",
+        "target_node": "VARNALESA_part2_q3_default",
+        "condition": "varnalesa_approach != vc1",
+        "set_flag": "varnalesa_asked_suspicions = true"
+      },
+      {
+        "text": "'Do you have any suspicions about who might be responsible for Rapolas' death?'",
+        "target_node": "VARNALESA_part2_q3_vc1",
+        "condition": "varnalesa_approach == vc1",
+        "set_flag": "varnalesa_asked_suspicions = true"
+      },
+      {
+        "text": "'Did you kill Rapolas?'",
+        "target_node": "VARNALESA_part2_q4_default_A",
+        "condition": "varnalesa_approach != vc1",
+        "set_flag": "varnalesa_asked_did_you = true"
+      },
+      {
+        "text": "'Did you kill Rapolas?'",
+        "target_node": "VARNALESA_part2_q4_vc1",
+        "condition": "varnalesa_approach == vc1",
+        "set_flag": "varnalesa_asked_did_you = true"
+      },
+      {
+        "text": "'I heard you had a run-in with the police. What happened?'",
+        "target_node": "VARNALESA_part2_q5_A",
+        "condition": "varnalesa_approach != vc1",
+        "set_flag": "varnalesa_asked_police = true"
+      },
+      {
+        "text": "'I heard you were shot by the police. What happened?'",
+        "target_node": "VARNALESA_part2_q5_vc1_A",
+        "condition": "varnalesa_approach == vc1",
+        "set_flag": "varnalesa_asked_police = true"
+      },
+      {
+        "text": "'How about you confess now to killing Rapolas and everyone can go home?' (Interrogate.)",
+        "target_node": "VARNALESA_interrogate_start",
+        "condition": "varnalesa_approach != vc1"
+      },
+      {
+        "text": "'I don't have anymore questions for you.' (Leave.)",
+        "target_node": "VARNALESA_end_router"
+      }
+    ]
+  },
+  "VARNALESA_part2_q1_default": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'It's about me being held hostage. THE DARK ONE told us that if anyone of us tries to leave before he finds out who killed the frog -- it's a confession by default. So now I'm stuck here waiting.'",
+    "is_key_statement": true,
+    "statement_title": "VARNALĖŠA's Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_hub"
+      }
+    ]
+  },
+  "VARNALESA_part2_q1_vc1": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'I'm just tired and I would like to go home, that's it.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_hub"
+      }
+    ]
+  },
+  "VARNALESA_part2_q2_default_A": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "She visibly thinks for a moment. 'He was alive during the bulshit active listening exercise that he led -- and participated. I went to sleep not soon after it.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_q2_default_B"
+      }
+    ]
+  },
+  "VARNALESA_part2_q2_default_B": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": null,
+    "choices": [
+      {
+        "text": "'So Rapolas joined the activity as a participant as well -- why so?'",
+        "target_node": "VARNALESA_part2_q2_def_sub1_A"
+      },
+      {
+        "text": "'You don't sound very pleased with the activity.'",
+        "target_node": "VARNALESA_part2_q2_def_sub2_A"
+      },
+      {
+        "text": "'When you left, do you remember who was still there?'",
+        "target_node": "VARNALESA_part2_q2_def_sub3_A"
+      },
+      {
+        "text": "'I had another question.' (Conclude)",
+        "target_node": "VARNALESA_part2_hub"
+      }
+    ]
+  },
+  "VARNALESA_part2_q2_def_sub1_A": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'Because THE DARK ONE decided to leave and we were left with one person short for the activity.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_q2_def_sub1_B"
+      }
+    ]
+  },
+  "VARNALESA_part2_q2_def_sub1_B": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": null,
+    "choices": [
+      {
+        "text": "'Why did he leave?'",
+        "target_node": "VARNALESA_part2_q2_def_sub1_C"
+      }
+    ]
+  },
+  "VARNALESA_part2_q2_def_sub1_C": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'You can never know with him. He rather abruptly decided that he had some business to take care of.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_q2_default_B"
+      }
+    ]
+  },
+  "VARNALESA_part2_q2_def_sub2_A": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'Nothing pleasing about it. My partner was the wolf-man -- you can imagine how that went, right?'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_q2_def_sub2_B"
+      }
+    ]
+  },
+  "VARNALESA_part2_q2_def_sub2_B": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": null,
+    "choices": [
+      {
+        "text": "'Who was Rapolas' partner?'",
+        "target_node": "VARNALESA_part2_q2_def_sub2_C"
+      }
+    ]
+  },
+  "VARNALESA_part2_q2_def_sub2_C": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'That would be Ričardas. Saying that -- I can't imagine the frog had a good time either.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_q2_def_sub2_D"
+      }
+    ]
+  },
+  "VARNALESA_part2_q2_def_sub2_D": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": null,
+    "choices": [
+      {
+        "text": "'Why so?'",
+        "target_node": "VARNALESA_part2_q2_def_sub2_E"
+      }
+    ]
+  },
+  "VARNALESA_part2_q2_def_sub2_E": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'The guy is full of himself. Talks all the time about how great of a sorcerer he is. No wonder THE DARK ONE decided to leave.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_q2_def_sub2_F"
+      }
+    ]
+  },
+  "VARNALESA_part2_q2_def_sub2_F": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": null,
+    "choices": [
+      {
+        "text": "'SO THE DARK ONE was partnered up with Ričardas bedore he decided to leave?'",
+        "target_node": "VARNALESA_part2_q2_def_sub2_G"
+      }
+    ]
+  },
+  "VARNALESA_part2_q2_def_sub2_G": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'Yes. I must say it was satisfying to see Ričardas' face go from smug to flushed when his partner went from the king of the underworld to a frog.'",
+    "is_key_statement": true,
+    "statement_title": "VARNALĖŠA's Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_q2_default_B"
+      }
+    ]
+  },
+  "VARNALESA_part2_q2_def_sub3_A": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'Let me think -- The wolfman was still there, sniffing his own butt probably. Ričardas was sitting next to the frog. And Laumė -- she was there, receiving a lot of attention from the wind boy.'",
+    "is_key_statement": true,
+    "statement_title": "VARNALĖŠA's Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_q2_default_B"
+      }
+    ]
+  },
+  "VARNALESA_part2_q2_vc1_A": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'Yesterday evening, during the active listening exercise that he led. I went to sleep soon after it.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_q2_vc1_B"
+      }
+    ]
+  },
+  "VARNALESA_part2_q2_vc1_B": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": null,
+    "choices": [
+      {
+        "text": "'When you left, do you remember who was still there?'",
+        "target_node": "VARNALESA_part2_q2_vc1_sub1"
+      },
+      {
+        "text": "'I had another question.' (Conclude)",
+        "target_node": "VARNALESA_part2_hub"
+      }
+    ]
+  },
+  "VARNALESA_part2_q2_vc1_sub1": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'Everyone except me and THE DARK ONE.'",
+    "is_key_statement": true,
+    "statement_title": "VARNALĖŠA's Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_q2_vc1_B"
+      }
+    ]
+  },
+  "VARNALESA_part2_q3_default": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'I don't know. If I were to place my bet on someone, I would place it on Ričardas. That guy gives me the creeps.'",
+    "is_key_statement": true,
+    "statement_title": "VARNALĖŠA's Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_hub"
+      }
+    ]
+  },
+  "VARNALESA_part2_q3_vc1": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'I don't.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_hub"
+      }
+    ]
+  },
+  "VARNALESA_part2_q4_default_A": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'I have nothing to do with him being dead. But I'll admit that I wasn't particularly fond of him. He was one of your type, wasn't he?' You can see a hint of resentment behind her eyes.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_q4_default_B"
+      }
+    ]
+  },
+  "VARNALESA_part2_q4_default_B": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": null,
+    "choices": [
+      {
+        "text": "'And what type that would be?'",
+        "target_node": "VARNALESA_part2_q4_default_C"
+      }
+    ]
+  },
+  "VARNALESA_part2_q4_default_C": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "You can see her wanting to say something hurtful but then she stops herself. 'Nevermind.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_hub"
+      }
+    ]
+  },
+  "VARNALESA_part2_q4_vc1": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'I have nothing to do with him being dead.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_hub"
+      }
+    ]
+  },
+  "VARNALESA_part2_q5_A": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'You know what happend, she says in an annoyed voice. You thunder worshippers are very diligent in your war against my kind.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_q5_B"
+      }
+    ]
+  },
+  "VARNALESA_part2_q5_B": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": null,
+    "choices": [
+      {
+        "text": "'My work with the thunder police force is purely transactional. I don't have anything against your kind.'",
+        "target_node": "VARNALESA_part2_q5_sub1"
+      },
+      {
+        "text": "'It sounds to me that you think that what happened to you was unjust.'",
+        "target_node": "VARNALESA_part2_q5_sub2_A"
+      },
+      {
+        "text": "'You deserve what happened to you. You play with fire -- you get burnt.'",
+        "target_node": "VARNALESA_part2_q5_sub3"
+      },
+      {
+        "text": "'I really don't know what happened to you and I would to know.'",
+        "target_node": "VARNALESA_part2_q5_sub5"
+      },
+      {
+        "text": "'I would like to talk about something else.' (Conclude)",
+        "target_node": "VARNALESA_part2_hub"
+      }
+    ]
+  },
+  "VARNALESA_part2_q5_sub1": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'Is that your official position, officer of the law? You might be successful in staying under the radar for now, but just you wait -- they will turn on you eventually.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_q5_B"
+      }
+    ]
+  },
+  "VARNALESA_part2_q5_sub2_A": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'I was just trying to live my life, I didn't bother anyone.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_q5_sub2_B"
+      }
+    ]
+  },
+  "VARNALESA_part2_q5_sub2_B": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": null,
+    "choices": [
+      {
+        "text": "'You clearly bothered someone. The question is who?'",
+        "target_node": "VARNALESA_part2_q5_sub2_C"
+      },
+      {
+        "text": "'I'm sorry to hear that. Is your friend okay?'",
+        "target_node": "VARNALESA_part2_q5_sub2_D"
+      }
+    ]
+  },
+  "VARNALESA_part2_q5_sub2_C": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'Just two hungry humans trying to eat a friend.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_q5_B"
+      }
+    ]
+  },
+  "VARNALESA_part2_q5_sub2_D": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'Probably. I haven't seen him in awhile.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_q5_B"
+      }
+    ]
+  },
+  "VARNALESA_part2_q5_sub3": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'Preach all you want, but the only smoke I'm seeing now is coming out from your asshole.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_q5_B"
+      }
+    ]
+  },
+  "VARNALESA_part2_q5_sub5": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'Fine. I was running from the police for something I didn't really do, I shape shifted into a crow, and that's when they shot me. Now I have a silver bullet stuck in my chest, keeping me from turning back to my human form. Satisfied?\"",
+    "is_key_statement": true,
+    "statement_title": "VARNALĖŠA's Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_q5_B"
+      }
+    ]
+  },
+  "VARNALESA_part2_q5_vc1_A": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "'I was just at the wrong place at the wrong time.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_part2_hub"
+      }
+    ]
+  },
+  "VARNALESA_end_router": {
+    "npc": "THE NARRATOR",
+    "text": null,
+    "is_chain_link": true,
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_end_wink_note",
+        "condition": "varnalesa_winked == true"
+      },
+      {
+        "text": "...",
+        "target_node": "VARNALESA_end_conversation"
+      }
+    ]
+  },
+  "VARNALESA_end_wink_note": {
+    "npc": "THE NARRATOR",
+    "text": "As you're leaving, the witch catches up to you and slips a note into your pocket. The note says: \"3 5 1\".",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_end_conversation"
+      }
+    ]
+  },
+  "VARNALESA_interrogate_start": {
+    "npc": "THE NARRATOR",
+    "text": "Her demeanor changes from cooperative to hostile and ready to fight.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_interrogate_1"
+      }
+    ]
+  },
+  "VARNALESA_interrogate_1": {
+    "npc": "THE INTERROGATOR",
+    "text": "Excellent work detective -- you found the killer! Now, even in crow-form, she's a powerful sorceress, and in order to restrain her you'll need to be vigilant.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_interrogate_2"
+      }
+    ]
+  },
+  "VARNALESA_interrogate_2": {
+    "npc": "THE INTERROGATOR",
+    "text": "See those trees wrapped in a dark web? In the middle of that web is the source of her power and weakness -- 9 feathers. To restrain her, you need to collect all 9 feathers and put them in a magical cage.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_interrogate_3"
+      }
+    ]
+  },
+  "VARNALESA_interrogate_3": {
+    "npc": "THE INTERROGATOR",
+    "text": "BUT, if during the recovery, any of the bells ring, you become trapped in the web, protecting it from others like a mindless bouncer working for the witch. Good luck, detective!",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_interrogate_prompt_B"
+      }
+    ]
+  },
+  "VARNALESA_interrogate_prompt_B": {
+    "npc": "THE INTERROGATOR",
+    "text": null,
+    "choices": [
+      {
+        "text": "We won the challenge.",
+        "target_node": "VARNALESA_interrogate_win_1"
+      },
+      {
+        "text": "We lost the challenge.",
+        "target_node": "VARNALESA_interrogate_loss"
+      }
+    ]
+  },
+  "VARNALESA_interrogate_loss": {
+    "npc": "THE NARRATOR",
+    "text": "Realising that you are not going to win against her, you flee as fast as you can.",
+    "set_flag": "varnalesa_state = lost",
+    "is_end": true,
+    "choices": []
+  },
+  "VARNALESA_interrogate_win_1": {
+    "npc": "THE NARRATOR",
+    "text": "Constrained by magical chains, she's yours for the interrogation.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_interrogate_win_2_A"
+      }
+    ]
+  },
+  "VARNALESA_interrogate_win_2_A": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "\"Please, just let me go.\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_interrogate_win_2_B"
+      }
+    ]
+  },
+  "VARNALESA_interrogate_win_2_B": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": null,
+    "set_flag": "varnalesa_state = won",
+    "choices": [
+      {
+        "text": "\"You clearly didn't like Rapolas. Is that why you killed him -- out of spite?\"",
+        "target_node": "VARNALESA_interrogate_win_confession_1",
+        "set_flag": "varnalesa_asked_spite = true"
+      },
+      {
+        "text": "\"Tell me -- what's the real reason you were running from the police?\"",
+        "target_node": "VARNALESA_interrogate_win_confession_2",
+        "set_flag": "varnalesa_asked_real_reason = true"
+      },
+      {
+        "text": "(End the interrogation.)",
+        "target_node": "VARNALESA_end_conversation"
+      }
+    ]
+  },
+  "VARNALESA_interrogate_win_confession_1": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "\"You're insane. I did not kill him.\"",
+    "set_flag": "varnalesa_asked_spite = true",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_interrogate_win_2_B"
+      }
+    ]
+  },
+  "VARNALESA_interrogate_win_confession_2": {
+    "npc": "VARNALĖŠA (WITCH)",
+    "text": "\"My friend, Aitvaras... He looked like a small black chick. Two men caught him and wanted to eat him. Aitvaras exploded from the cage, heavily injuring the two men. I was shot by the police trying to protect him.\"",
+    "is_key_statement": true,
+    "statement_title": "VARNALĖŠA's Testimony",
+    "set_flag": "varnalesa_asked_real_reason = true",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "VARNALESA_interrogate_win_2_B"
+      }
+    ]
+  },
+  "VARNALESA_post_win_text": {
+    "npc": "THE NARRATOR",
+    "text": "She has nothing else to say to you.",
+    "choices": [
+      {
+        "text": "(Leave)",
+        "target_node": "VARNALESA_end_conversation"
+      }
+    ]
+  },
+  "VARNALESA_post_loss_text": {
+    "npc": "THE NARRATOR",
+    "text": "Bad idea -- she's still angry at you.",
+    "choices": [
+      {
+        "text": "(Leave)",
+        "target_node": "VARNALESA_end_conversation"
+      }
+    ]
+    },
+  
+
+"RICARDAS_identity": {
+    "npc": "RIČARDAS (THE SORCERER)"
+  },
+  "RICARDAS_intro": {
+    "npc": "THE NARRATOR",
+    "text": "You approach a man in his thirties. He sees you and stands up preparing to greet you.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_intro_b"
+      }
+    ]
+  },
+  "RICARDAS_intro_b": {
+    "npc": "RIČARDAS (THE SORCERER)",
+    "text": "'Good day, Detective,' he greets you with a smile.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_player_choices_1"
+      }
+    ]
+  },
+  "RICARDAS_player_choices_1": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "'You know who I am?'",
+        "target_node": "RICARDAS_Ra1_response_A",
+        "set_flag": "ricardas_approach = Ra1"
+      },
+      {
+        "text": "'Nothing good about this day -- my friend is dead.'",
+        "target_node": "RICARDAS_Ra2_response_A",
+        "set_flag": "ricardas_approach = Ra2"
+      },
+      {
+        "text": "'No need for an introduction then. I want to ask you a few questions about what happened here.'",
+        "target_node": "RICARDAS_part2_hub_entry",
+        "set_flag": "ricardas_approach = Ra3"
+      }
+    ]
+  },
+  "RICARDAS_Ra1_response_A": {
+    "npc": "RIČARDAS (THE SORCERER)",
+    "text": "'Of course! You're quite famous around these parts. I'm a big admirer of your work.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_player_choices_2"
+      }
+    ]
+  },
+  "RICARDAS_player_choices_2": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "'Tell me more. What do you admire about my work?'",
+        "target_node": "RICARDAS_Rb1_response_A"
+      },
+      {
+        "text": "'I'm always happy to meet a fan of my work. Mind if I ask you a couple questions?'",
+        "target_node": "RICARDAS_part2_hub_entry"
+      },
+      {
+        "text": "'I see. I suppose you won't mind me asking you a couple of questions then, won't you?'",
+        "target_node": "RICARDAS_part2_hub_entry"
+      }
+    ]
+  },
+  "RICARDAS_Rb1_response_A": {
+    "npc": "RIČARDAS (THE SORCERER)",
+    "text": "'When your ex-- Sorry, when Goddess Sun was kidnapped, everyone was ready to give up, but you managed to find her. We're all indebted to your genius.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_Rb1_choices_A"
+      }
+    ]
+  },
+  "RICARDAS_Rb1_choices_A": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "'Yes, I'm amazing. What else do you admire about my work?'",
+        "target_node": "RICARDAS_Rb1_response_B"
+      },
+      {
+        "text": "'I'm always happy to meet a fan of my work. Mind if I ask you a couple questions?'",
+        "target_node": "RICARDAS_part2_hub_entry"
+      },
+      {
+        "text": "'I see. I suppose you won't mind me asking you a couple of questions then, won't you?'",
+        "target_node": "RICARDAS_part2_hub_entry"
+      }
+    ]
+  },
+  "RICARDAS_Rb1_response_B": {
+    "npc": "RIČARDAS (THE SORCERER)",
+    "text": "– 'Well, you're certainly someone who is very quick to think on their feet - all those cases that you solved are a testament to that.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_Rb1_choices_B"
+      }
+    ]
+  },
+  "RICARDAS_Rb1_choices_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "'Mhm. What else do you admire about me?'",
+        "target_node": "RICARDAS_Rb1_response_C"
+      },
+      {
+        "text": "'I'm always happy to meet a fan of my work. Mind if I ask you a couple questions?'",
+        "target_node": "RICARDAS_part2_hub_entry"
+      },
+      {
+        "text": "'I see. I suppose you won't mind me asking you a couple of questions then, won't you?'",
+        "target_node": "RICARDAS_part2_hub_entry"
+      }
+    ]
+  },
+  "RICARDAS_Rb1_response_C": {
+    "npc": "RIČARDAS (THE SORCERER)",
+    "text": "He thinks for a moment. 'I admire your work ethics -- your relentless dedication to help anyone who needs help, no matter the gender, class or occupation.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_Rb1_choices_C"
+      }
+    ]
+  },
+  "RICARDAS_Rb1_choices_C": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "'Keep it coming. What else?'",
+        "target_node": "RICARDAS_Rb1_response_D"
+      },
+      {
+        "text": "'I'm always happy to meet a fan of my work. Mind if I ask you a couple questions?'",
+        "target_node": "RICARDAS_part2_hub_entry"
+      },
+      {
+        "text": "'I see. I suppose you won't mind me asking you a couple of questions then, won't you?'",
+        "target_node": "RICARDAS_part2_hub_entry"
+      }
+    ]
+  },
+  "RICARDAS_Rb1_response_D": {
+    "npc": "RIČARDAS (THE SORCERER)",
+    "text": "You can see how the smile is slowly disappearing from his face. 'I-I-I admire -- Well, I must say, for someone who works as hard as you do, you have an exquisite sense of 'style.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_Rb1_choices_D"
+      }
+    ]
+  },
+  "RICARDAS_Rb1_choices_D": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "'What else?'",
+        "target_node": "RICARDAS_Rb1_response_E"
+      },
+      {
+        "text": "'I'm always happy to meet a fan of my work. Mind if I ask you a couple questions?'",
+        "target_node": "RICARDAS_part2_hub_entry"
+      },
+      {
+        "text": "'I see. I suppose you won't mind me asking you a couple of questions then, won't you?'",
+        "target_node": "RICARDAS_part2_hub_entry"
+      }
+    ]
+  },
+  "RICARDAS_Rb1_response_E": {
+    "npc": "RIČARDAS (THE SORCERER)",
+    "text": "You can almost hear the neurons in his brain kicking each other. 'When I saw you today, approaching me, the first thought I had, 'What a handsome man you are -- and-and that I wish I could be more like you.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_Rb1_choices_E"
+      }
+    ]
+  },
+  "RICARDAS_Rb1_choices_E": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "'What else?'",
+        "target_node": "RICARDAS_Rb1_response_F"
+      },
+      {
+        "text": "'I suppose you want to be as handsome as me to have more luck with the ladies or gentlemen?'",
+        "target_node": "RICARDAS_Rc1_response_A",
+        "set_flag": "ricardas_asked_handsome = true"
+      },
+      {
+        "text": "'I'm always happy to meet a fan of my work. Mind if I ask you a couple questions?'",
+        "target_node": "RICARDAS_part2_hub_entry"
+      },
+      {
+        "text": "'I see. I suppose you won't mind me asking you a couple of questions then, won't you?'",
+        "target_node": "RICARDAS_part2_hub_entry"
+      }
+    ]
+  },
+  "RICARDAS_Rb1_response_F": {
+    "npc": "RIČARDAS (THE SORCERER)",
+    "text": "'I don't know what to say anymore. My admiration for you is endless.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_Rb1_choices_F"
+      }
+    ]
+  },
+  "RICARDAS_Rb1_choices_F": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "'I'm always happy to meet a fan of my work. Mind if I ask you a couple questions?'",
+        "target_node": "RICARDAS_part2_hub_entry"
+      },
+      {
+        "text": "'I see. I suppose you won't mind me asking you a couple of questions then, won't you?'",
+        "target_node": "RICARDAS_part2_hub_entry"
+      },
+      {
+        "text": "'I suppose you want to be as handsome as me to have more luck with the ladies or gentlemen?'",
+        "target_node": "RICARDAS_Rc1_response_A",
+        "set_flag": "ricardas_asked_handsome = true"
+      }
+    ]
+  },
+  "RICARDAS_Rc1_response_A": {
+    "npc": "RIČARDAS (THE SORCERER)",
+    "text": "'I would have certainly had more success in that department if I had your charm. But, as luck would have it, I'm soon to be wed.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_Rc1_choices_A"
+      }
+    ]
+  },
+  "RICARDAS_Rc1_choices_A": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "'Congratulations. Who's the lucky person?'",
+        "target_node": "RICARDAS_Rc1_response_B"
+      },
+      {
+        "text": "'I see. Now I would like to ask you about Rapolas and the circumstances surrounding his death -- if that's okay with?",
+        "target_node": "RICARDAS_part2_hub_entry"
+      }
+    ]
+  },
+  "RICARDAS_Rc1_response_B": {
+    "npc": "RIČARDAS (THE SORCERER)",
+    "text": "'She's from the same village where we grew up.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_Rc1_choices_B"
+      }
+    ]
+  },
+  "RICARDAS_Rc1_choices_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "'So, have you been friends since childhood?'",
+        "target_node": "RICARDAS_Rc1_response_C"
+      },
+      {
+        "text": "'I see. Now I would like to ask you about Rapolas and the circumstances surrounding his death -- if that's okay with?",
+        "target_node": "RICARDAS_part2_hub_entry"
+      }
+    ]
+  },
+  "RICARDAS_Rc1_response_C": {
+    "npc": "RIČARDAS (THE SORCERER)",
+    "text": "'No, I wouldn't say that. She didn't really notice me until a few months ago.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_Rc1_choices_C"
+      }
+    ]
+  },
+  "RICARDAS_Rc1_choices_C": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "'So how did you manage to win over her heart?'",
+        "target_node": "RICARDAS_Rc1_response_D"
+      },
+      {
+        "text": "'I see. Now I would like to ask you about Rapolas and the circumstances surrounding his death -- if that's okay with?",
+        "target_node": "RICARDAS_part2_hub_entry"
+      }
+    ]
+  },
+  "RICARDAS_Rc1_response_D": {
+    "npc": "RIČARDAS (THE SORCERER)",
+    "text": "'I showed up for her at a very difficult time in her life.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_Rc1_choices_D"
+      }
+    ]
+  },
+  "RICARDAS_Rc1_choices_D": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "'Was she in trouble with the law?'",
+        "target_node": "RICARDAS_Rc1_response_E"
+      },
+      {
+        "text": "'I see. Now I would like to ask you about Rapolas and the circumstances surrounding his death -- if that's okay with you?",
+        "target_node": "RICARDAS_part2_hub_entry"
+      }
+    ]
+  },
+  "RICARDAS_Rc1_response_E": {
+    "npc": "RIČARDAS (THE SORCERER)",
+    "text": "'No, no, he shakes his head, nothing like that. Her fiancé suddenly passed away. But I'd rather not talk about that, if you don't mind.'",
+    "is_key_statement": true,
+    "statement_title": "RIČARDAS's Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_Rc1_choices_E"
+      }
+    ]
+  },
+  "RICARDAS_Rc1_choices_E": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "'I see. In that case I would like to ask you about Rapolas and the circumstances surrounding his death -- if that's okay with you?",
+        "target_node": "RICARDAS_part2_hub_entry"
+      }
+    ]
+  },
+  "RICARDAS_Ra2_response_A": {
+    "npc": "RIČARDAS (THE SORCERER)",
+    "text": "– 'I'm sorry, I didn't know. My condolences for your loss.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_player_choices_3"
+      }
+    ]
+  },
+  "RICARDAS_player_choices_3": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "'You know who I am?'",
+        "target_node": "RICARDAS_Ra1_response_A"
+      },
+      {
+        "text": "'Thank you. Now I would like to ask you about Rapolas and the circumstances surrounding his death -- if that's okay with you?'",
+        "target_node": "RICARDAS_part2_hub_entry"
+      }
+    ]
+  },
+  "RICARDAS_part2_hub_entry": {
+    "npc": "RIČARDAS (THE SORCERER)",
+    "text": "'Of course.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_part2_hub"
+      }
+    ]
+  },
+  "RICARDAS_re_entry_part2": {
+    "npc": "THE NARRATOR",
+    "text": "You approach Ričardas again.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_part2_hub"
+      }
+    ]
+  },
+  "RICARDAS_part2_hub": {
+    "npc": "YOU",
+    "text": null,
+    "set_flag": "ricardas_reached_part2 = true",
+    "choices": [
+      {
+        "text": "'When was the last time you saw Rapolas alive?'",
+        "target_node": "RICARDAS_Rd1_response_A",
+        "set_flag": "ricardas_asked_last_seen = true"
+      },
+      {
+        "text": "'Did you kill Rapolas?'",
+        "target_node": "RICARDAS_Rd2_response",
+        "condition": "ricardas_accused_wolf != true",
+        "set_flag": "ricardas_asked_did_you_kill = true"
+      },
+      {
+        "text": "'How's your love life?'",
+        "target_node": "RICARDAS_Rd3_response_A",
+        "set_flag": "ricardas_asked_love_life = true"
+      },
+      {
+        "text": "'I can see right through your lies. There's blood on your hands and it's time for you to face justice for what you did.' (Interrogate.)",
+        "target_node": "RICARDAS_interrogate_start_A",
+        "condition": "ricardas_asked_handsome != true"
+      },
+      {
+        "text": "'I don't have anymore questions for you.' (Leave.)",
+        "target_node": "RICARDAS_end_conversation"
+      }
+    ]
+  },
+  "RICARDAS_Rd1_response_A": {
+    "npc": "RIČARDAS (THE SORCERER)",
+    "text": "– 'He was all well and fine yesterday late evening. We were sitting around the campfire and drinking mead together. We talked, and then at some point I went to sleep. Rapolas stayed behind together with Daumantas.'",
+    "is_key_statement": true,
+    "statement_title": "RIČARDAS's Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_Rd1_choices_A"
+      }
+    ]
+  },
+  "RICARDAS_Rd1_choices_A": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "'What did you talk about?'",
+        "target_node": "RICARDAS_Re1_response_A"
+      },
+      {
+        "text": "'Did you notice anything strange about Rapolas that evening?'",
+        "target_node": "RICARDAS_Re2_response_A"
+      },
+      {
+        "text": "'I had another question.' (Conclude.)",
+        "target_node": "RICARDAS_part2_hub"
+      }
+    ]
+  },
+  "RICARDAS_Re1_response_A": {
+    "npc": "RIČARDAS (THE SORCERER)",
+    "text": "– 'We talked about a lot of things. Rapolas was a good listener.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_Re1_choices_A"
+      }
+    ]
+  },
+  "RICARDAS_Re1_choices_A": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "'What did you talk about specifically?'",
+        "target_node": "RICARDAS_Re4_response_A"
+      },
+      {
+        "text": "'Did you notice anything strange about Rapolas that evening?'",
+        "target_node": "RICARDAS_Re2_response_A"
+      },
+      {
+        "text": "'I had another question.' (Conclude.)",
+        "target_node": "RICARDAS_part2_hub"
+      }
+    ]
+  },
+  "RICARDAS_Re4_response_A": {
+    "npc": "RIČARDAS (THE SORCERER)",
+    "text": "– 'Well, let's see. We talked about the challenges I'm facing as a young sorcerer; about how my talents are not being appreciated because of the old sorcerers in the community talking about me behind my back.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_Re4_choices_A"
+      }
+    ]
+  },
+  "RICARDAS_Re4_choices_A": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "'You're what -- in your thirties? That doesn't sound young to me.'",
+        "target_node": "RICARDAS_Re4_response_B"
+      },
+      {
+        "text": "'What are they saying about you?'",
+        "target_node": "RICARDAS_Re4_response_D"
+      },
+      {
+        "text": "'I had another question.' (Conclude.)",
+        "target_node": "RICARDAS_part2_hub"
+      }
+    ]
+  },
+  "RICARDAS_Re4_response_B": {
+    "npc": "RIČARDAS (THE SORCERER)",
+    "text": "– 'Just so you know, I was the youngest sorcerer in my village to achieve the title of 'Magister Bestiarum'.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_Re4_choices_B"
+      }
+    ]
+  },
+  "RICARDAS_Re4_choices_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "'What does 'Magister Bestiarum' mean exactly?'",
+        "target_node": "RICARDAS_Re4_response_C"
+      },
+      {
+        "text": "'Good for you.' (Conclude)",
+        "target_node": "RICARDAS_Re4_choices_A"
+      }
+    ]
+  },
+  "RICARDAS_Re4_response_C": {
+    "npc": "RIČARDAS (THE SORCERER)",
+    "text": "- 'It's just a fancy title for educated sorcerers.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_Re4_choices_B"
+      }
+    ]
+  },
+  "RICARDAS_Re4_response_D": {
+    "npc": "RIČARDAS (THE SORCERER)",
+    "text": "'Absolute nonsense,' he says with a clear disdain in his voice. 'That's all I'm going to say about it.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_Re4_choices_A"
+      }
+    ]
+  },
+  "RICARDAS_Re2_response_A": {
+    "npc": "RIČARDAS (THE SORCERER)",
+    "text": "- 'I didn't notice anything strange about Rapolas. It looked like he was having a good time. But something caught my eye.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_Re2_choices_A"
+      }
+    ]
+  },
+  "RICARDAS_Re2_choices_A": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "'What was it?'",
+        "target_node": "RICARDAS_Re2_response_B"
+      }
+    ]
+  },
+  "RICARDAS_Re2_response_B": {
+    "npc": "RIČARDAS (THE SORCERER)",
+    "text": "- 'I don't want point fingers, especially if they have nothing to do with what happened, but, he lowers his voice, 'the werewolf was acting a bit strange that evening.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_Re2_choices_B"
+      }
+    ]
+  },
+  "RICARDAS_Re2_choices_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "'What do you mean by strange?'",
+        "target_node": "RICARDAS_Rf1_response"
+      }
+    ]
+  },
+  "RICARDAS_Rf1_response": {
+    "npc": "RIČARDAS (THE SORCERER)",
+    "text": "'Well, I got the impression that he was looking at Rapolas like a predator would be looking at a prey. It's true that he was once a man, but, in his current state, his beastly urges can make him rather unpredictable and impulsive.'",
+    "is_key_statement": true,
+    "statement_title": "RIČARDAS's Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_Rf1_response_b"
+      }
+    ]
+  },
+  "RICARDAS_Rf1_response_b": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "'Are you saying that you think that he killed Rapolas?'",
+        "target_node": "RICARDAS_Rf1_response_c"
+      }
+    ]
+  },
+  "RICARDAS_Rf1_response_c": {
+    "npc": "RIČARDAS (THE SORCERER)",
+    "text": "'All I'm saying-and it pains me to do that- is that it's possible that the wolf just did what mother nature created it to do. Rapolas was a small guy, it wouldn't have taken much to send him flying.",
+    "is_key_statement": true,
+    "statement_title": "RIČARDAS's Testimony",
+    "set_flag": "ricardas_accused_wolf = true",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_part2_hub"
+      }
+    ]
+  },
+  "RICARDAS_Rd2_response": {
+    "npc": "RIČARDAS (THE SORCERER)",
+    "text": "– 'I did not kill Rapolas. I liked the little guy, and I hope you bring to just justice the one who took him away from us.'",
+    "is_key_statement": true,
+    "statement_title": "RIČARDAS's Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_part2_hub"
+      }
+    ]
+  },
+  "RICARDAS_Rd3_response_A": {
+    "npc": "RIČARDAS (THE SORCERER)",
+    "text": "- He's taken by your question. 'It's good. Why do you ask?'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_Rd3_choices_A"
+      }
+    ]
+  },
+  "RICARDAS_Rd3_choices_A": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "'I'm just curious. Is there anyone special in your life?",
+        "target_node": "RICARDAS_Rd3_response_B"
+      },
+      {
+        "text": "'Nevermind.' (Conclude)",
+        "target_node": "RICARDAS_part2_hub"
+      }
+    ]
+  },
+  "RICARDAS_Rd3_response_B": {
+    "npc": "RIČARDAS (THE SORCERER)",
+    "text": "– 'Yes, there is. I'm soon to be wed.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_Rd3_choices_B"
+      }
+    ]
+  },
+  "RICARDAS_Rd3_choices_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "'Congratulations. Who's the lucky person?'",
+        "target_node": "RICARDAS_Rd3_response_C"
+      }
+    ]
+  },
+  "RICARDAS_Rd3_response_C": {
+    "npc": "RIČARDAS (THE SORCERER)",
+    "text": "'She's from the same village where we grew up.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_Rd3_choices_C"
+      }
+    ]
+  },
+  "RICARDAS_Rd3_choices_C": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "'So, have you been friends since childhood?'",
+        "target_node": "RICARDAS_Rd3_response_D"
+      }
+    ]
+  },
+  "RICARDAS_Rd3_response_D": {
+    "npc": "RIČARDAS (THE SORCERER)",
+    "text": "'No, I wouldn't say that. She didn't really notice me until a few months ago.'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_Rd3_choices_D"
+      }
+    ]
+  },
+  "RICARDAS_Rd3_choices_D": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "'So how did you manage to win over her heart?'",
+        "target_node": "RICARDAS_Rd3_response_E"
+      }
+    ]
+  },
+  "RICARDAS_Rd3_response_E": {
+    "npc": "RIČARDAS (THE SORCERER)",
+    "text": "'I showed up for her at a very difficult time in her life.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_Rd3_choices_E"
+      }
+    ]
+  },
+  "RICARDAS_Rd3_choices_E": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "'Was she in trouble with the law?'",
+        "target_node": "RICARDAS_Rd3_response_F"
+      }
+    ]
+  },
+  "RICARDAS_Rd3_response_F": {
+    "npc": "RIČARDAS (THE SORCERER)",
+    "text": "'No, no, he shakes his head, nothing like that. Her fiancé suddenly passed away. But I'd rather not talk about that, if you don't mind.'",
+    "is_key_statement": true,
+    "statement_title": "RIČARDAS's Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_part2_hub"
+      }
+    ]
+  },
+  "RICARDAS_interrogate_start_A": {
+    "npc": "THE NARRATOR",
+    "text": "It takes a moment for Ričardas to realize the gravity of your accusation, but when he does, he goes into fight-mode -- he challenges you to a battle of beasts.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_interrogate_start_B"
+      }
+    ]
+  },
+  "RICARDAS_interrogate_start_B": {
+    "npc": "THE INTERROGATOR",
+    "text": "Amazing work, detective! He's the one -- I know it. Now, Ričardas will not go down without a fight. In order to restrain him, you need to defeat him in his own game -- 'Beast Battle'",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_interrogate_start_C"
+      }
+    ]
+  },
+  "RICARDAS_interrogate_start_C": {
+    "npc": "THE INTERROGATOR",
+    "text": "It's a simple game -- like paper, rock, scissors but with animals. THE FIST: The Armadillo. A brute-force-solution. It crushes. THE FLAT HAND: The Spider. A trap. It covers and entangles. THE TWO FINGERS: The Scorpion. A precise weapon. It cuts. The Spider's web covers the Armadillo. (Spider wins) The Scorpion's sting cuts the Spider. (Scorpion wins) The Armadillo's shell crushes the Scorpion. (Armadillo wins). You will throw your sign on the signal. The first to win three rounds will have proven their point. I suggest you don't be the one who fails. Now, begin.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_interrogate_prompt"
+      }
+    ]
+  },
+  "RICARDAS_interrogate_prompt": {
+    "npc": "THE INTERROGATOR",
+    "text": null,
+    "choices": [
+      {
+        "text": "We won the challenge.",
+        "target_node": "RICARDAS_interrogate_win_A"
+      },
+      {
+        "text": "We lost the challenge.",
+        "target_node": "RICARDAS_interrogate_loss_A"
+      }
+    ]
+  },
+  "RICARDAS_interrogate_win_A": {
+    "npc": "THE INTERROGATOR",
+    "text": "Ričardas falls defeated. He's now all yours for the interrogation.",
+    "set_flag": "ricardas_state = won",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_interrogate_win_hub"
+      }
+    ]
+  },
+  "RICARDAS_interrogate_win_hub": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"Did you kill Rapolas because he was a threat to you?\"",
+        "target_node": "RICARDAS_interrogate_win_q1",
+        "set_flag": "ricardas_interrogate_q1 = true"
+      },
+      {
+        "text": "\"What do the other sorcerers really say about you in the village?\"",
+        "target_node": "RICARDAS_interrogate_win_q2",
+        "set_flag": "ricardas_interrogate_q2 = true"
+      },
+      {
+        "text": "(End the interrogation.)",
+        "target_node": "RICARDAS_end_conversation"
+      }
+    ]
+  },
+  "RICARDAS_interrogate_win_q1": {
+    "npc": "RIČARDAS",
+    "text": "\"A threat? I could have ripped his soul out of his lung and liver if I wanted to.\"",
+    "is_key_statement": true,
+    "statement_title": "RIČARDAS's Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_interrogate_win_hub"
+      }
+    ]
+  },
+  "RICARDAS_interrogate_win_q2": {
+    "npc": "RIČARDAS",
+    "text": "He let's out a heavy sigh. \"That I will never amount to anything, that I'm a loser.\"",
+    "is_key_statement": true,
+    "statement_title": "RIČARDAS's Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_interrogate_win_hub"
+      }
+    ]
+  },
+  "RICARDAS_interrogate_loss_A": {
+    "npc": "THE NARRATOR",
+    "text": "You fall under the feat of Ričardas.",
+    "set_flag": "ricardas_state = lost",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RICARDAS_interrogate_loss_B"
+      }
+    ]
+  },
+  "RICARDAS_interrogate_loss_B": {
+    "npc": "RIČARDAS",
+    "text": "\"You challenged the master and you got what you deserved! Now, skedaddle you pathetic little man.\"",
+    "is_end": true,
+    "choices": []
+  },
+  "RICARDAS_post_win_text": {
+    "npc": "THE NARRATOR",
+    "text": "He's not going to cooperate with you anymore.",
+    "choices": [
+      {
+        "text": "(Leave)",
+        "target_node": "RICARDAS_end_conversation"
+      }
+    ]
+  },
+  "RICARDAS_post_loss_text": {
+    "npc": "THE NARRATOR",
+    "text": "You're not going to get anything out of him after that performance.",
+    "choices": [
+      {
+        "text": "(Leave)",
+        "target_node": "RICARDAS_end_conversation"
+      }
+    ]
+  },
+
+  "RICARDAS_end_conversation": {
+    "text": "You walk away from the sorcerer.",
+    "is_end": true,
+    "choices": []
+  },
+
+
+
+  "SIAURINIS_identity": {
+    "npc": "ŠIAURINIS"
+  },
+  "SIAURINIS_intro": {
+    "npc": "THE NARRATOR",
+    "text": "You find ŠIAURINIS entertaining himself by keeping the leaves afloat with his fingers. He's the son of Vėjopatis, the god of winds and destruction.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_intro_B"
+      }
+    ]
+  },
+  "SIAURINIS_intro_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"Sorry to bother you, but I have an alleged murder to solve. Would you mind answering a few questions?\"",
+        "target_node": "SIAURINIS_Sa1_response_A",
+        "set_flag": "siaurinis_approach = Sa1"
+      },
+      {
+        "text": "\"Detective Moon. Mind if I ask you a few questions regarding the death of Rapolas?\" (Introduce yourself and show him your badge.)",
+        "target_node": "SIAURINIS_Sa1_response_A",
+        "set_flag": "siaurinis_approach = Sa2"
+      },
+      {
+        "text": "\"Playing with leaves like a child -- what would your father say?\"",
+        "target_node": "SIAURINIS_Sa3_response_A",
+        "set_flag": "siaurinis_approach = Sa3"
+      },
+      {
+        "text": "I don't have anymore questions for you. (Leave.)",
+        "target_node": "SIAURINIS_end_conversation"
+      }
+    ]
+  },
+  "SIAURINIS_Sa1_response_A": {
+    "npc": "ŠIAURINIS",
+    "text": "He looks at you like you're much less interesting than the leaves he's playing with. \"That poor thing. He was your friend, wasn't he?\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_Sa1_response_B"
+      }
+    ]
+  },
+  "SIAURINIS_Sa1_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"Yes, he was. How do you know?\"",
+        "target_node": "SIAURINIS_Sb1_response_A",
+        "set_flag": "siaurinis_friend = yes"
+      },
+      {
+        "text": "\"No, I've never met the victim before.\"",
+        "target_node": "SIAURINIS_Sb2_response_A",
+        "set_flag": "siaurinis_friend = no"
+      }
+    ]
+  },
+  "SIAURINIS_Sb1_response_A": {
+    "npc": "ŠIAURINIS",
+    "text": "\"I can see it in your sad face. Were you close?\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_Sb1_response_B"
+      }
+    ]
+  },
+  "SIAURINIS_Sb1_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"We'd talk from time to time.\"",
+        "target_node": "SIAURINIS_Sc1_response_A"
+      },
+      {
+        "text": "\"Very -- we were best friends.\"",
+        "target_node": "SIAURINIS_Sc2_response_A"
+      },
+      {
+        "text": "\"That's none of your concern. Let's get on with the questions I have for you, shall we?\"",
+        "target_node": "SIAURINIS_part2_hub_entry_1"
+      }
+    ]
+  },
+  "SIAURINIS_Sc1_response_A": {
+    "npc": "ŠIAURINIS",
+    "text": "– \"What would you talk about? I suppose you didn't have much in common with you being a detective and Rapolas -- a facilitator?\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_Sc1_response_B"
+      }
+    ]
+  },
+  "SIAURINIS_Sc1_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"About life. We had more in common than you'd think.\"",
+        "target_node": "SIAURINIS_Sd1_response_A"
+      },
+      {
+        "text": "\"Enough about me. Let's get on with the questions I have for you, shall we?\"",
+        "target_node": "SIAURINIS_part2_hub_entry_1"
+      }
+    ]
+  },
+  "SIAURINIS_Sd1_response_A": {
+    "npc": "ŠIAURINIS",
+    "text": "- \"Oh, really? What in common did you have? What, was he secretly a detective as well or something?\" he chuckles.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_Sd1_response_B"
+      }
+    ]
+  },
+  "SIAURINIS_Sd1_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"You seem to be very interested in my relationship with Rapolas.\"",
+        "target_node": "SIAURINIS_Sd1_sub1_response_A"
+      },
+      {
+        "text": "\"Both of our jobs require people skills.\"",
+        "target_node": "SIAURINIS_Sd1_sub2_response_A"
+      },
+      {
+        "text": "\"Enough about me. Let's get on with the questions I have for you, shall we?\"",
+        "target_node": "SIAURINIS_part2_hub_entry_1"
+      }
+    ]
+  },
+  "SIAURINIS_Sd1_sub1_response_A": {
+    "npc": "ŠIAURINIS",
+    "text": "- \"I'm interested in Rapolas, that's all. I didn't get to learn a lot about him while he was alive. He was -- pleasant to be around.\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_Sd1_sub1_response_B"
+      }
+    ]
+  },
+  "SIAURINIS_Sd1_sub1_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"And now you know a bit more. Mind if I ask you a few questions now?\"",
+        "target_node": "SIAURINIS_part2_hub_entry_2"
+      }
+    ]
+  },
+  "SIAURINIS_Sd1_sub2_response_A": {
+    "npc": "ŠIAURINIS",
+    "text": "- \"One being facilitating and the other -- detective work?\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_Sd1_sub2_response_B"
+      }
+    ]
+  },
+  "SIAURINIS_Sd1_sub2_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"That's right. Mind if I ask YOU a few questions now?\"",
+        "target_node": "SIAURINIS_part2_hub_entry_2"
+      }
+    ]
+  },
+  "SIAURINIS_Sc2_response_A": {
+    "npc": "ŠIAURINIS",
+    "text": "- \"Oh, really?\" He looks visibly surprised. \"So you must have known everything about each other?\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_Sc2_response_B"
+      }
+    ]
+  },
+  "SIAURINIS_Sc2_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"Pretty much -- we had no secrets\".",
+        "target_node": "SIAURINIS_Sc2_sub1_response"
+      },
+      {
+        "text": "\"I'm exaggerating. I actually didn't know him very well.\"",
+        "target_node": "SIAURINIS_Sc2_sub2_response_A"
+      },
+      {
+        "text": "\"Enough about me. Let's get on with the questions I have for you, shall we?\"",
+        "target_node": "SIAURINIS_part2_hub_entry_1"
+      }
+    ]
+  },
+  "SIAURINIS_Sc2_sub1_response": {
+    "npc": "ŠIAURINIS",
+    "text": "- For a moment he retreats to his mind and then comes back. \"You said you had some questions?\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_part2_hub"
+      }
+    ]
+  },
+  "SIAURINIS_Sc2_sub2_response_A": {
+    "npc": "ŠIAURINIS",
+    "text": "- \"You didn't?\" He gives a confused look. \"Are you sure?\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_Sc2_sub2_response_B"
+      }
+    ]
+  },
+  "SIAURINIS_Sc2_sub2_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"Yes, I'm sure. Mind if I ask YOU a few questions now?\"",
+        "target_node": "SIAURINIS_part2_hub_entry_3"
+      },
+      {
+        "text": "\"Now that I think more about it -- we actually were best friends.\"",
+        "target_node": "SIAURINIS_Sc2_sub3_response_A"
+      }
+    ]
+  },
+  "SIAURINIS_Sc2_sub3_response_A": {
+    "npc": "ŠIAURINIS",
+    "text": "- \"So which is it -- was he or was he not your best friend?\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_Sc2_sub3_response_B"
+      }
+    ]
+  },
+  "SIAURINIS_Sc2_sub3_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"Why do you care so much?\"",
+        "target_node": "SIAURINIS_Sd1_sub1_response_A"
+      },
+      {
+        "text": "\"I just told you that I didn't know him very well.\"",
+        "target_node": "SIAURINIS_Sc2_sub4_response_A"
+      }
+    ]
+  },
+  "SIAURINIS_Sc2_sub4_response_A": {
+    "npc": "ŠIAURINIS",
+    "text": "- A muscle in his jaw begins to twitch. \"Do you consider me a fool? Do you know who you're talking to?\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_Sc2_sub4_response_B"
+      }
+    ]
+  },
+  "SIAURINIS_Sc2_sub4_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"Right now you're just a murder suspect to me. And talking about murder, mind if I ask YOU a few questions now?\"",
+        "target_node": "SIAURINIS_part2_hub_entry_4"
+      },
+      {
+        "text": "\"I'm sorry. I don't know what got into me. Must be the stress from the case. Can I ask you a few questions now?\"",
+        "target_node": "SIAURINIS_part2_hub_entry_3"
+      }
+    ]
+  },
+  "SIAURINIS_Sb2_response_A": {
+    "npc": "ŠIAURINIS",
+    "text": "- \"Your sad face is telling a different story.\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_Sb2_response_B"
+      }
+    ]
+  },
+  "SIAURINIS_Sb2_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"You're mistaken. This is just how my face looks. Let's get on with the questions I have for you, shall we?\"",
+        "target_node": "SIAURINIS_part2_hub_entry_3"
+      },
+      {
+        "text": "\"You're right. I cannot hide it -- I knew him.\"",
+        "target_node": "SIAURINIS_Sb1_response_A"
+      }
+    ]
+  },
+  "SIAURINIS_Sa3_response_A": {
+    "npc": "ŠIAURINIS",
+    "text": "- The leaves drop and he looks at you as if his ego is about to jump out and strangle you. \"Well, and you...\" It takes him a moment to think of a response. \"I could easily replace those leaves with something bigger -- with a badge, for example.\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_Sa3_response_B"
+      }
+    ]
+  },
+  "SIAURINIS_Sa3_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"No need to get all riled up. I was just joking.\"",
+        "target_node": "SIAURINIS_Sa3_sub1_response_A"
+      },
+      {
+        "text": "\"I'm sorry. I didn't mean it. Let's start all over, okay?\"",
+        "target_node": "SIAURINIS_Sa3_sub2_response_A"
+      },
+      {
+        "text": "\"Show me what you got, tough guy.\" (Interrogate)",
+        "target_node": "SIAURINIS_interrogate_start_A_Sa3"
+      }
+    ]
+  },
+  "SIAURINIS_Sa3_sub1_response_A": {
+    "npc": "ŠIAURINIS",
+    "text": "- \"What do you want?\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_Sa3_sub1_response_B"
+      }
+    ]
+  },
+  "SIAURINIS_Sa3_sub1_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"I'm trying to figure out what happened to Rapolas. Mind if I ask you a few questions?\"",
+        "target_node": "SIAURINIS_part2_hub_entry_3"
+      }
+    ]
+  },
+  "SIAURINIS_Sa3_sub2_response_A": {
+    "npc": "ŠIAURINIS",
+    "text": "- His defensive posture softens. \"What do you want?\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_Sa3_sub1_response_B"
+      }
+    ]
+  },
+  "SIAURINIS_part2_hub_entry_1": {
+    "npc": "ŠIAURINIS",
+    "text": "-\"Go ahead -- ask.\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_part2_hub"
+      }
+    ]
+  },
+  "SIAURINIS_part2_hub_entry_2": {
+    "npc": "ŠIAURINIS",
+    "text": "- He gives a small, palm-up sweep of his hand. \"Go ahead.\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_part2_hub"
+      }
+    ]
+  },
+  "SIAURINIS_part2_hub_entry_3": {
+    "npc": "ŠIAURINIS",
+    "text": "- He looks a bit annoyed but gives a small, palm-up sweep of his hand. \"Go ahead.\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_part2_hub"
+      }
+    ]
+  },
+  "SIAURINIS_part2_hub_entry_4": {
+    "npc": "ŠIAURINIS",
+    "text": "- He looks annoyed but gives a small, palm-up sweep of his hand. \"Go ahead, but be quick.\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_part2_hub"
+      }
+    ]
+  },
+  "SIAURINIS_re_entry_part2": {
+    "npc": "THE NARRATOR",
+    "text": "You approach Šiaurinis again.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_part2_hub"
+      }
+    ]
+  },
+  "SIAURINIS_part2_hub": {
+    "npc": "YOU",
+    "text": null,
+    "set_flag": "siaurinis_reached_part2 = true",
+    "choices": [
+      {
+        "text": "'When was the last time you saw Rapolas alive'?",
+        "target_node": "SIAURINIS_Se1_response_A",
+        "set_flag": "siaurinis_asked_last_seen = true"
+      },
+      {
+        "text": "'Do you have any suspicions about who might be responsible for Rapolas' death?'",
+        "target_node": "SIAURINIS_Se2_response_A",
+        "set_flag": "siaurinis_asked_suspicions = true"
+      },
+      {
+        "text": "'Did you kill Rapolas?'",
+        "target_node": "SIAURINIS_Se3_response_A",
+        "set_flag": "siaurinis_asked_did_you_kill = true"
+      },
+      {
+        "text": "\"It's obvious that you killed him, just confess.\" (Interrogate.)",
+        "target_node": "SIAURINIS_interrogate_start_A"
+      },
+      {
+        "text": "'I don't have anymore questions for you.' (Leave.)",
+        "target_node": "SIAURINIS_end_conversation"
+      }
+    ]
+  },
+  "SIAURINIS_Se1_response_A": {
+    "npc": "ŠIAURINIS",
+    "text": "– \"I'll be honest I wasn't paying much attention to him after the last activity that we did together. But, before I left, I remember him sitting and drinking midus with the beast and that human... Oh, what's his name?\" He visibly tries to remember. \"Sorry, I can't recall. Short male.\" He shows you with his hand how tall he was.",
+    "is_key_statement": true,
+    "statement_title": "ŠIAURINIS's Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_Se1_response_B"
+      }
+    ]
+  },
+  "SIAURINIS_Se1_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"How long have all known each other if you can't even recall his name?\"",
+        "target_node": "SIAURINIS_Sf1_response_A"
+      },
+      {
+        "text": "\"Did you notice anything strange about Rapolas that evening?\"",
+        "target_node": "SIAURINIS_Sf2_response"
+      },
+      {
+        "text": "\"Where did you go?\"",
+        "target_node": "SIAURINIS_Sf5_response"
+      },
+      {
+        "text": "\"I had another question.\" (Conclude.)",
+        "target_node": "SIAURINIS_part2_hub"
+      }
+    ]
+  },
+  "SIAURINIS_Sf1_response_A": {
+    "npc": "ŠIAURINIS",
+    "text": "- \"For a couple months. I'm just very bad at remembering human names.\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_Sf1_response_B"
+      }
+    ]
+  },
+  "SIAURINIS_Sf1_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"What exactly do you all do together?\"",
+        "target_node": "SIAURINIS_Sf1_sub1_response_A"
+      }
+    ]
+  },
+  "SIAURINIS_Sf1_sub1_response_A": {
+    "npc": "ŠIAURINIS",
+    "text": "- \"We play music together. I, of course, play the windpipe,\" he says with pride.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_Sf1_sub1_response_B"
+      }
+    ]
+  },
+  "SIAURINIS_Sf1_sub1_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"What's the name of your band?\"",
+        "target_node": "SIAURINIS_Sf1_sub2_response_A"
+      },
+      {
+        "text": "\"I had another question.\" (Conclude.)",
+        "target_node": "SIAURINIS_Se1_response_B"
+      }
+    ]
+  },
+  "SIAURINIS_Sf1_sub2_response_A": {
+    "npc": "ŠIAURINIS",
+    "text": "- He seems taken aback by your question. \"It's, um... It's...\" Eternity seems to go by before he finally says: \"Šiauriniai!\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_Sf1_sub2_response_B"
+      }
+    ]
+  },
+  "SIAURINIS_Sf1_sub2_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"The name of the band is 'Šiauriniai' -- your name but in plural?\"",
+        "target_node": "SIAURINIS_Sf1_sub2_response_C"
+      }
+    ]
+  },
+  "SIAURINIS_Sf1_sub2_response_C": {
+    "npc": "ŠIAURINIS",
+    "text": "-\"That's right,\" he chuckles. BUT it's a temporary name, we're still working on it. Others might not even remember it.\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_Se1_response_B"
+      }
+    ]
+  },
+  "SIAURINIS_Sf2_response": {
+    "npc": "ŠIAURINIS",
+    "text": "- \"No, not really. As I said, I didn't pay much attention to him.\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_Se1_response_B"
+      }
+    ]
+  },
+  "SIAURINIS_Sf5_response": {
+    "npc": "ŠIAURINIS",
+    "text": "- \"I left together with Laumė to have some -- alone time, if you know what I mean.\"",
+    "is_key_statement": true,
+    "statement_title": "ŠIAURINIS's Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_Se1_response_B"
+      }
+    ]
+  },
+  "SIAURINIS_Se2_response_A": {
+    "npc": "ŠIAURINIS",
+    "text": "- \"Honestly, I think he just got drunk, went for a swim and drowned.\"",
+    "is_key_statement": true,
+    "statement_title": "ŠIAURINIS's Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_Se2_response_B"
+      }
+    ]
+  },
+  "SIAURINIS_Se2_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"Did he have a lot to drink yesterday?\"",
+        "target_node": "SIAURINIS_Se2_sub1_response"
+      }
+    ]
+  },
+  "SIAURINIS_Se2_sub1_response": {
+    "npc": "ŠIAURINIS",
+    "text": "- \"Let's just say that he was enjoying midus a bit too much yesterday.\"",
+    "is_key_statement": true,
+    "statement_title": "ŠIAURINIS's Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_part2_hub"
+      }
+    ]
+  },
+  "SIAURINIS_Se3_response_A": {
+    "npc": "ŠIAURINIS",
+    "text": "- \"I'm a god of wind and destruction -- like my father. I don't bother myself with farts in a hurricane.\"",
+    "is_key_statement": true,
+    "statement_title": "ŠIAURINIS's Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_Se3_response_B"
+      }
+    ]
+  },
+  "SIAURINIS_Se3_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"What's the hurricane then in this case?\"",
+        "target_node": "SIAURINIS_Se3_response_C"
+      }
+    ]
+  },
+  "SIAURINIS_Se3_response_C": {
+    "npc": "ŠIAURINIS",
+    "text": "- \"It's the powerful music that we are creating,\" he says with such intense excitement that for a moment his eyeballs move slightly forward out of his eye sockets.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_part2_hub"
+      }
+    ]
+  },
+  "SIAURINIS_interrogate_start_A_Sa3": {
+    "npc": "THE INTERROGATOR",
+    "text": "\"I see someone's itching for a fight today. Better now than never -- I guess. I'll assume that you think that he's the killer for this to work.\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_interrogate_start_B"
+      }
+    ]
+  },
+  "SIAURINIS_interrogate_start_A": {
+    "npc": "THE NARRATOR",
+    "text": "The god of North wind elevates himself from the ground and prepares to fight you. He challenges you to a duel of winds.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_interrogate_start_B"
+      }
+    ]
+  },
+  "SIAURINIS_interrogate_start_B": {
+    "npc": "THE INTERROGATOR",
+    "text": "You caught the murderer - good work, detective. Time to make him confess. Now, Šiaurinis will not go down easily but, in order to restrain him, you need only to humiliate him and his fragile ego will do the rest.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_interrogate_start_C"
+      }
+    ]
+  },
+  "SIAURINIS_interrogate_start_C": {
+    "npc": "THE INTERROGATOR",
+    "text": "See those light blue feathers in the jar? In order to defeat Šiaurinis you (YOU = ALL YOUR VOICES) need to keep one feather airborne for a one minute without touching it just with the power of the wind that you can generate it. Good look!",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_interrogate_prompt"
+      }
+    ]
+  },
+  "SIAURINIS_interrogate_prompt": {
+    "npc": "THE INTERROGATOR",
+    "text": null,
+    "choices": [
+      {
+        "text": "We won the challenge.",
+        "target_node": "SIAURINIS_interrogate_win_A"
+      },
+      {
+        "text": "We lost the challenge.",
+        "target_node": "SIAURINIS_interrogate_loss_A"
+      }
+    ]
+  },
+  "SIAURINIS_interrogate_win_A": {
+    "npc": "THE NARRATOR",
+    "text": "Šiaurinis falls on his knees, defeated and humiliated.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_interrogate_win_B"
+      }
+    ]
+  },
+  "SIAURINIS_interrogate_win_B": {
+    "npc": "ŠIAURINIS",
+    "text": "\"Please, just don't tell my father about this,\" he begs.",
+    "set_flag": "siaurinis_state = won",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_interrogate_win_hub"
+      }
+    ]
+  },
+  "SIAURINIS_interrogate_win_hub": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"Did you feel threatened by Rapolas and decided to get rid of him to prove to yourself that you're better than him?\"",
+        "target_node": "SIAURINIS_interrogate_win_q1",
+        "set_flag": "siaurinis_interrogate_q1 = true"
+      },
+      {
+        "text": "\"Did you really spend the night with Laumė?\"",
+        "target_node": "SIAURINIS_interrogate_win_q2",
+        "set_flag": "siaurinis_interrogate_q2 = true"
+      },
+      {
+        "text": "(End the interrogation.)",
+        "target_node": "SIAURINIS_end_conversation"
+      }
+    ]
+  },
+  "SIAURINIS_interrogate_win_q1": {
+    "npc": "ŠIAURINIS",
+    "text": "\"He's a goddamn frog -- how can he be better than me?\"",
+    "is_key_statement": true,
+    "statement_title": "ŠIAURINIS's Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_interrogate_win_hub"
+      }
+    ]
+  },
+  "SIAURINIS_interrogate_win_q2": {
+    "npc": "ŠIAURINIS",
+    "text": "\"No, I did not.\"",
+    "is_key_statement": true,
+    "statement_title": "ŠIAURINIS's Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_interrogate_win_hub"
+      }
+    ]
+  },
+  "SIAURINIS_interrogate_loss_A": {
+    "npc": "THE NARRATOR",
+    "text": "Šiaurinis comes out victorious.",
+    "set_flag": "siaurinis_state = lost",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "SIAURINIS_interrogate_loss_B"
+      }
+    ]
+  },
+  "SIAURINIS_interrogate_loss_B": {
+    "npc": "ŠIAURINIS",
+    "text": "\"Oh, the foolishness, to think that you can win against me. Now, run along -- little detective.\"",
+    "is_end": true,
+    "choices": []
+  },
+  "SIAURINIS_post_win_text": {
+    "npc": "THE NARRATOR",
+    "text": "He asks you to leave him alone.",
+    "choices": [
+      {
+        "text": "(Leave)",
+        "target_node": "SIAURINIS_end_conversation"
+      }
+    ]
+  },
+  "SIAURINIS_post_loss_text": {
+    "npc": "THE NARRATOR",
+    "text": "You're not going to get anything out of him after that fiasco.",
+    "choices": [
+      {
+        "text": "(Leave)",
+        "target_node": "SIAURINIS_end_conversation"
+      }
+    ]
+  },
+  "SIAURINIS_end_conversation": {
+    "text": "You walk away from the god of wind.",
+    "is_end": true,
+    "choices": []
+  },
+
+  "LAUME_identity": {
+    "npc": "LAUMĖ"
+  },
+  "LAUME_intro": {
+    "npc": "THE NARRATOR",
+    "text": "You hear a voice humming a tune. The tune is somehow both alluring and unsettling. The voice belongs to a young-looking woman with long golden hair. But she's no ordinary person -- something in between a fairy and a witch. The humming stops -- her eyes are on you.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_intro_b"
+      }
+    ]
+  },
+  "LAUME_intro_b": {
+    "npc": "LAUMĖ",
+    "text": "\"Don't be shy, detective; come closer.\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_player_choices_1"
+      }
+    ]
+  },
+  "LAUME_player_choices_1": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"I was just enjoying your humming from afar. Are you a singer?\" (Come closer.)",
+        "target_node": "LAUME_La1_response_A",
+        "set_flag": "laume_approach = La1"
+      },
+      {
+        "text": "\"I'm as close to you as I feel comfortable being.\" (Stay where you are.)",
+        "target_node": "LAUME_La2_response_A",
+        "set_flag": "laume_approach = La2"
+      },
+      {
+        "text": "\"Since you already know who I am, mind if I ask you a couple questions about what happened here?\" (Come closer.)",
+        "target_node": "LAUME_La3_response",
+        "set_flag": "laume_approach = La3"
+      },
+      {
+        "text": "\"I will talk to you later.\" (Leave)",
+        "target_node": "LAUME_end_conversation"
+      }
+    ]
+  },
+  "LAUME_La1_response_A": {
+    "npc": "LAUMĖ",
+    "text": "\"You could say that, but I think 'a temptress' describes me better.\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_La1_response_B"
+      }
+    ]
+  },
+  "LAUME_La1_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"Who are the usual victims of your temptation -- maybe small green guys that like to croak?\"",
+        "target_node": "LAUME_Lb1_response_A"
+      },
+      {
+        "text": "\"What happens to the ones that give in to the temptation?\"",
+        "target_node": "LAUME_Lb2_response_A"
+      }
+    ]
+  },
+  "LAUME_Lb1_response_A": {
+    "npc": "LAUME",
+    "text": "She smiles at you and says, \"I prefer vices, they are much tastier to me.\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_Lb1_response_B"
+      }
+    ]
+  },
+  "LAUME_Lb1_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"So you lure out vices -- and what happens to its owner?\"",
+        "target_node": "LAUME_Lb2_response_A"
+      }
+    ]
+  },
+  "LAUME_Lb2_response_A": {
+    "npc": "LAUME",
+    "text": "\"If you remove a vice, and there's nothing left behind -- there was no owner to begin with. Just depravity and corruption, of which there is now less.\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_Lc_hub"
+      }
+    ]
+  },
+  "LAUME_Lc_hub": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"There's no such thing as pure corruption or depravity -- just people who lost their way.\"",
+        "target_node": "LAUME_Lc1_response_A"
+      },
+      {
+        "text": "\"I agree, once corrupted -- always corrupted.\"",
+        "target_node": "LAUME_Lc2_response"
+      },
+      {
+        "text": "\"How about, instead of willy-nilly deciding who's good or bad, you let the justice system deal with it?\"",
+        "target_node": "LAUME_Lc3_response"
+      },
+      {
+        "text": "\"Let's leave this discussion behind for now and focus on the matter at hand: the death of Rapolas.\"",
+        "target_node": "LAUME_part2_hub_entry"
+      }
+    ]
+  },
+  "LAUME_Lc1_response_A": {
+    "npc": "LAUMĖ",
+    "text": "\"They are lost and hollow, because, once you're corrupted, it eats you alive until there's nothing left.\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_Lc1_response_B"
+      }
+    ]
+  },
+  "LAUME_Lc1_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"I think you're oversimplifying human psychology: there's always a way back.\"",
+        "target_node": "LAUME_Lc1_sub1_response_A"
+      },
+      {
+        "text": "\"True, at some point there's just no turning back.\"",
+        "target_node": "LAUME_Lc1_sub2_response"
+      },
+      {
+        "text": "\"Let's leave this discussion behind for now and focus on the matter at hand: the death of Rapolas.\"",
+        "target_node": "LAUME_part2_hub_entry"
+      }
+    ]
+  },
+  "LAUME_Lc1_sub1_response_A": {
+    "npc": "LAUMĖ",
+    "text": "\"If you had seen what I've seen -- you wouldn't be so optimistic.\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_Lc1_sub1_response_B"
+      }
+    ]
+  },
+  "LAUME_Lc1_sub1_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"If you care so much about getting rid of vice, what are you doing hanging out with THE DARK ONE?\"",
+        "target_node": "LAUME_Lc1_sub3_response_A"
+      },
+      {
+        "text": "\"Let's leave this discussion behind for now and focus on the matter at hand: the death of Rapolas.\"",
+        "target_node": "LAUME_part2_hub_entry"
+      }
+    ]
+  },
+  "LAUME_Lc1_sub3_response_A": {
+    "npc": "LAUMĖ",
+    "text": "\"If you're asking me this question, it only means that you are confused about his nature. Without him the world would be unbalanced: there can be no order without chaos; no music without suffering.\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_Lc1_sub3_response_B"
+      }
+    ]
+  },
+  "LAUME_Lc1_sub3_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"Let's leave this discussion behind for now and focus on the matter at hand: the death of Rapolas.\"",
+        "target_node": "LAUME_part2_hub_entry"
+      }
+    ]
+  },
+  "LAUME_Lc1_sub2_response": {
+    "npc": "LAUMĖ",
+    "text": "\"I knew that you would understand.\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_Lc1_sub2_response_B"
+      }
+    ]
+  },
+  "LAUME_Lc1_sub2_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"Can I ask you now a couple questions about the death of Rapolas?\"",
+        "target_node": "LAUME_part2_hub_entry_agree"
+      }
+    ]
+  },
+  "LAUME_Lc2_response": {
+    "npc": "LAUMĖ",
+    "text": "\"Glad that you agree.\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_Lc_hub"
+      }
+    ]
+  },
+  "LAUME_Lc3_response": {
+    "npc": "LAUME",
+    "text": "\"The same justice system that ends where the forest begins?\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_Lc_hub"
+      }
+    ]
+  },
+  "LAUME_La2_response_A": {
+    "npc": "LAUMĖ",
+    "text": "\"Suit yourself.\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_La2_response_B"
+      }
+    ]
+  },
+  "LAUME_La2_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"I was just enjoying your humming from afar. Are you a singer?\"",
+        "target_node": "LAUME_La1_response_A"
+      },
+      {
+        "text": "\"Since you already know who I am, mind if I ask you a couple questions about what happened here?\"",
+        "target_node": "LAUME_La3b_response"
+      }
+    ]
+  },
+  "LAUME_La3b_response": {
+    "npc": "LAUMĖ",
+    "text": "She doesn't answer but you can see from her body language that she's listening.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_part2_hub"
+      }
+    ]
+  },
+  "LAUME_La3_response": {
+    "npc": "LAUME",
+    "text": "\"Of course, ask.\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_part2_hub"
+      }
+    ]
+  },
+  "LAUME_part2_hub_entry": {
+    "npc": "LAUMĖ",
+    "text": "She agrees.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_part2_hub"
+      }
+    ]
+  },
+  "LAUME_part2_hub_entry_agree": {
+    "npc": "LAUMĖ",
+    "text": "\"You can.\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_part2_hub"
+      }
+    ]
+  },
+  "LAUME_re_entry_part2": {
+    "npc": "THE NARRATOR",
+    "text": "You approach Laumė again.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_part2_hub"
+      }
+    ]
+  },
+  "LAUME_part2_hub": {
+    "npc": "YOU",
+    "text": null,
+    "set_flag": "laume_reached_part2 = true",
+    "choices": [
+      {
+        "text": "'When was the last time you saw Rapolas alive'?",
+        "target_node": "LAUME_Ld1_response_A",
+        "set_flag": "laume_asked_last_seen = true"
+      },
+      {
+        "text": "'Do you have any suspicions about who might be responsible for Rapolas' death?'",
+        "target_node": "LAUME_Ld2_response",
+        "set_flag": "laume_asked_suspicions = true"
+      },
+      {
+        "text": "'Did you kill Rapolas?'",
+        "target_node": "LAUME_Ld3_response",
+        "set_flag": "laume_asked_did_you_kill = true"
+      },
+      {
+        "text": "\"There's no denying it -- you killed Rapolas.\" (Interrogate.)",
+        "target_node": "LAUME_interrogate_start_A"
+      },
+      {
+        "text": "'I don't have anymore questions for you.' (Leave.)",
+        "target_node": "LAUME_end_conversation"
+      }
+    ]
+  },
+  "LAUME_Ld1_response_A": {
+    "npc": "LAUME",
+    "text": "\"Yesterday evening. We were sitting by the fire, and I remember that he and the boys were sharing a mug of mead.\"",
+    "is_key_statement": true,
+    "statement_title": "LAUMĖ's Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_Ld1_response_B"
+      }
+    ]
+  },
+  "LAUME_Ld1_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"Did anything stood out to you as strange that evening?\"",
+        "target_node": "LAUME_Le6_response_A"
+      }
+    ]
+  },
+  "LAUME_Le6_response_A": {
+    "npc": "LAUME",
+    "text": "\"Nothing out of the ordinary. Although I was a bit distracted as Vėjopatis son was giving me special attention all evening.\"",
+    "is_key_statement": true,
+    "statement_title": "LAUMĖ's Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_Le6_response_B"
+      }
+    ]
+  },
+  "LAUME_Le6_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"Was the attention unwanted?\"",
+        "target_node": "LAUME_Le6_sub1_response_A"
+      }
+    ]
+  },
+  "LAUME_Le6_sub1_response_A": {
+    "npc": "LAUME",
+    "text": "\"On the contrary. I find desperate gods entertaining.\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_Le6_sub1_response_B"
+      }
+    ]
+  },
+  "LAUME_Le6_sub1_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"I suppose he's not the best listener?\"",
+        "target_node": "LAUME_Le1_response_A"
+      },
+      {
+        "text": "\"How did the evening conclude for you; when did you leave?\"",
+        "target_node": "LAUME_Le2_response_A"
+      },
+      {
+        "text": "\"Who were the boys that he was enjoying midus together?\"",
+        "target_node": "LAUME_Le7_response_A"
+      }
+    ]
+  },
+  "LAUME_Le1_response_A": {
+    "npc": "LAUMĖ",
+    "text": "\"No, he's not. Come to think of it, poor Rapolas -- he tried so hard to help us communicate better.\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_Le1_response_B"
+      }
+    ]
+  },
+  "LAUME_Le1_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"Did he have a hard time leading the team building retreat?\"",
+        "target_node": "LAUME_Le3_response_A"
+      },
+      {
+        "text": "\"What's wrong with the communication in your group?\"",
+        "target_node": "LAUME_Le4_response_A"
+      },
+      {
+        "text": "\"How did the evening conclude for you; when did you leave?\"",
+        "target_node": "LAUME_Le2_response_A"
+      },
+      {
+        "text": "\"Who were the boys that he was enjoying midus together?\"",
+        "target_node": "LAUME_Le7_response_A"
+      },
+      {
+        "text": "\"I had another question.\" (Conclude)",
+        "target_node": "LAUME_part2_hub"
+      }
+    ]
+  },
+  "LAUME_Le3_response_A": {
+    "npc": "LAUME",
+    "text": "\"I could see that he was struggling. Even during the active listening exercise, there wasn't much listening happening, as I noticed some back-and-forth between him and Ričardas.\"",
+    "is_key_statement": true,
+    "statement_title": "LAUMĖ's Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_Le3_response_B"
+      }
+    ]
+  },
+  "LAUME_Le3_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"Do you remember what they talked about?\"",
+        "target_node": "LAUME_Le3_sub1_response_A"
+      }
+    ]
+  },
+  "LAUME_Le3_sub1_response_A": {
+    "npc": "LAUMĖ",
+    "text": "– \"I wasn't close enough to hear, but I think it was about something sensitive because Ričardas looked rather serious.\"",
+    "is_key_statement": true,
+    "statement_title": "LAUMĖ's Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_Le1_response_B"
+      }
+    ]
+  },
+  "LAUME_Le4_response_A": {
+    "npc": "LAUMĖ",
+    "text": "\"Were working together on a special musical project that requires- as THE DARK ONE keeps saying-everyones' full commitment and dedication. But each member in the band is only truly committed to their own ends. Sometimes it feels like we are working against each other.\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_Le4_response_B"
+      }
+    ]
+  },
+  "LAUME_Le4_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"What's your end?\"",
+        "target_node": "LAUME_Le4_sub1_response_A"
+      }
+    ]
+  },
+  "LAUME_Le4_sub1_response_A": {
+    "npc": "LAUME",
+    "text": "For a split second she goes somewhere very dark and comes back to tell you: \"I don't feel comfortable talking to you about that.\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_Le1_response_B"
+      }
+    ]
+  },
+  "LAUME_Le2_response_A": {
+    "npc": "LAUMĖ",
+    "text": "– \"I'm not sure about the time. It was late evening. I left and the wind boy followed me.\"",
+    "is_key_statement": true,
+    "statement_title": "LAUMĖ's Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_Le2_response_B"
+      }
+    ]
+  },
+  "LAUME_Le2_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"Did you spend the night together?\"",
+        "target_node": "LAUME_Le2_sub1_response_A"
+      }
+    ]
+  },
+  "LAUME_Le2_sub1_response_A": {
+    "npc": "LAUMĖ",
+    "text": "It looks like she's about to burst out laughing. \"Of course not, I have standards. You should have seen his face when he realized that playing the father-card can only get him this far. After that -- he went with the wind.\"",
+    "is_key_statement": true,
+    "statement_title": "LAUMĖ's Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_part2_hub"
+      }
+    ]
+  },
+  "LAUME_Le7_response_A": {
+    "npc": "LAUMĖ",
+    "text": "– \"It was RIČARDAS, DAUMANTAS and later THE DARK ONE joined as well.\"",
+    "is_key_statement": true,
+    "statement_title": "LAUMĖ's Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_Le7_response_B"
+      }
+    ]
+  },
+  "LAUME_Le7_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"Where was THE DARK ONE before he joined?\"",
+        "target_node": "LAUME_Le7_sub1_response_A"
+      }
+    ]
+  },
+  "LAUME_Le7_sub1_response_A": {
+    "npc": "LAUME",
+    "text": "\"He left during one of the exercises that we did with Rapolas, but later reappeared -- when everyone was already drunk and rambling.\"",
+    "is_key_statement": true,
+    "statement_title": "LAUMĖ's Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_Le7_sub1_response_B"
+      }
+    ]
+  },
+  "LAUME_Le7_sub1_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "\"Do you remember what they were rambling about?\"",
+        "target_node": "LAUME_Le7_sub2_response_A"
+      }
+    ]
+  },
+  "LAUME_Le7_sub2_response_A": {
+    "npc": "LAUMĖ",
+    "text": "\"Well, Rampolas was having his attempt at bad poetry: \"I love, I serve, I strike,\" I think he said. And after that he loudly bragged that he knows you, detective. I suppose that's why THE DARK ONE called you for help.\"",
+    "is_key_statement": true,
+    "statement_title": "LAUMĖ's Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_Le7_sub2_response_B"
+      }
+    ]
+  },
+  "LAUME_Le7_sub2_response_B": {
+    "npc": "THE LUNAR EYE",
+    "text": "Wait. 'I love, I serve, I strike'? That's -- that's the oath of the Thunder Police Force. What in Perkūnas's name was Rapolas doing saying the TPF oath?",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_Le7_sub2_response_C"
+      }
+    ]
+  },
+  "LAUME_Le7_sub2_response_C": {
+    "npc": "THE SCEPTIC",
+    "text": "He was drunk. Maybe he heard somewhere? It's a catchy phrase.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_Le1_response_B"
+      }
+    ]
+  },
+  "LAUME_Ld2_response": {
+    "npc": "LAUME",
+    "text": "\"I don't know. THE DARK ONE is convinced that one of us killed him, but I'm not so sure. Rapolas was drunk, it was dark, he could have fallen into the river and drowned.\"",
+    "is_key_statement": true,
+    "statement_title": "LAUMĖ's Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_part2_hub"
+      }
+    ]
+  },
+  "LAUME_Ld3_response": {
+    "npc": "LAUMĖ",
+    "text": "\"Rapolas was good and kind, it would be against my nature to harm someone like that.\"",
+    "is_key_statement": true,
+    "statement_title": "LAUMĖ's Testimony",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_part2_hub"
+      }
+    ]
+  },
+  "LAUME_interrogate_start_A": {
+    "npc": "THE NARRATOR",
+    "text": "To your surprise, she looks absolutely unaffected by what you said.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_interrogate_start_B"
+      }
+    ]
+  },
+  "LAUME_interrogate_start_B": {
+    "npc": "THE INTERROGATOR",
+    "text": "Just look at her! Only a true psychophath would respond to such an accusation like that. No doubt -- she killled Rapolas.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_interrogate_start_C"
+      }
+    ]
+  },
+  "LAUME_interrogate_start_C": {
+    "npc": "THE INTERROGATOR",
+    "text": "Hmm... She's neither resisting nor not resisting. I see... she's giving us -- THE SILENT TREATMENT. That's what guilty people normally do -- they stay silent and expect the problem to go away.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_interrogate_hub"
+      }
+    ]
+  },
+  "LAUME_interrogate_hub": {
+    "npc": "YOU",
+    "text": null,
+    "set_flag": "laume_state = lost",
+    "choices": [
+      {
+        "text": "What now?",
+        "target_node": "LAUME_interrogate_what_now_A"
+      },
+      {
+        "text": "I think we should just take back what we said and hope that she forgives us.",
+        "target_node": "LAUME_interrogate_take_back_A"
+      },
+      {
+        "text": "(End the interrogation). (Leave)",
+        "target_node": "LAUME_end_conversation"
+      }
+    ]
+  },
+  "LAUME_interrogate_what_now_A": {
+    "npc": "THE INTERROGATOR",
+    "text": "Let's just ask her one question: \"Did you kill him because you felt he deserved it?\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_interrogate_what_now_B"
+      }
+    ]
+  },
+  "LAUME_interrogate_what_now_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "(Ask.)",
+        "target_node": "LAUME_interrogate_ask_response_A"
+      },
+      {
+        "text": "(End the interrogation). (Leave.)",
+        "target_node": "LAUME_end_conversation"
+      }
+    ]
+  },
+  "LAUME_interrogate_ask_response_A": {
+    "npc": "LAUMĖ",
+    "text": "She ignores the question. \"I was just observing you now. It looked to my like you were having a conversation with someone in your head. I think you should listen less to that voice and more -- to your heart. In any case GO AWAY.\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_interrogate_ask_response_B"
+      }
+    ]
+  },
+  "LAUME_interrogate_ask_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "(End the interrogation). (Leave.)",
+        "target_node": "LAUME_end_conversation"
+      }
+    ]
+  },
+  "LAUME_interrogate_take_back_A": {
+    "npc": "THE INTERROGATOR",
+    "text": "Don't be a fool! She's in your head. That's what psychopaths do -- they manipulate you into compliance.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_interrogate_take_back_B"
+      }
+    ]
+  },
+  "LAUME_interrogate_take_back_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "What now?",
+        "target_node": "LAUME_interrogate_what_now_A"
+      },
+      {
+        "text": "(Apologize.)",
+        "target_node": "LAUME_interrogate_apologize_response_A"
+      },
+      {
+        "text": "(End the interrogation). (Leave.)",
+        "target_node": "LAUME_end_conversation"
+      }
+    ]
+  },
+  "LAUME_interrogate_apologize_response_A": {
+    "npc": "LAUMĖ",
+    "text": "She smiles. \"I was just observing you now. It looked to my like you were having a conversation with someone in your head. I think you should listen less to that voice and more -- to your heart. In any case GO AWAY.\"",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "LAUME_interrogate_apologize_response_B"
+      }
+    ]
+  },
+  "LAUME_interrogate_apologize_response_B": {
+    "npc": "YOU",
+    "text": null,
+    "choices": [
+      {
+        "text": "(End the interrogation). (Leave.)",
+        "target_node": "LAUME_end_conversation"
+      }
+    ]
+  },
+  "LAUME_post_win_text": {
+    "npc": "THE NARRATOR",
+    "text": "She has nothing to say to you.",
+    "choices": [
+      {
+        "text": "(Leave)",
+        "target_node": "LAUME_end_conversation"
+      }
+    ]
+  },
+  "LAUME_post_loss_text": {
+    "npc": "THE NARRATOR",
+    "text": "She's ignoring you.",
+    "choices": [
+      {
+        "text": "(Leave)",
+        "target_node": "LAUME_end_conversation"
+      }
+    ]
+  },
+
+"LAUME_end_conversation": {
+    "text": "You walk away from Laumė.",
+    "is_end": true,
+    "choices": []
+  },
+
+
+  "RAPOLAS_BODY_identity": {
+    "npc": "RAPOLAS (THE VICTIM)"
+  },
+  "RAPOLAS_BODY_intro": {
+    "npc": "THE NARRATOR",
+    "text": "You kneel beside the small, vibrantly green body. It's Rapolas, all right. He's lying on his back on the muddy bank, a few feet from the river's edge. He's damp, but not waterlogged. Rigor mortis has already set in, his limbs stiff and cold. The first, most obvious thing is that his face is remarkably clean no frothy foam, no panicked grimace. He just looks -- exhausted.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RAPOLAS_BODY_hub"
+      }
+    ]
+  },
+  "RAPOLAS_BODY_hub": {
+    "npc": "YOU",
+    "text": null,
+    "set_flag": "rapolas_body_reached_hub = true",
+    "choices": [
+      {
+        "text": "(Examine his head and mouth for signs of drowning.)",
+        "target_node": "RAPOLAS_BODY_Ba2_A",
+        "set_flag": "body_examined_head = true"
+      },
+      {
+        "text": "(Examine his hands and feet.)",
+        "target_node": "RAPOLAS_BODY_Ba3_A",
+        "set_flag": "body_examined_hands = true"
+      },
+      {
+        "text": "(Look closer at the shredded feet for trace evidence.)",
+        "target_node": "RAPOLAS_BODY_Ba3a_A",
+        "condition": "body_examined_hands == true",
+        "set_flag": "body_examined_feet_trace = true"
+      },
+      {
+        "text": "(Try to determine the time of death.)",
+        "target_node": "RAPOLAS_BODY_Ba4_A",
+        "set_flag": "body_examined_time = true"
+      },
+      {
+        "text": "What does it all mean?",
+        "target_node": "RAPOLAS_BODY_Ba6_A",
+        "condition": "body_examined_time == true",
+        "set_flag": "body_asked_meaning = true"
+      },
+      {
+        "text": "(Conclude the examination.) (Leave.)",
+        "target_node": "RAPOLAS_BODY_end"
+      }
+    ]
+  },
+  "RAPOLAS_BODY_re_entry": {
+    "npc": "THE NARRATOR",
+    "text": "You return to examine Rapolas's body.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RAPOLAS_BODY_hub"
+      }
+    ]
+  },
+  "RAPOLAS_BODY_Ba2_A": {
+    "npc": "THE NARRATOR",
+    "text": "You gently open the frog's wide mouth. There is no water, no algae, no river mud. You lean in closer. Beneath the damp, river-scent, another smell hits you, powerful and sweet: fermented honey. It's midus (mead), and it's so strong it almost makes your eyes water.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RAPOLAS_BODY_Ba2_B"
+      }
+    ]
+  },
+  "RAPOLAS_BODY_Ba2_B": {
+    "npc": "THE LUNAR EYE",
+    "text": "This frog was completely hammered. But he didn't drown",
+    "is_key_statement": true,
+    "statement_title": "Autopsy Finding",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RAPOLAS_BODY_hub"
+      }
+    ]
+  },
+  "RAPOLAS_BODY_Ba3_A": {
+    "npc": "THE NARRATOR",
+    "text": "You check his webbed hands first. They are limp, relaxed. Not clenched, not grasping any river-bottom weeds or mud, which you'd expect from a panicked, drowning victim. Then you look at his feet. You stop.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RAPOLAS_BODY_Ba3_B"
+      }
+    ]
+  },
+  "RAPOLAS_BODY_Ba3_B": {
+    "npc": "THE LUNAR EYE",
+    "text": "This is... wrong. The sticky, specialized toe pads of the tree frog are utterly shredded. They are raw, bloody, and abraded, as if he's been rubbing them on a coarse, hard surface for hours. These injuries didn't happen here.",
+    "is_key_statement": true,
+    "statement_title": "Autopsy Finding",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RAPOLAS_BODY_hub"
+      }
+    ]
+  },
+  "RAPOLAS_BODY_Ba3a_A": {
+    "npc": "THE NARRATOR",
+    "text": "You lean in, your detective's eye catching something unnatural. Tucked into the raw, abraded flesh of his toe pads are minuscule fragments. They're not from the wet, soft mud of the riverbank. They are bits of dry, dead leaves, and particles of hard grit. It looks like debris from the forest floor, ground deep into the wounds.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RAPOLAS_BODY_Ba3a_B"
+      }
+    ]
+  },
+  "RAPOLAS_BODY_Ba3a_B": {
+    "npc": "THE LUNAR EYE",
+    "text": "He was on the forest floor, not in the river. These injuries are from extreme friction. Investigating the surrounding area would be a good idea.",
+    "is_key_statement": true,
+    "statement_title": "Autopsy Finding",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RAPOLAS_BODY_hub"
+      }
+    ]
+  },
+  "RAPOLAS_BODY_Ba4_A": {
+    "npc": "THE LUNAR EYE",
+    "text": "The body is stiff with full rigor mortis, and the blood has settled (livor mortis) along his back, where he lies. Given the cool autumn temperature, you'd place his death roughly 10 to 12 hours ago, sometime in the dead of night.",
+    "is_key_statement": true,
+    "statement_title": "Autopsy Finding",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RAPOLAS_BODY_hub"
+      }
+    ]
+  },
+  "RAPOLAS_BODY_Ba6_A": {
+    "npc": "THE LUNAR EYE",
+    "text": "It means that it likely wasn't an accident -- but a homicide. The killer wanted this body found. The question is -- why?",
+    "is_key_statement": true,
+    "statement_title": "Autopsy Finding",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RAPOLAS_BODY_hub"
+      }
+    ]
+  },
+  "RAPOLAS_BODY_end": {
+    "npc": "THE NARRATOR",
+    "text": "You conclude the examination of Rapolas's body.",
+    "is_end": true,
+    "choices": []
+  }
+}
+  

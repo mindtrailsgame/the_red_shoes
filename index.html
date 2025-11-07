@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE RED SHOES</title>
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2c3e50">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="html5-qrcode.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <!-- This wrapper creates the phone-like container for our app -->
+    <div class="phone-wrapper">
+
+        <!-- Screen 1: Team Registration (Visible by default) -->
+        <div id="start-screen" class="screen active">
+            <h1>THE RED SHOES</h1>
+            <p>Enter your team's name to begin the investigation.</p>
+            <input type="text" id="team-name-input" placeholder="e.g., The Gumshoes">
+            <button id="start-btn" class="btn btn-primary">Start Investigation</button>
+        </div>
+
+        <!-- Screen 2: Main Game Screen (Initially hidden) -->
+        <div id="game-screen" class="screen">
+            <button id="case-files-btn" class="case-files-button">🗂️</button>
+            <header class="game-header">
+                <h2 id="team-name-display">Team Name</h2>
+                <div class="header-info">Case Log</div>
+            </header>
+
+            <main class="game-content" id="game-content" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 20px;">
+                <p>You are ready to investigate.</p>
+                <button id="scan-qr-btn" class="btn btn-primary">Scan NPC QR Code</button>
+                <button id="test-convo-btn" class="btn btn-secondary" style="display: none;">Test</button>
+            </main>
+            
+            <main class="dialogue-container" id="dialogue-container">
+                <div id="npc-dialogue">
+                    <div class="dialogue-scroll-content">
+    
+                    <div id="current-dialogue-wrapper">
+                        <h3 id="npc-name">NPC Name</h3>
+                        <p id="npc-text">NPC dialogue will appear here...</p>
+                            <div id="choice-indicator"></div>
+                    </div>
+
+                    <div id="dialogue-history"></div>
+                        </div>
+
+               
+                    </div>
+                </div>
+            </main>
+
+            <div id="player-dialogue">
+                <div id="player-response-text" class="btn">
+                    ...
+                </div>
+                <div id="response-dots">
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 3: End Screen (Initially hidden) -->
+        <div id="end-screen" class="screen">
+            <h2>Investigation Complete</h2>
+            <p>Submit your final accusation or review your case files.</p>
+            <!-- We'll add the final accusation form here later -->
+            <button id="restart-btn" class="btn btn-secondary">Start a New Game</button>
+        </div>
+
+         <div id="toast-notification"></div>
+
+         <div id="case-files-panel">
+        <header class="case-files-header">
+            <h2>Case files</h2>
+            <button id="close-case-files-btn" class="close-button">&times;</button>
+        </header>
+
+    <div class="case-files-body">
+
+        <div id="case-files-content">
+            </div>
+
+        <div id="final-accusation-section">
+            <h3>Final accusation</h3>
+            
+            <div class="accusation-group">
+                <h4>Who's responsible for the death of Rapolas?</h4>
+                <p>Select all that you think are quilty.</p>
+                <div id="suspect-checklist" class="checklist-container">
+                    </div>
+            </div>
+
+            <div class="accusation-group" id="motive-group">
+                <h4>What was the motive?</h4>
+                <p>Select a motive.</p>
+                <div id="motive-checklist" class="checklist-container">
+                    </div>
+            </div>
+
+            <button id="submit-accusation-btn" class="btn btn-primary">Save the accusation</button>
+    </div>
+ </div> 
+
+ <div class="case-files-nav">
+        <button id="nav-btn-suspects" class="nav-button active">
+            🗂️ Case Files
+        </button>
+        <button id="nav-btn-accusation" class="nav-button">
+            ⚖️ Accusation
+        </button>
+    </div>
+</div>
+
+    <div id="qr-scan-screen" class="screen">
+            <h2>Scan NPC QR Code</h2>
+            <div id="qr-reader"></div>
+            <button id="cancel-scan-btn" class="btn btn-secondary">Cancel</button>
+    
+    </div>
+    
+    </div>
+
+   <script src="app.js"></script>
+
+</body>
+</html>
