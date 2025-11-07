@@ -553,7 +553,8 @@ body {
     transform: scale(1.1);
 }
 
-/* --- QR Scanner Screen (GRĄŽINTAS ORIGINALAS) --- */
+
+/* --- QR Scanner Screen --- */
 #qr-scan-screen {
     position: fixed;
     top: 0;
@@ -562,59 +563,61 @@ body {
     height: 100%;
     z-index: 500;
 
-    background-color: #000; /* Juodas fonas kamerai */
+    background-color: #000; /* Juodas fonas, kol kamera kraunasi */
     padding: 0;
 
-    flex-direction: column; 
-    justify-content: flex-start;
+    /* Flex naudojame tik UI elementų (mygtukų, teksto) centravimui */
+    display: none; /* JS tai pakeis į 'flex' kai reikės */
+    flex-direction: column;
+    justify-content: center; /* Centruojame viską */
     align-items: center;
 }
 
-.screen.active {
+/* Užtikriname, kad aktyvus ekranas būtų matomas */
+#qr-scan-screen.active {
     display: flex;
 }
 
 #qr-scan-screen h2 {
     position: absolute;
     top: 40px;
-    left: 0;
-    right: 0;
-    z-index: 10;
+    width: 100%;
+    z-index: 20; /* Aukščiau už kamerą */
     
     color: white;
     text-align: center;
-    margin: 0; 
-    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.9); /* Stipresnis šešėlis geresniam matomumui */
 }
 
 #cancel-scan-btn {
     position: absolute;
     bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-
-    width: 80%; 
+    z-index: 20; /* Aukščiau už kamerą */
+    
+    width: 80%;
     max-width: 300px;
-    margin-top: 0;
 }
 
 #qr-reader {
-    position: absolute;
+    /* Tai yra pagrindinis konteineris kamerai */
+    position: absolute !important; /* Priverstinai fiksuota pozicija */
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    border: none !important; /* Užtikriname, kad nebūtų rėmelių */
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 10; /* Žemiau už tekstą ir mygtukus, bet virš fono */
+    border: none !important;
     overflow: hidden;
 }
 
+/* Priverstiniai stiliai pačiam video elementui, kurį sukuria biblioteka */
 #qr-reader video {
     width: 100% !important;
     height: 100% !important;
-    object-fit: cover !important;
+    object-fit: cover !important; /* Užpildo visą ekraną neiškraipant vaizdo */
+    display: block !important;
 }
-
 /* --- Galutinio kaltinimo stiliai (TAMSŪS) --- */
 #final-accusation-section {
     padding: 20px;
