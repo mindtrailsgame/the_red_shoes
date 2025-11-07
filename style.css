@@ -1,6 +1,5 @@
 /* --- 1. Color Theme & Core Styles --- */
 :root {
-    /* NAUJA: Tamsi tema, bet nekeičiant išdėstymo kintamųjų */
     --primary-dark: #0c1618;
     --primary-teal: #1a3c40;
     --accent-red: #c0392b;
@@ -15,19 +14,16 @@
     box-sizing: border-box;
 }
 
-/* --- Definitive Container and Layout Styles --- */
 html {
     height: 100%;
     width: 100%; 
 }
 
 body {
-    font-family: 'Georgia', serif; /* Detektyvinis šriftas */
+    font-family: 'Georgia', serif;
     margin: 0;
-    /* NAUJA: Tamsus fonas */
     background-color: var(--primary-dark);
     color: var(--text-light);
-    
     position: fixed;
     top: 0;
     left: 0;
@@ -36,53 +32,45 @@ body {
     overflow: hidden; 
 }
 
-/* --- The App's 'Jail' --- */
+/* --- 2. The App's 'Jail' & Backgrounds --- */
 .phone-wrapper {
     width: 100%;
-    height: 100%; /* Pakeista iš var(--app-height) į 100% stabilumui, jei JS nesuveikia */
+    height: 100%;
     position: relative;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-
-    /* NAUJA: Pagrindinis fonas */
     background-image: url('main_game_background.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
 }
 
-/* --- Screen Management --- */
+/* --- 3. Screen Management --- */
 .screen {
     display: none;
     flex-direction: column;
     flex-grow: 1;
     min-height: 0;
     padding: 25px;
-    /* text-align: left; <-- Išimame, kad netrukdytų centravimui starto ekrane */
 }
 
 .screen.active {
     display: flex;
 }
 
-/* --- Start Screen Specifics --- */
+/* --- 4. Start Screen --- */
 #start-screen {
-    /* GRĄŽINTA: Tavo originalios pozicijos */
     justify-content: center;
-    align-items: center; /* Pridėta, kad centruotų ir horizontaliai */
+    align-items: center;
     gap: 20px;
-
-    /* NAUJA: Starto ekrano fonas */
     background-image: url('opening_background.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
 }
 
-#start-screen h1 {
-    display: none; /* Paslepiame tekstą, nes turime paveikslėlį */
-}
+#start-screen h1 { display: none; }
 
 #start-screen p {
     font-size: 1.2em;
@@ -99,24 +87,25 @@ body {
     border-radius: 12px;
     width: 80%;
     max-width: 300px;
-
-    /* NAUJA: Stiklinis stilius */
     background: rgba(0, 0, 0, 0.6);
     border: 2px solid rgba(255, 255, 255, 0.2);
     color: white;
     backdrop-filter: blur(5px);
 }
 
-/* --- Game Screen Specifics --- */
-.game-header {
-    display: none;
+/* --- 5. Game Screen --- */
+#game-screen {
+    position: relative;
+    padding: 0;
+    background: transparent;
 }
+
+.game-header { display: none; }
 
 .game-content {
     flex-grow: 1;
     padding: 20px;
     overflow-y: auto;
-    /* NAUJA: Centruojame "You are ready..." tekstą */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -124,7 +113,6 @@ body {
 }
 
 .game-content p {
-    /* NAUJA: Kad tekstas būtų įskaitomas ant fono */
     font-size: 1.4em;
     text-align: center;
     color: var(--text-light);
@@ -135,7 +123,7 @@ body {
     backdrop-filter: blur(3px);
 }
 
-/* --- General Button Styles --- */
+/* --- 6. Buttons --- */
 .btn {
     padding: 15px 25px;
     font-size: 1em;
@@ -153,9 +141,7 @@ body {
     color: white;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
-.btn-primary:hover {
-    background-color: #a93226;
-}
+.btn-primary:hover { background-color: #a93226; }
 
 .btn-secondary {
     background-color: rgba(255, 255, 255, 0.1);
@@ -163,43 +149,26 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(5px);
 }
-.btn-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
 
-/* --- NPC Panel (GRĄŽINTOS POZICIJOS) --- */
-#game-screen {
-    position: relative;
-    padding: 0;
-    background: transparent; /* Svarbu, kad matytųsi fonas */
-}
-
+/* --- 7. NPC Dialogue Panel (SUTAISYTA) --- */
 .dialogue-container {
     display: none;
     position: absolute;
     left: 0px;
     right: 0px;
+    bottom: 0px; /* Tavo originali pozicija */
     
-    /* GRĄŽINTA: Tavo originali pozicija */
-    bottom: 0px; 
-    
-    /* NAUJA: Tamsus stiklinis fonas */
     background-color: var(--glass-bg);
     color: var(--text-dim);
     border-top: var(--glass-border);
-    
-    border-radius: 0px;
     box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
     z-index: 10;
     transition: top 0.4s ease-out, bottom 0.4s ease-out;
 }
-.dialogue-container.is-active {
-    display: flex;
-}
-
+.dialogue-container.is-active { display: flex; }
 .dialogue-container.is-expanded {
     top: 0px;
-    bottom: -187px; /* GRĄŽINTA: Tavo originali reikšmė */
+    bottom: -187px; /* Tavo originali pozicija */
 }
 
 .dialogue-container::after {
@@ -221,14 +190,11 @@ body {
     flex-direction: column;
 }
 
-/* GRĄŽINTA: Tai paslėps "NPC Name" tekstą, kuris tave erzino */
-#npc-name {
-    display: none;
-}
+#npc-name { display: none; } /* Paslepiame vardą */
 
 .npc-prefix {
     font-weight: bold;
-    color: var(--accent-red); /* NAUJA: Raudona spalva */
+    color: var(--accent-red);
 }
 
 #npc-text {
@@ -237,14 +203,16 @@ body {
     color: var(--text-light);
 }
 
+/* GRĄŽINTA: Tavo originali slinkimo logika */
 .dialogue-scroll-content {
     width: 100%;
     height: 100%;
     overflow-y: auto;
     padding: 20px 30px;
     box-sizing: border-box;
+    
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column-reverse; /* Svarbu: naujas tekstas apačioje */
     align-items: flex-start;
 }
 
@@ -256,61 +224,48 @@ body {
     opacity: 0.7;
     width: 100%;
 }
-.dialogue-container.is-expanded #dialogue-history {
-    display: block;
-}
+.dialogue-container.is-expanded #dialogue-history { display: block; }
 .player-line { color: #a8d0e6; align-self: flex-end; text-align: right; }
 .npc-line { align-self: flex-start; }
 
-/* --- Player Choices Bar (GRĄŽINTOS POZICIJOS) --- */
+/* --- 8. Player Choices Bar (SUTAISYTA SPALVA IR TEKSTAS) --- */
 #player-dialogue {
     display: none;
     flex-shrink: 0; 
     margin-top: auto; 
     padding: 5px;
-    
-    /* NAUJA: Permatomas fonas, nes jis turi savo atskirus elementus */
     background-color: transparent; 
     border-top: none;
-
     flex-direction: column;
     align-items: center;
-    
-    /* GRĄŽINTA: Tavo fiksuotas aukštis */
-    height: 229px;
+    height: 229px; /* Tavo originalus aukštis */
     position: relative;
     z-index: 5;
     transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+#player-dialogue.is-active { display: flex; }
 #player-dialogue.is-hidden {
     transform: translateY(100%);
     pointer-events: none;
 }
 
-#player-dialogue.is-active {
-    display: flex;
-}
-
 #player-response-text {
     width: 100%;
-    /* NAUJA: Raudonas stiklinis fonas */
-    background-color: rgba(192, 57, 43, 0.95);
-    color: white;
+    /* PAKEISTA: Tamsus, neutralus fonas */
+    background-color: rgba(20, 20, 20, 0.95);
+    color: var(--text-light);
     border: 1px solid rgba(255,255,255,0.2);
+    
+    /* PAKEISTA: Normalus tekstas (nebe didžiosiomis) */
+    text-transform: none; 
 
     padding: 15px 30px;
     box-sizing: border-box;
-  
-    /* GRĄŽINTA: Tavo tikslios pozicijos */
     position: absolute;  
-    top: 0;              
-    left: 0;             
-    right: 0;            
-    bottom: 80px;
-    
+    top: 0; left: 0; right: 0; bottom: 80px;
     overflow-y: auto;
-    border-radius: 12px; /* Šiek tiek apvalinti kampai atrodo geriau */
+    border-radius: 12px;
     box-shadow: 0 -5px 20px rgba(0,0,0,0.3);
     font-size: 1.1em;
 }
@@ -326,13 +281,8 @@ body {
     gap: 15px;
     justify-content: center;
     position: absolute;
-    
-    /* GRĄŽINTA: Tavo tiksli pozicija */
     bottom: calc(56px + env(safe-area-inset-bottom));
-    left: 0;
-    right: 0;
-
-    /* NAUJA: Fonas geresniam matomumui */
+    left: 0; right: 0;
     background: rgba(0,0,0,0.3);
     padding: 10px;
     border-radius: 30px;
@@ -341,14 +291,11 @@ body {
 }
 
 .response-dot {
-    width: 15px;
-    height: 15px;
+    width: 15px; height: 15px;
     background-color: rgba(255,255,255,0.3);
-    border-radius: 50%;
-    cursor: pointer;
+    border-radius: 50%; cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
-.response-dot:hover { background-color: rgba(255,255,255,0.5); }
 .response-dot.active {
     background-color: var(--accent-red);
     transform: scale(1.3);
@@ -360,29 +307,7 @@ body {
     cursor: not-allowed;
 }
 
-/* --- Toast Notification --- */
-#toast-notification {
-    position: absolute;
-    bottom: -100px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--accent-red); /* NAUJA spalva */
-    color: white;
-    padding: 12px 25px;
-    border-radius: 20px;
-    z-index: 1000;
-    opacity: 0;
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    font-size: 1em;
-    font-weight: bold;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-}
-#toast-notification.show {
-    opacity: 1;
-    bottom: 30px;
-}
-
-/* --- Icons & Buttons (NAUJA) --- */
+/* --- 9. Icons & Buttons --- */
 .case-files-button {
     position: absolute; top: 20px; right: 20px; z-index: 50;
     background: rgba(0, 0, 0, 0.5);
@@ -405,9 +330,8 @@ body {
     background-size: 20px;
 }
 #choice-indicator.is-visible { display: block; }
-#choice-indicator:hover { opacity: 1; transform: scale(1.1); }
 
-/* --- Case Files Panel (NAUJA TEMA + FLEX) --- */
+/* --- 10. Case Files Panel --- */
 #case-files-panel {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 300;
     background-color: var(--primary-dark);
@@ -461,7 +385,7 @@ body {
 .nav-icon { height: 28px; width: auto; opacity: 0.6; }
 .nav-button.active .nav-icon { opacity: 1; filter: drop-shadow(0 0 5px var(--accent-red)); }
 
-/* --- Accusation (Tamsi) --- */
+/* --- 11. Accusation & Checklists --- */
 #final-accusation-section h3 { color: var(--accent-red); margin-top: 0; }
 #final-accusation-section p { color: var(--text-dim); }
 .accusation-group h4 { color: var(--text-light); }
@@ -476,10 +400,11 @@ body {
 .checkbox-item input { margin-right: 15px; transform: scale(1.3); accent-color: var(--accent-red); }
 #motive-group { display: none; }
 
-/* --- Loading Screen (GRĄŽINTAS CENTRAVIMAS) --- */
+/* --- 12. Loading Screen (SUTAISYTAS CENTRAVIMAS) --- */
 #loading-screen {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999;
     background-color: var(--primary-dark); color: var(--text-light);
+    /* Griežtas centravimas */
     display: flex; flex-direction: column; justify-content: center; align-items: center;
     text-align: center; padding: 30px;
 }
@@ -492,7 +417,7 @@ body {
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* --- QR Scanner --- */
+/* --- 13. QR & Toast --- */
 #qr-scan-screen {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 500;
     background-color: #000; flex-direction: column; align-items: center;
@@ -505,7 +430,16 @@ body {
 #qr-reader video { width: 100% !important; height: 100% !important; object-fit: cover; }
 #cancel-scan-btn { position: absolute; bottom: 40px; z-index: 10; width: 80%; max-width: 300px; }
 
-/* --- Animations --- */
+#toast-notification {
+    position: absolute; bottom: -100px; left: 50%; transform: translateX(-50%);
+    background-color: var(--accent-red); color: white; padding: 12px 25px;
+    border-radius: 20px; z-index: 1000; opacity: 0;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+#toast-notification.show { opacity: 1; bottom: 30px; }
+
+/* --- 14. Animations --- */
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 #npc-text.is-entering { animation: fadeIn 0.5s ease-in-out; }
 #current-dialogue-wrapper { position: relative; overflow: hidden; min-height: 1.5em; }
