@@ -1,29 +1,31 @@
-/* --- 1. Color Theme & Core Styles --- */
+/* --- Color Theme & Core Styles --- */
 :root {
-    --primary-dark: #0c1618;
-    --primary-teal: #1a3c40;
-    --accent-red: #c0392b;
-    --text-light: #e6e6e6;
-    --text-dim: #b3b3b3;
-    
-    --glass-bg: rgba(15, 23, 26, 0.95); 
-    --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+    /* PAKEISTA: Naujos tamsios temos spalvos */
+    --primary-color: #0c1618;  /* Buvo #2c3e50 */
+    --secondary-color: #1a3c40; /* Buvo #ecf0f1 */
+    --accent-color: #c0392b;   /* Buvo #e74c3c - palikau panašią raudoną */
+    --light-bg: #0c1618;       /* Buvo #e7e4e4 - dabar tamsus fonas */
+    --text-color: #e6e6e6;     /* NAUJA: Šviesus tekstas tamsiam fonui */
+    --glass-bg: rgba(20, 20, 20, 0.95); /* NAUJA: Pusiau permatomas fonas elementams */
 }
 
 ::before, *::after {
     box-sizing: border-box;
 }
 
+/* --- Definitive Container and Layout Styles --- */
 html {
     height: 100%;
     width: 100%; 
 }
 
 body {
-    font-family: 'Georgia', serif;
+    font-family: 'Georgia', serif; /* PAKEISTA: Detektyvinis šriftas */
     margin: 0;
-    background-color: var(--primary-dark);
-    color: var(--text-light);
+    background-color: var(--light-bg);
+    color: var(--text-color); /* PAKEISTA: Naudojame šviesų tekstą */
+    
+    /* --- RAKTAS Į STABILUMĄ YRA ČIA --- */
     position: fixed;
     top: 0;
     left: 0;
@@ -32,99 +34,110 @@ body {
     overflow: hidden; 
 }
 
-/* --- 2. The App's 'Jail' & Backgrounds --- */
+/* --- The App's 'Jail' --- */
 .phone-wrapper {
     width: 100%;
-    height: 100%;
+    height: var(--app-height, 100vh);
+   
     position: relative;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+
+    /* NAUJA: Pagrindinis fonas */
     background-image: url('main_game_background.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
 }
 
-/* --- 3. Screen Management --- */
+/* --- Screen Management --- */
 .screen {
     display: none;
     flex-direction: column;
     flex-grow: 1;
     min-height: 0;
     padding: 25px;
-    text-align: center; 
+    text-align: left;
 }
 
 .screen.active {
     display: flex;
 }
 
-/* --- 4. Start Screen --- */
+/* --- Start Screen Specifics --- */
 #start-screen {
     justify-content: center;
-    align-items: center;
     gap: 20px;
+    /* NAUJA: Starto ekrano fonas ir centravimas */
     background-image: url('opening_background.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+    align-items: center; 
 }
 
-#start-screen h1 { display: none; }
+#start-screen h1 {
+    /* PAKEISTA: Paslepiame tekstą, nes jis yra paveikslėlyje */
+    display: none; 
+}
 
 #start-screen p {
-    font-size: 1.2em;
+    font-size: 1.2em; /* Šiek tiek didesnis */
     line-height: 1.5;
-    color: var(--text-light);
-    text-shadow: 0px 2px 4px rgba(0,0,0,0.8);
+    text-align: center; /* Centruojame tekstą */
+    text-shadow: 0px 2px 4px rgba(0,0,0,0.8); /* Šešėlis skaitomumui */
 }
 
 #team-name-input {
     padding: 15px;
     font-size: 1.1em;
-    text-align: center;
-    border-radius: 12px;
-    width: 80%;
-    max-width: 300px;
-    background: rgba(0, 0, 0, 0.6);
+    /* PAKEISTA: Stiklinis stilius įvedimo laukui */
     border: 2px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.6);
     color: white;
+    border-radius: 12px;
+    text-align: center;
     backdrop-filter: blur(5px);
 }
 
-/* --- 5. Game Screen --- */
-#game-screen {
-    position: relative;
-    padding: 0;
-    background: transparent;
-    text-align: left;
+/* --- Game Screen Specifics --- */
+
+.game-header {
+    display:none;
 }
 
-.game-header { display: none; }
+.game-header h2 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.header-info {
+    font-size: 1em;
+    opacity: 0.8;
+}
 
 .game-content {
     flex-grow: 1;
     padding: 20px;
     overflow-y: auto;
+    text-align: center;
+    /* NAUJA: Centruojame turinį */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-
+/* NAUJA: Stilius pradiniam tekstui */
 .game-content p {
     font-size: 1.4em;
-    text-align: center;
-    color: var(--text-light);
-    text-shadow: 0 2px 10px rgba(0,0,0,0.7);
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.5);
     padding: 15px 25px;
     border-radius: 50px;
     backdrop-filter: blur(3px);
 }
 
-/* --- 6. Buttons --- */
+/* --- General Button Styles --- */
 .btn {
     padding: 15px 25px;
     font-size: 1em;
@@ -132,58 +145,83 @@ body {
     border-radius: 12px;
     cursor: pointer;
     transition: background-color 0.2s;
-    font-weight: bold;
-    text-transform: uppercase; /* Mygtukams paliekame didžiąsias, nes atrodo geriau */
-    letter-spacing: 1px;
+    font-weight: bold; /* Paryškiname tekstą */
 }
 
 .btn-primary {
-    background-color: var(--accent-red);
+    background-color: var(--accent-color);
     color: white;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
-.btn-primary:hover { background-color: #a93226; }
+.btn-primary:hover {
+    background-color: #a93226;
+}
 
 .btn-secondary {
+    /* PAKEISTA: Tamsesnis, permatomas stilius */
     background-color: rgba(255, 255, 255, 0.1);
-    color: var(--text-light);
+    color: var(--text-color);
     border: 1px solid rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(5px);
 }
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
 
-/* --- 7. NPC Dialogue Panel --- */
+/* The #game-screen needs to be a positioning context for our absolute panel */
+#game-screen {
+    position: relative;
+    padding: 0;
+    background: transparent; /* Užtikriname, kad matytųsi fonas */
+}
+
+/* The floating NPC Panel */
 .dialogue-container {
-    display: none;
+    display: none; /* Controlled by JS */
     position: absolute;
     left: 0px;
     right: 0px;
-    bottom: 0px; /* ORIGINAL POZICIJA */
     
+    bottom: 0px; /* Adjust this value based on the player-dialogue height */
+    
+    /* PAKEISTA: Tamsus stiklinis fonas */
     background-color: var(--glass-bg);
-    color: var(--text-dim);
-    border-top: var(--glass-border);
+    color: var(--text-color);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    
+    border-radius: 0px;
     box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
+
     z-index: 10;
+
+    /* Smoothly animate top and bottom properties for the accordion effect */
     transition: top 0.4s ease-out, bottom 0.4s ease-out;
 }
-.dialogue-container.is-active { display: flex; }
-.dialogue-container.is-expanded {
-    top: 0px;
-    bottom: -187px; /* ORIGINAL POZICIJA */
+.dialogue-container.is-active {
+    display: flex; /* Make it visible */
 }
 
+/* The EXPANDED state */
+.dialogue-container.is-expanded {
+    /* Expand upwards */
+    top: 0px; /* Leaves space for the game header */
+    /* Expand downwards to cover the screen */
+    bottom: -187px;
+}
+
+/* The handle is now attached to the container itself */
 .dialogue-container::after {
     content: '';
     position: absolute;
-    bottom: 8px;
+    bottom: 8px; /* At the bottom of the panel */
     left: 50%;
     transform: translateX(-50%);
     width: 50px;
     height: 5px;
-    background-color: rgba(255,255,255,0.3);
+    background-color: rgba(255, 255, 255, 0.3); /* Šiek tiek skaidresnė */
     border-radius: 3px;
 }
 
+/* This inner container just holds the content */
 #npc-dialogue {
     width: 100%;
     height: 100%;
@@ -191,100 +229,104 @@ body {
     flex-direction: column;
 }
 
-#npc-name { display: none; }
+#npc-name {
+    display: none;
+}
 
 .npc-prefix {
     font-weight: bold;
-    color: var(--accent-red);
-}
-
-#npc-text {
-    font-size: 1.15em;
-    line-height: 1.5;
-    color: var(--text-light);
-    /* PATAISYTA: Užtikriname, kad tekstas nebūtų didžiosiomis raidėmis */
-    text-transform: none !important; 
+    color: var(--accent-color); /* PAKEISTA: Raudona spalva vardams */
 }
 
 .dialogue-scroll-content {
     width: 100%;
     height: 100%;
-    overflow-y: auto;
+    overflow-y: auto; /* Allow scrolling */
     padding: 20px 30px;
     box-sizing: border-box;
-    /* GRĄŽINTA: Originalus išdėstymas, kuris tau veikė gerai */
+
+    /* ORIGINALUS VEIKIMAS GRĄŽINTAS */
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column-reverse; 
     align-items: flex-start;
 }
 
 #dialogue-history {
     display: none;
     padding-bottom: 20px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     margin-bottom: 20px;
     opacity: 0.7;
-    width: 100%;
 }
-.dialogue-container.is-expanded #dialogue-history { display: block; }
-.history-entry { margin-bottom: 12px; }
-.player-line { color: #a8d0e6; align-self: flex-end; text-align: right; }
-.npc-line { align-self: flex-start; }
+.dialogue-container.is-expanded #dialogue-history {
+    display: block;
+}
 
-/* --- 8. Player Choices Bar --- */
+/* The STATIC Player Choices Bar */
 #player-dialogue {
-    display: none;
+    display: none; /* .is-active will change this */
     flex-shrink: 0; 
     margin-top: auto; 
     padding: 5px;
+    
+    /* PAKEISTA: Permatomas fonas */
     background-color: transparent; 
     border-top: none;
-    flex-direction: column;
-    align-items: center;
-    height: 229px; /* ORIGINAL POZICIJA */
-    position: relative;
+
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;    /* Center them horizontally */
+    height: 229px;        /* 1. Give it a fixed, predictable height. Adjust as needed. */
+    position: relative;             /* <-- This controls the space! Adjust as needed. */
     z-index: 5;
-    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); /* This makes it slide smoothly */
 }
 
-#player-dialogue.is-active { display: flex; }
 #player-dialogue.is-hidden {
     transform: translateY(100%);
-    pointer-events: none;
+    pointer-events: none; /* Prevents accidental taps while hidden */
+}
+
+#player-dialogue.is-active {
+    display: flex; 
 }
 
 #player-response-text {
     width: 100%;
+    /* PAKEISTA: Tamsus, neutralus fonas vietoje raudono */
     background-color: rgba(20, 20, 20, 0.95);
-    color: var(--text-light);
+    color: var(--text-color);
     border: 1px solid rgba(255,255,255,0.3);
-    
-    /* PATAISYTA: Užtikriname normalų tekstą */
-    text-transform: none !important;
 
-    padding: 15px 30px;
-    box-sizing: border-box;
+    padding: 13px 30px;
+    box-sizing: border-box; 
+  
     position: absolute;  
-    top: 0; left: 0; right: 0; bottom: 80px; /* ORIGINAL POZICIJA */
-    overflow-y: auto;
-    border-radius: 12px;
+    top: 0;              
+    left: 0;             
+    right: 0;            
+    bottom: 80px;         
+    
+    overflow-y: auto;     
+    border-radius: 12px; /* Šiek tiek apvalinti kampai */
     box-shadow: 0 -5px 20px rgba(0,0,0,0.3);
-    font-size: 1.1em;
 }
 
 .player-prefix {
-    font-weight: normal;
-    color: rgba(255,255,255,0.6);
-    margin-right: 5px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.6);
 }
 
 #response-dots {
     display: flex;
     gap: 15px;
     justify-content: center;
-    position: absolute;
-    bottom: calc(56px + env(safe-area-inset-bottom)); /* ORIGINAL POZICIJA */
-    left: 0; right: 0;
+    position: absolute; 
+    bottom: calc(56px + env(safe-area-inset-bottom));
+    left: 0;            
+    right: 0;
+    
+    /* NAUJA: Fonas geresniam matomumui */
     background: rgba(0,0,0,0.3);
     padding: 10px;
     border-radius: 30px;
@@ -293,175 +335,480 @@ body {
 }
 
 .response-dot {
-    width: 15px; height: 15px;
-    background-color: rgba(255,255,255,0.3);
-    border-radius: 50%; cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    width: 15px;
+    height: 15px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
+
+.response-dot:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
 .response-dot.active {
-    background-color: var(--accent-red);
+    background-color: var(--accent-color);
     transform: scale(1.3);
-    box-shadow: 0 0 10px var(--accent-red);
 }
+
 .response-dot.used {
     background-color: transparent;
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     cursor: not-allowed;
 }
 
-/* --- 9. Icons & Buttons --- */
+/* --- Toast Notification Styles --- */
+#toast-notification {
+    position: absolute;
+    bottom: -100px; /* Start hidden below the screen */
+    left: 50%;
+    transform: translateX(-50%);
+    /* PAKEISTA: Raudonas pranešimas */
+    background-color: var(--accent-color);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 20px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+    bottom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-size: 1em;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+#toast-notification.show {
+    opacity: 1;
+    bottom: 30px; /* Slide into view */
+}
+
+/* --- Case Files Icons --- */
 .case-files-button {
-    position: absolute; top: 20px; right: 20px; z-index: 50;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 10;
+
+    /* PAKEISTA: Tamsesnis, permatomas stilius */
     background: rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 12px; width: 60px; height: 60px;
-    padding: 10px; cursor: pointer; backdrop-filter: blur(5px);
-    display: flex; justify-content: center; align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border-radius: 12px; /* Kvadratinė su apvalintais kampais */
+    width: 60px;  /* Šiek tiek didesnis */
+    height: 60px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
 }
 .case-files-button img {
-    width: 100%; height: 100%; object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
     filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.5));
 }
 
+#case-files-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 300;
+    
+    transform: translateX(100%);
+    transition: transform 0.4s ease-in-out;
+
+    /* PAKEISTA: Tamsus fonas su tekstūra */
+    background-color: var(--primary-color);
+    background-image: linear-gradient(rgba(12, 22, 24, 0.97), rgba(12, 22, 24, 0.97)), url('main_game_background.jpg');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+#case-files-panel.is-open {
+    transform: translateX(0);
+}
+
+.case-files-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    /* PAKEISTA: Tamsi pusiau permatoma antraštė */
+    background-color: rgba(0,0,0,0.6);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    color: var(--text-color);
+    flex-shrink: 0;
+}
+
+.case-files-header h2 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 2.5em;
+    cursor: pointer;
+    line-height: 0.5;
+    opacity: 0.7;
+}
+
+#case-files-content {
+    padding: 20px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+/* Stiliai dinamiškai sukurtiems elementams (TAMSŪS) */
+.suspect-entry {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.suspect-entry h3 {
+    margin-top: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+    color: var(--accent-color);
+}
+
+.key-statement {
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border-left: 3px solid var(--accent-color);
+    background: rgba(0,0,0,0.2);
+    border-radius: 0 8px 8px 0;
+}
+
+.key-statement strong {
+    display: block;
+    color: var(--accent-color);
+}
+.key-statement-question {
+    color: var(--text-dim);
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+/* Konteineris, kuris "apkerpa" animaciją */
+#current-dialogue-wrapper {
+    position: relative;
+    overflow: hidden;
+    min-height: 1.5em; 
+}
+
+/* Pagrindinis stilius teksto elementui */
+#npc-text {
+    transform: translateY(0);
+    transition: transform 0.4s ease-in-out;
+    width: 100%;
+}
+
+#npc-text.is-entering {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(100%);
+}
+
+#npc-text.is-exiting {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-100%);
+}
+
+/* CHOICE INDICATOR */
 #choice-indicator {
-    display: none; width: 30px; height: 30px;
+    display: none;
+    width: 30px; /* Šiek tiek didesnis */
+    height: 30px;
     border: 2px solid rgba(255, 255, 255, 0.5);
-    border-radius: 50%; margin: 10px auto 0; cursor: pointer; opacity: 0.6;
+    border-radius: 50%;
+    margin: 10px auto 0;
+    cursor: pointer;
+    opacity: 0.6;
     transition: all 0.2s ease;
+    /* NAUJA: Rodyklės ikona */
     background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>') no-repeat center;
     background-size: 20px;
 }
-#choice-indicator.is-visible { display: block; }
 
-/* --- 10. Case Files Panel --- */
-#case-files-panel {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 300;
-    background-color: var(--primary-dark);
-    background-image: linear-gradient(rgba(12, 22, 24, 0.97), rgba(12, 22, 24, 0.97)), url('main_game_background.jpg');
-    background-size: cover;
-    transform: translateX(100%); transition: transform 0.4s ease-in-out;
-    display: flex; flex-direction: column;
+#choice-indicator.is-visible {
+    display: block;
 }
-#case-files-panel.is-open { transform: translateX(0); }
 
-.case-files-header {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 20px; background-color: rgba(0,0,0,0.5);
-    border-bottom: 1px solid rgba(255,255,255,0.1); flex-shrink: 0;
+#choice-indicator:hover {
+    opacity: 1;
+    transform: scale(1.1);
 }
-.case-files-header h2 { margin: 0; font-size: 1.2em; color: var(--text-light); }
-.close-button { background: none; border: none; color: var(--text-dim); font-size: 3em; cursor: pointer; line-height: 0.5; }
 
-.case-files-body { flex-grow: 1; position: relative; overflow: hidden; padding: 20px; }
-#case-files-content, #final-accusation-section {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    overflow-y: auto; padding: 20px; display: none; box-sizing: border-box;
-}
-#case-files-content.is-active-view, #final-accusation-section.is-active-view { display: block; }
-
-.suspect-entry {
-    background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 8px; padding: 20px; margin-bottom: 25px; color: var(--text-light);
-}
-.suspect-entry h3 {
-    margin-top: 0; border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding-bottom: 10px; color: var(--accent-red);
-}
-.key-statement {
-    margin-bottom: 20px; padding: 15px; border-left: 3px solid var(--accent-red);
-    background: rgba(0,0,0,0.2); border-radius: 0 8px 8px 0;
-}
-.key-statement-question { color: var(--text-dim); font-style: italic; margin-bottom: 5px; }
-.key-statement-answer span { color: var(--text-light); }
-
-.case-files-nav {
-    display: flex; flex-shrink: 0; background: rgba(0,0,0,0.8);
-    border-top: 1px solid rgba(255,255,255,0.1); height: 70px;
-}
-.nav-button {
-    flex: 1; background: transparent; border: none; color: var(--text-dim);
-    font-size: 0.9em; display: flex; flex-direction: column;
-    align-items: center; justify-content: center; gap: 5px; cursor: pointer;
-}
-.nav-button.active { color: var(--accent-red); background: rgba(255,255,255,0.05); }
-.nav-icon { height: 28px; width: auto; opacity: 0.6; }
-.nav-button.active .nav-icon { opacity: 1; filter: drop-shadow(0 0 5px var(--accent-red)); }
-
-/* --- 11. Accusation & Checklists --- */
-#final-accusation-section h3 { color: var(--accent-red); margin-top: 0; }
-#final-accusation-section p { color: var(--text-dim); }
-.accusation-group h4 { color: var(--text-light); }
-.checklist-container {
-    max-height: 250px; overflow-y: auto; background: rgba(0,0,0,0.3);
-    border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px;
-}
-.checkbox-item {
-    display: flex; align-items: center; padding: 12px;
-    border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-light);
-}
-.checkbox-item input { margin-right: 15px; transform: scale(1.3); accent-color: var(--accent-red); }
-#motive-group { display: none; }
-
-/* --- 12. Loading Screen (ORIGINAL POZICIJA) --- */
-#loading-screen {
-    /* PATAISYTA: Grąžintas position: fixed ir pilnas dydis */
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999;
-    background-color: var(--primary-dark); color: var(--text-light);
-    /* Centravimas */
-    display: flex; flex-direction: column; justify-content: center; align-items: center;
-    text-align: center; padding: 30px; box-sizing: border-box;
-}
-#loading-screen h2 { margin-top: 25px; color: white; }
-#loading-screen p { color: var(--text-dim); max-width: 80%; }
-.spinner {
-    display: block; width: 50px; height: 50px;
-    border: 5px solid rgba(255, 255, 255, 0.1); border-top-color: var(--accent-red);
-    border-radius: 50%; animation: spin 1s linear infinite;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
-
-/* --- 13. QR Scanner (ATKURTAS ORIGINALUS VEIKIMAS) --- */
+/* --- QR Scanner Screen (GRĄŽINTAS ORIGINALAS) --- */
 #qr-scan-screen {
-    /* GRĄŽINTA: Tikslus tavo originalus kodas, tik spalva #000 vietoje #111 */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 500;
-    background-color: #000;
+
+    background-color: #000; /* Juodas fonas kamerai */
     padding: 0;
-    flex-direction: column;
+
+    flex-direction: column; 
     justify-content: flex-start;
     align-items: center;
 }
+
+.screen.active {
+    display: flex;
+}
+
 #qr-scan-screen h2 {
-    position: absolute; top: 40px; left: 0; right: 0; z-index: 10;
-    color: white; text-align: center; margin: 0;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    
+    color: white;
+    text-align: center;
+    margin: 0; 
     text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
+
 #cancel-scan-btn {
-    position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
-    z-index: 10; width: 80%; max-width: 300px; margin-top: 0;
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+
+    width: 80%; 
+    max-width: 300px;
+    margin-top: 0;
 }
+
 #qr-reader {
-    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-    border: none; overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: none !important; /* Užtikriname, kad nebūtų rėmelių */
+    overflow: hidden;
 }
+
 #qr-reader video {
-    width: 100% !important; height: 100% !important; object-fit: cover;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
 }
 
-/* --- 14. Toasts & Animations --- */
-#toast-notification {
-    position: absolute; bottom: -100px; left: 50%; transform: translateX(-50%);
-    background-color: var(--accent-red); color: white; padding: 12px 25px;
-    border-radius: 20px; z-index: 1000; opacity: 0;
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+/* --- Galutinio kaltinimo stiliai (TAMSŪS) --- */
+#final-accusation-section {
+    padding: 20px;
+    background-color: transparent;
+    border-top: none;
+    flex-shrink: 0;
+    overflow-y: auto;
 }
-#toast-notification.show { opacity: 1; bottom: 30px; }
 
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-#npc-text.is-entering { animation: fadeIn 0.5s ease-in-out; }
-#current-dialogue-wrapper { position: relative; overflow: hidden; min-height: 1.5em; }
+#final-accusation-section h3 {
+    margin-top: 0;
+    color: var(--accent-color);
+}
+
+#final-accusation-section h4 {
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+#final-accusation-section p {
+    font-size: 0.9em;
+    color: var(--text-dim);
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.accusation-group {
+    margin-bottom: 20px;
+}
+
+.checklist-container {
+    max-height: 200px;
+    overflow-y: auto;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.checkbox-item {
+    display: flex; /* Geriau lygiavimui */
+    align-items: center;
+    padding: 12px 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    color: var(--text-color);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.checkbox-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.checkbox-item input {
+    margin-right: 15px;
+    transform: scale(1.3); 
+    accent-color: var(--accent-color);
+}
+
+#submit-accusation-btn {
+    width: 100%;
+}
+
+/* --- Bylų skydelio (Case Files) skirtukų stiliai --- */
+#case-files-panel {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.case-files-header {
+    flex-shrink: 0;
+}
+
+.case-files-body {
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+#case-files-content,
+#final-accusation-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto; 
+    display: none; 
+    padding: 20px;
+    box-sizing: border-box; 
+}
+
+.case-files-nav {
+    display: flex;
+    flex-shrink: 0;
+    background: rgba(0,0,0,0.8);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    height: 70px; /* Fiksuotas aukštis navigacijai */
+}
+
+.nav-button {
+    flex: 1; /* Užpildo plotį tolygiai */
+    background: transparent;
+    border: none;
+    color: var(--text-dim);
+    font-size: 0.9em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
+.nav-button:last-child {
+    border-right: none;
+}
+.nav-button.active {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--accent-color);
+}
+/* Stilius ikonoms navigacijoje */
+.nav-icon {
+    height: 28px;
+    width: auto;
+    opacity: 0.6;
+    transition: all 0.2s;
+}
+.nav-button.active .nav-icon {
+    opacity: 1;
+    filter: drop-shadow(0 0 5px var(--accent-color));
+}
+
+#case-files-content.is-active-view,
+#final-accusation-section.is-active-view {
+    display: block;
+}
+
+#motive-group {
+    display: none;
+}
+
+/* --- Loading Screen Styles (ORIGINALUS SU TAMSIA TEMA) --- */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    
+    /* NAUJA: Tamsus fonas */
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    margin: 0;
+    padding: 30px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#loading-screen h2 {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: white;
+    font-size: 1.5em;
+}
+
+#loading-screen p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1em;
+    line-height: 1.5;
+    max-width: 80%;
+}
+
+.spinner {
+    display: block;
+    width: 60px;
+    height: 60px;
+    
+    border: 6px solid rgba(255, 255, 255, 0.1);
+    border-top-color: var(--accent-color); /* Raudonas suktukas */
+    border-radius: 50%;
+    
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
