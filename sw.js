@@ -348,8 +348,3 @@ self.addEventListener('fetch', (event) => {
     );
 });
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 1106ac1ab9453e7a258d580f20cc7e11ff3a21fd
