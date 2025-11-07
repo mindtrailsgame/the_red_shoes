@@ -267,10 +267,12 @@ function playVoiceLine(nodeId) {
     // 4. Sukuriame kelia iki failo pagal naują aplankų struktūrą
     
     // Gauname prefiksą iš mazgo ID (pvz., "DAUMANTAS" iš "DAUMANTAS_intro")
-    const nodeIdPrefix = nodeId.split('_')[0]; 
-    
-    // Paverčiame jį aplanko pavadinimu (pvz., "daumantas")
-    const folderName = nodeIdPrefix.toLowerCase(); 
+    let folderName = nodeId.split('_')[0].toLowerCase();
+
+        // SPECIALUS ATVEJIS: Rapolo kūnas turi dviejų žodžių aplanką
+        if (nodeId.startsWith('RAPOLAS_BODY')) {
+            folderName = 'rapolas_body';
+        }
 
     // Sukuriame naują kelią
     const audioSrc = `audio/${folderName}/${nodeId}.mp3`;
