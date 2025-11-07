@@ -28,54 +28,68 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Pagalbinė funkcija krovimo ekranui paslėpti
     function hideLoadingScreen() {
-        // Slepiame tik jei jis dar rodomas
-        if (loadingScreen.classList.contains('active')) {
-             loadingScreen.classList.remove('active');
-             startScreen.classList.add('active');
+        if (isGameLoaded) return; // Jei jau užkrauta, nieko nedarome
+        
+        console.log("🎬 Hiding loading screen...");
+        isGameLoaded = true;
+
+        // Naudojame "grubią jėgą" - tiesiogiai paslepiame elementą
+        if (loadingScreen) {
+            loadingScreen.style.display = 'none'; 
+        }
+        
+        // Parodome starto ekraną
+        if (startScreen) {
+            startScreen.classList.add('active');
         }
     }
 
     // --- SERVICE WORKER REGISTRATION ---
     if ('serviceWorker' in navigator) {
-        // PATIKRINIMAS STARTUOJANT: Ar SW jau valdo puslapį?
-        // Jei taip, vadinasi failai jau buvo atsiųsti anksčiau.
+        // 1. GREITAS STARTAS: Jei žaidėjas grįžta ir SW jau veikia
         if (navigator.serviceWorker.controller) {
-            console.log("⚡ Service Worker already controlling. Fast start.");
+            console.log("⚡ Fast start (SW already controlling)");
             hideLoadingScreen();
         }
 
         navigator.serviceWorker.register('/the_red_shoes/sw.js', { scope: '/the_red_shoes/' })
             .then((registration) => {
-                console.log('✅ SW registered', registration.scope);
-
-                // Jei SW jau aktyvus (pvz., grįžus į puslapį), slepiame krovimą
-                if (registration.active) {
-                    hideLoadingScreen();
+                // 2. ANTRAS ŠANSAS: Kartais 'controller' dar nebūna, bet 'active' jau yra
+                if (registration.active && !navigator.serviceWorker.controller) {
+                     console.log("⚡ Fast start (SW active)");
+                     hideLoadingScreen();
                 }
 
-                // Jei SW dar tik diegiasi (pirmas kartas arba atnaujinimas)
                 if (registration.installing) {
                     const sw = registration.installing;
                     sw.addEventListener('statechange', (e) => {
-                        // Kai būsena pasikeičia į 'activated', vadinasi viskas atsisiuntė!
                         if (e.target.state === 'activated') {
                             console.log("🎉 SW installed and activated!");
                             showToast("Game ready for offline!");
-                            hideLoadingScreen(); // <--- SLEPIAME EKRANĄ ČIA
+                            // 3. PORMAS KARTAS: Viskas atsisiuntė, slepiame ekraną
+                            hideLoadingScreen();
                         }
                     });
                 }
             })
             .catch((error) => {
                 console.error('SW registration failed:', error);
-                // Svarbu: jei SW nepavyksta, vis tiek turime leisti žaisti (su internetu)
+                // Svarbu: jei SW nulūžo, vis tiek leidžiame žaisti
                 hideLoadingScreen();
             });
     } else {
-        // Jei naršyklė nepalaiko SW, tiesiog slepiame krovimą
+        // Jei naršyklė sena ir nepalaiko SW
         hideLoadingScreen();
     }
 
+    // --- FAILSAFE (Atsarginis variantas) ---
+    // Jei dėl kokių nors priežasčių SW užstringa, po 10 sekundžių vis tiek paleidžiame žaidimą.
+    setTimeout(() => {
+        if (!isGameLoaded) {
+            console.warn("⚠️ Loading timed out, forcing start.");
+            hideLoadingScreen();
+        }
+    }, 10000); // 10 sekundžių limitas
     // --- Story Data ---
     let storyData = {};
 
