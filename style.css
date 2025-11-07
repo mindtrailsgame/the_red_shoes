@@ -1,841 +1,549 @@
-/* --- Color Theme & Core Styles --- */
+/* --- 1. Color Theme & Core Styles --- */
 :root {
-    --primary-color: #2c3e50;  /* Dark Slate Blue */
-    --secondary-color: #ecf0f1; /* Light Grey */
-    --accent-color: #e74c3c;   /* Red for alerts/actions */
-    --light-bg: #e7e4e4;      /* A slightly darker background for the page */
+    /* Nauja paletė paremta tavo fonu */
+    --primary-dark: #0c1618;    /* Labai tamsi žalsvai mėlyna (beveik juoda) */
+    --primary-teal: #1a3c40;    /* Fono akcentinė spalva */
+    --accent-red: #c0392b;      /* Kraujo raudona - akcentams */
+    --text-light: #e6e6e6;      /* Ne visai balta, kad nevargintų akių */
+    --text-dim: #b3b3b3;        /* Mažiau svarbiam tekstui */
+    
+    /* Stiklo efektas (pusiau permatomas tamsus fonas) */
+    --glass-bg: rgba(15, 23, 26, 0.95); 
+    --glass-border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 ::before, *::after {
     box-sizing: border-box;
 }
 
-/* --- Definitive Container and Layout Styles --- */
-html {
+html, body {
     height: 100%;
     width: 100%; 
-}
-
-body {
-     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     margin: 0;
-    background-color: var(--light-bg);
-    color: #333;
-    
-    /* --- RAKTAS Į STABILUMĄ YRA ČIA --- */
-    position: fixed;   /* 1. Užfiksuojame <body> vietoje, kad jis nejudėtų */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden; 
+    padding: 0;
+    font-family: 'Georgia', serif; /* Detektyvui labiau tinka serif šriftas */
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+    overflow: hidden; /* Svarbu mobiliems, kad nejudėtų visas puslapis */
+    position: fixed;
 }
 
-/* --- The App's 'Jail' --- */
+/* --- 2. The Main App Container --- */
 .phone-wrapper {
     width: 100%;
-    height: var(--app-height, 100vh);
-   
-    
-    /* Centering and Positioning Context */
-   
-    position: relative;   /* CRITICAL: This makes it the positioning 'parent' */
-    
-    /* Clipping and Internal Layout */
-    overflow: hidden;     /* CRITICAL: This clips any children that try to leave */
+    height: 100%;
+    position: relative;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
+    
+    /* Pagrindinis žaidimo fonas */
+    background-image: url('main_game_background.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
-/* --- The rest of your CSS file remains the same --- */
-
-/* --- Screen Management --- */
+/* --- 3. Screen Management --- */
 .screen {
     display: none;
     flex-direction: column;
-    flex-grow: 1;   /* Liepiame ekranui užpildyti visą laisvą vietą phone-wrapper viduje */
-    min-height: 0;
-    /*height: 100%;*/
-    padding: 25px;
-  
-    text-align: left;
+    flex-grow: 1;
+    height: 100%;
+    width: 100%;
+    position: absolute; /* Užtikrina, kad ekranai būtų vienas ant kito */
+    top: 0;
+    left: 0;
 }
 
 .screen.active {
     display: flex;
 }
 
-/* --- Start Screen Specifics --- */
+/* --- 4. Start Screen Specifics --- */
 #start-screen {
-    justify-content: center;
-    gap: 20px;
+    justify-content: flex-end; /* Nustumiame turinį į apačią */
+    padding-bottom: 80px;      /* Paliekame vietos nuo apačios */
+    align-items: center;
+    gap: 25px;
+
+    /* Starto ekrano unikalus fonas */
+    background-image: url('opening_background.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 #start-screen h1 {
-    font-size: 2.8em;
-    color: var(--primary-color);
+    display: none; /* Paslepiame tekstinį pavadinimą, nes jis yra fone */
 }
 
 #start-screen p {
-    font-size: 1.1em;
-    line-height: 1.5;
+    text-align: center;
+    font-size: 1.2em;
+    color: var(--text-light);
+    text-shadow: 0px 2px 4px rgba(0,0,0,0.8);
+    margin: 0;
+    max-width: 80%;
 }
 
 #team-name-input {
     padding: 15px;
-    font-size: 1em;
-    border: 2px solid #ccc;
-    border-radius: 12px;
+    font-size: 1.1em;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: white;
     text-align: center;
+    width: 80%;
+    max-width: 300px;
+    backdrop-filter: blur(5px);
+}
+#team-name-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
 }
 
-/* --- Game Screen Specifics --- */
+/* --- 5. Game Screen & Content --- */
+#game-screen {
+    background: transparent; 
+}
 
 .game-header {
-    display:none;
-   
-}
-
-.game-header h2 {
-    margin: 0;
-    font-size: 1.2em;
-}
-
-.header-info {
-    font-size: 1em;
-    opacity: 0.8;
+    display: none;
 }
 
 .game-content {
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
-    overflow-y: auto;
-    text-align: center;
 }
 
-
-/* --- General Button Styles --- */
-.btn {
+.game-content p {
+    font-size: 1.4em;
+    text-align: center;
+    color: var(--text-light);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+    background-color: rgba(0,0,0,0.4);
     padding: 15px 25px;
-    font-size: 1em;
+    border-radius: 50px;
+    backdrop-filter: blur(3px);
+}
+
+/* --- 6. Buttons --- */
+.btn {
+    padding: 15px 30px;
+    font-size: 1.1em;
+    font-weight: bold;
     border: none;
-    border-radius: 12px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 .btn-primary {
-    background-color: var(--accent-color);
+    background-color: var(--accent-red);
     color: white;
+    border: 1px solid rgba(255,255,255,0.1);
 }
-.btn-primary:hover {
-    background-color: #c0392b;
+.btn-primary:hover, .btn-primary:active {
+    background-color: #a93226;
+    transform: scale(0.98);
 }
 
 .btn-secondary {
-    background-color: #ecf0f1;
-    color: #333;
-}
-.btn-secondary:hover {
-    background-color: #d2d6d8;
-}
-
-
-
-/* The #game-screen needs to be a positioning context for our absolute panel */
-#game-screen {
-    position: relative;
-    padding: 0;
-    
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
 }
 
-/* The floating NPC Panel */
+/* --- 7. NPC Dialogue Panel (Floating) --- */
 .dialogue-container {
-    display: none; /* Controlled by JS */
+    display: none;
     position: absolute;
-    left: 0px;
-    right: 0px;
-    
-    bottom: 0px; /* Adjust this value based on the player-dialogue height */
-    
-    background-color: #282828;
-    color: #d1d1d1;
-    border-radius: 0px;
-    box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
-
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    background-color: var(--glass-bg);
+    border: var(--glass-border);
+    border-radius: 15px;
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
+    color: var(--text-dim);
     z-index: 10;
-
-    /* Smoothly animate top and bottom properties for the accordion effect */
-    transition: top 0.4s ease-out, bottom 0.4s ease-out;
+    transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+    max-height: 80vh; 
 }
+
 .dialogue-container.is-active {
-    display: flex; /* Make it visible */
+    display: flex;
 }
 
-/* The EXPANDED state */
 .dialogue-container.is-expanded {
-    /* Expand upwards */
-    top: 0px; /* Leaves space for the game header */
-    /* Expand downwards to cover the screen */
-    bottom: -187px;
+    top: 80px;
+    bottom: -200px;
 }
 
-/* The handle is now attached to the container itself */
 .dialogue-container::after {
     content: '';
     position: absolute;
-    bottom: 8px; /* At the bottom of the panel */
+    top: 8px;
     left: 50%;
     transform: translateX(-50%);
-    width: 50px;
-    height: 5px;
-    background-color: #555;
-    border-radius: 3px;
-}
-
-/* This inner container just holds the content */
-#npc-dialogue {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-#npc-name {
-    display: none;
-}
-
-.npc-prefix {
-    /* To make it bold */
-    font-weight: bold;
-
-    /* To give it a different, more vibrant color */
-    color: white; 
-    
-    /* You can adjust these properties to get the exact look you want! */
+    width: 40px;
+    height: 4px;
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 2px;
 }
 
 .dialogue-scroll-content {
-    width: 100%;
-    /*max-width: 550px;*/
-    /*margin: 0 auto;*/
+    padding: 30px 20px 20px 20px;
+    overflow-y: auto;
     height: 100%;
-    overflow-y: auto; /* Allow scrolling */
-    padding: 20px 30px;
-    box-sizing: border-box;
-
     display: flex;
-    flex-direction: column-reverse; /* Stack items from bottom to top! */
-    align-items: flex-start;
+    flex-direction: column-reverse;
+}
+
+#npc-text {
+    font-size: 1.15em;
+    line-height: 1.5;
+    color: var(--text-light);
+}
+
+.npc-prefix {
+    color: var(--accent-red);
+    font-weight: bold;
+    margin-right: 8px;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 #dialogue-history {
-    display: none;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #444;
+    opacity: 0.6;
+    font-size: 0.95em;
     margin-bottom: 20px;
-}
-.dialogue-container.is-expanded #dialogue-history {
-    display: block;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-/* The STATIC Player Choices Bar */
+.history-entry { margin-bottom: 12px; }
+.player-line { color: #a8d0e6; text-align: right; }
+
+/* --- 8. Player Choices Bar (Bottom Static) --- */
 #player-dialogue {
-    /* Use 'display: flex' when active, not 'block' */
-    display: none; /* .is-active will change this */
-    flex-shrink: 0; 
-    margin-top: auto; 
-    padding: 5px;
-    
-    background-color: #f8f8f8; 
-    border-top: 1px solid #ddd;
-
-    flex-direction: column; /* Stack items vertically */
-    align-items: center;    /* Center them horizontally */
-    height: 229px;        /* 1. Give it a fixed, predictable height. Adjust as needed. */
-    position: relative;             /* <-- This controls the space! Adjust as needed. */
-    z-index: 5;
-
-    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); /* This makes it slide smoothly */
-
+    display: none;
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+    right: 10px;
+    height: auto;
+    min-height: 160px;
+    z-index: 20;
+    flex-direction: column;
+    justify-content: flex-end;
 }
-
-#player-dialogue.is-hidden {
-    /* This moves the element down by 100% of its own height, so it's off-screen */
-    transform: translateY(100%);
-    pointer-events: none; /* Prevents accidental taps while hidden */
-}
-
-/* Update the .is-active rule to use flex */
-#player-dialogue.is-active {
-    display: flex; /* <-- Change this from 'block' to 'flex' */
-}
-
-#player-dialogue.hidden {
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(20px);
-}
+#player-dialogue.is-active { display: flex; }
 
 #player-response-text {
-    width: 100%;
-    background-color: var(--primary-color);
+    background-color: var(--accent-red);
     color: white;
-
-    padding: 13px 30px;
-    box-sizing: border-box; /* Ensures padding is calculated correctly */
-  
-    /* These properties position the box itself */
-    position: absolute;  
-    top: 0;              
-    left: 0;             
-    right: 0;            
-    bottom: 80px;         /* <-- This gives the box its height */
-    
-    overflow-y: auto;     /* <-- This adds scrolling for long text */
-    border-radius: 0 
+    padding: 15px 20px;
+    border-radius: 12px;
+    font-size: 1em;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.2);
+    max-height: 120px;
+    overflow-y: auto;
+    margin-bottom: 15px;
 }
 
 .player-prefix {
-    
-    font-weight: bold;
-
-    color: #bdc3c7; 
-    
+    color: rgba(255,255,255,0.7);
+    font-weight: normal;
+    font-size: 0.9em;
+    margin-right: 5px;
 }
 
 #response-dots {
     display: flex;
-    gap: 15px;
     justify-content: center;
-    position: absolute; /* Position it relative to the #player-dialogue container */
-    bottom: calc(56px + env(safe-area-inset-bottom));
-    left: 0;            /* Center it horizontally */
-    right: 0;
+    gap: 12px;
+    padding: 10px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 30px;
+    align-self: center;
+    backdrop-filter: blur(5px);
 }
 
 .response-dot {
-    width: 15px;
-    height: 15px;
-    background-color: #ccc;
+    width: 14px;
+    height: 14px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 2px solid transparent;
     border-radius: 50%;
     cursor: pointer;
-    transition: background-color 0.2s ease-in-out, 
-    transform 0.2s ease-in-out;
+    transition: all 0.3s ease;
 }
-
-
-.response-dot:hover {
-    background-color: #a0a0a0;
-}
-
 .response-dot.active {
-    background-color: var(--primary-color);
-    transform: scale(1.3);
+    background-color: var(--accent-red);
+    transform: scale(1.4);
+    box-shadow: 0 0 10px var(--accent-red);
 }
-
 .response-dot.used {
     background-color: transparent;
-    border: 1px solid #ccc;
+    border-color: rgba(255, 255, 255, 0.1);
     cursor: not-allowed;
 }
 
-/* --- Toast Notification Styles --- */
-#toast-notification {
-    position: absolute;
-    bottom: -100px; /* Start hidden below the screen */
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.75);
-    color: white;
-    padding: 12px 25px;
-    border-radius: 20px;
-    z-index: 1000;
-    opacity: 0;
-    transition: opacity 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-    bottom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    font-size: 1em;
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-#toast-notification.show {
-    opacity: 1;
-    bottom: 30px; /* Slide into view */
-}
-
-/* style.css (pridėti failo pabaigoje) */
-
-/* --- Bylų (Case Files) stiliai --- */
-
+/* --- 9. Icons & Buttons --- */
 .case-files-button {
-    position: absolute;   /* Position relative to .phone-wrapper */
-    top: 15px;
-    right: 15px;
-    z-index: 10;       /* Above game content, below the panel */
-
-    /* Your other styles are fine */
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid #ccc;
-    border-radius: 50%;
-    width: 44px;
-    height: 44px;
-    font-size: 24px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 50;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+    width: 60px;
+    height: 60px;
+    padding: 10px;
     cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    line-height: 1;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
 }
-
-#case-files-panel {
-    position: absolute;   /* Position relative to .phone-wrapper */
-    top: 0;
-    left: 0;
+.case-files-button:active { transform: scale(0.95); }
+.case-files-button img {
     width: 100%;
     height: 100%;
-    z-index: 300;       /* Highest layer */
-    
-    transform: translateX(100%);
-    transition: transform 0.4s ease-in-out;
+    object-fit: contain;
+    filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.5));
+}
 
-    /* Your other styles are fine */
-    background-color: #f0f2f5;
+#choice-indicator {
+    display: none;
+    width: 30px;
+    height: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    margin: 15px auto 0;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: all 0.2s ease;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>') no-repeat center;
+    background-size: 20px;
+}
+#choice-indicator.is-visible { display: block; }
+#choice-indicator:hover { opacity: 1; transform: scale(1.1); }
+
+
+/* --- 10. Case Files Panel --- */
+#case-files-panel {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 100;
+    background: var(--primary-dark);
+    background-image: linear-gradient(rgba(12, 22, 24, 0.95), rgba(12, 22, 24, 0.95)), url('main_game_background.jpg');
+    background-size: cover;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
     display: flex;
     flex-direction: column;
 }
-
-#case-files-panel.is-open {
-    transform: translateX(0);
-}
+#case-files-panel.is-open { transform: translateX(0); }
 
 .case-files-header {
+    background-color: rgba(0,0,0,0.6);
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
-    background-color: var(--primary-color);
-    color: white;
-    flex-shrink: 0; /* Neleidžiame antraštei susitraukti */
-}
-
-.case-files-header h2 {
-    margin: 0;
-    font-size: 1.2em;
-}
-
-.close-button {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 2.5em;
-    cursor: pointer;
-    line-height: 0.5;
-}
-
-#case-files-content {
-    padding: 20px;
-    overflow-y: auto; /* Slenkame, jei turinys netelpa */
-    flex-grow: 1;
-}
-
-/* Stiliai dinamiškai sukurtiems elementams */
-.suspect-entry {
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 20px;
-}
-
-.suspect-entry h3 {
-    margin-top: 0;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
-}
-
-.key-statement {
-    margin-bottom: 10px;
-    padding-left: 15px;
-    border-left: 3px solid var(--accent-color);
-}
-
-.key-statement strong {
-    display: block;
-    color: var(--primary-color);
-}
-
-
-/* Konteineris, kuris "apkerpa" animaciją */
-#current-dialogue-wrapper {
-    position: relative;
-    overflow: hidden;
-    /* Užtikrina, kad konteineris nesubliūkštų animacijos metu */
-    min-height: 1.5em; 
-}
-
-/* Pagrindinis stilius teksto elementui */
-#npc-text {
-    /* Numatoma būsena: vietoje */
-    transform: translateY(0);
-    transition: transform 0.4s ease-in-out;
-    width: 100%;
-}
-
-/* Klasė naujam tekstui, kuris ateina iš APAČIOS */
-#npc-text.is-entering {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translateY(100%); /* Pradeda po konteineriu */
-}
-
-/* Klasė senam tekstui, kuris išeina į VIRŠŲ */
-#npc-text.is-exiting {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translateY(-100%); /* Baigia virš konteinerio */
-}
-
-/* CHOICE INDICATOR*/
-
-#choice-indicator {
-    display: none; /* Hidden by default */
-    width: 20px;
-    height: 20px;
-    border: 2px solid rgba(255, 255, 255, 0.7);
-    border-radius: 50%;
-    margin: 10px auto 0;
-    cursor: pointer;
-    opacity: 0.7;
-    transition: all 0.2s ease;
-}
-
-#choice-indicator.is-visible {
-    display: block; /* Show it when it has this class */
-}
-
-#choice-indicator:hover {
-    opacity: 1;
-    transform: scale(1.1);
-}
-
-/* --- QR Scanner Screen --- */
-
-/* This screen is now a full-page, fixed overlay */
-#qr-scan-screen {
-    /* display: none; <-- THIS LINE IS NOW REMOVED */
-    position: fixed; /* Position relative to the browser window */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 500; /* Ensure it's on top of everything */
-
-    background-color: #111;
-    padding: 0;
-
-    /* These are needed for the .active class to work */
-    flex-direction: column; 
-    justify-content: flex-start;
-    align-items: center;
-}
-
-/* This rule to show the screen remains the same and will now work correctly */
-.screen.active {
-    display: flex;
-}
-
-#qr-scan-screen h2 {
-    position: absolute;
-    top: 40px;
-    left: 0;
-    right: 0;
-    z-index: 10;
-    
-    color: white;
-    text-align: center;
-    margin: 0; 
-    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
-}
-
-#cancel-scan-btn {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-
-    width: 80%; 
-    max-width: 300px;
-    margin-top: 0;
-}
-
-#qr-reader {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border: none;
-    overflow: hidden;
-}
-
-/* The video and scan region styles remain unchanged and are correct */
-#qr-reader video {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover;
-}
-
-#qr-reader_scan_region {
-    border-radius: 10px;
-}
-
-/* --- Galutinio kaltinimo stiliai --- */
-
-#final-accusation-section {
-    padding: 20px;
-    background-color: #e9edf0; /* Šiek tiek kitokia fono spalva atskyrimui */
-    border-top: 2px solid #ccc;
-    flex-shrink: 0; /* Neleidžiame šiai skilčiai susitraukti */
-    
-    /* Pridedame vidinį slinkimą, jei ekranas per žemas */
-    overflow-y: auto;
-}
-
-#final-accusation-section h3 {
-    margin-top: 0;
-    color: var(--primary-color);
-}
-
-#final-accusation-section h4 {
-    margin-bottom: 5px;
-}
-
-#final-accusation-section p {
-    font-size: 0.9em;
-    color: #555;
-    margin-top: 0;
-    margin-bottom: 15px;
-}
-
-.accusation-group {
-    margin-bottom: 20px;
-}
-
-.checklist-container {
-    max-height: 200px; /* Apribojame aukštį, kad sąrašai neužimtų viso ekrano */
-    overflow-y: auto;  /* Pridedame slinkimo juostą, jei netelpa */
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 10px;
-}
-
-.checkbox-item {
-    display: block; /* Kiekvienas pasirinkimas naujoje eilutėje */
-    padding: 8px 5px;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.2s;
-}
-
-.checkbox-item:hover {
-    background-color: #f4f4f4;
-}
-
-.checkbox-item input {
-    margin-right: 10px;
-    /* Padidiname pačią varnelę, kad būtų lengviau paspausti */
-    transform: scale(1.2); 
-    accent-color: var(--primary-color);
-}
-
-#submit-accusation-btn {
-    width: 100%; /* Mygtukas per visą plotį */
-}
-
-/* --- Bylų skydelio (Case Files) skirtukų stiliai --- */
-
-/* 1. Atnaujiname pagrindinį skydelį, kad jis naudotų flexbox
-   ir išdėstytų elementus vertikaliai (antraštė, kūnas, naršymas) */
-#case-files-panel {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden; /* Svarbu: nebeleidžiame pačiam skydeliui slinkti */
-}
-
-/* 2. Užtikriname, kad antraštė nesusitrauktų */
-.case-files-header {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
     flex-shrink: 0;
 }
-
-/* 3. Naujas "kūno" konteineris, užpildantis laisvą vietą */
-.case-files-body {
-    flex-grow: 1; /* Užima visą laisvą vietą */
-    position: relative; /* Reikalingas "puslapių" pozicionavimui */
-    overflow: hidden; /* Paslepia neaktyvius "puslapius" */
+.case-files-header h2 {
+    color: var(--text-light);
+    margin: 0;
+    font-family: 'Georgia', serif;
+    letter-spacing: 1px;
 }
-
-/* 4. Bendras stilius abiems "puslapiams" (Byla ir Kaltinimas)
-   Jie yra pozicionuojami vienas ant kito. */
-#case-files-content,
-#final-accusation-section {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    
-    /* Kiekvienas puslapis slankiojasi atskirai */
-    overflow-y: auto; 
-    
-    /* Pagal nutylėjimą abu paslėpti */
-    display: none; 
-    
-    /* Užtikriname, kad vidinės paraštės neišstumtų turinio */
-    padding: 20px;
-    box-sizing: border-box; 
-}
-
-
-/* Stiliai naujam skirtukų kūnui ir navigacijai */
-.case-files-body {
-    flex-grow: 1; /* Leidžia turiniui užpildyti likusią vietą */
-    overflow-y: auto; /* Prideda slinkimą, jei turinys netelpa */
-    padding: 20px;
-}
-
-.case-files-nav {
-    display: flex;
-    flex-shrink: 0; /* Neleidžia navigacijai susitraukti */
-    border-top: 1px solid #ccc;
-}
-
-.nav-button {
-    flex-grow: 1; /* Mygtukai užpildo visą plotį */
-    flex-basis: 0;
-    padding: 15px 10px;
-    font-size: 1.1em;
-    text-align: center;
-    background-color: #f1f1f1;
-    border: none;
-    border-right: 1px solid #ccc;
+.close-button {
+    background: none; border: none;
+    color: var(--text-dim);
+    font-size: 3em;
+    line-height: 0.5;
     cursor: pointer;
-    color: #888;
-}
-.nav-button:last-child {
-    border-right: none;
-}
-.nav-button.active {
-    background-color: white;
-    color: var(--primary-color);
-    font-weight: bold;
 }
 
-/* Pagal nutylėjimą paslepiame ABU skirtukų turinius...*/
-
-#case-files-content,
-#final-accusation-section {
+.case-files-body {
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+}
+#case-files-content, #final-accusation-section {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    overflow-y: auto;
+    padding: 20px;
     display: none;
+    box-sizing: border-box;
 }
-
-/* ...ir parodome TIK TĄ, kuris turi 'is-active-view' klasę, 
-  kurią prideda JavaScript.
-*/
-#case-files-content.is-active-view,
+#case-files-content.is-active-view, 
 #final-accusation-section.is-active-view {
     display: block;
 }
 
-/* Kaltinimų skilties stiliai */
-.accusation-group {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 20px;
+.suspect-entry {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 25px;
 }
-.accusation-group h4 {
+.suspect-entry h3 {
+    color: var(--accent-red);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
     margin-top: 0;
 }
-.checklist-container {
+.key-statement {
+    border-left: 3px solid var(--accent-red);
+    padding-left: 15px;
+    margin-bottom: 20px;
+    background: rgba(0,0,0,0.2);
+    padding: 15px;
+    border-radius: 0 8px 8px 0;
+}
+.key-statement-question {
+    color: var(--text-dim); font-style: italic; font-size: 0.9em; margin-bottom: 5px;
+}
+.key-statement-answer span { color: var(--text-light); }
+
+.case-files-nav {
+    display: flex;
+    background: rgba(0,0,0,0.8);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    height: 70px;
+    flex-shrink: 0;
+}
+.nav-button {
+    flex: 1;
+    background: transparent; border: none;
+    color: var(--text-dim);
+    font-size: 0.9em;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.nav-button.active {
+    color: var(--accent-red);
+    background: rgba(255,255,255,0.05);
+}
+.nav-icon {
+    height: 28px; width: auto; opacity: 0.6; transition: all 0.2s;
+}
+.nav-button.active .nav-icon {
+    opacity: 1; transform: scale(1.1);
+    filter: drop-shadow(0 0 5px rgba(192, 57, 43, 0.5));
+}
+
+/* --- 11. Accusation Checklists --- */
+#final-accusation-section h3 { color: var(--accent-red); margin-top: 0; }
+#final-accusation-section p { color: var(--text-dim); }
+
+.checklist-container {
+    background: rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 10px;
+    max-height: 250px;
+    overflow-y: auto;
 }
 .checkbox-item {
-    display: block;
-    font-size: 1em;
+    display: flex; align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    color: var(--text-light);
+}
+.checkbox-item input {
+    margin-right: 15px; transform: scale(1.3); accent-color: var(--accent-red);
 }
 
-/* Pagal nutylėjimą paslepiame motyvų grupę */
-#motive-group {
-    display: none;
-}
-
-/* --- Loading Screen Styles --- */
-
-/* --- Loading Screen Styles --- */
+/* --- 12. Loading Screen (PATAISYTA) --- */
 #loading-screen {
-    /* Užtikriname, kad užkloja visą ekraną */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 9999;
-    
-    /* Fonas ir teksto spalva */
-    background-color: var(--primary-color);
-    color: white;
-    
-    /* Svarbiausia dalis centravimui! */
+    background-color: var(--primary-dark); /* Naudoja mūsų naują tamsią spalvą */
+    color: var(--text-light);
     display: flex;
-    flex-direction: column; /* Išdėsto elementus vertikaliai (viena po kitu) */
-    justify-content: center; /* Centruoja vertikaliai */
-    align-items: center;     /* Centruoja horizontaliai */
-    
-    /* Papildomi nustatymai */
-    margin: 0;
-    padding: 30px;
-    box-sizing: border-box; /* Kad padding neiškreiptų 100% pločio */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    padding: 30px;
 }
+#loading-screen h2 { margin-top: 25px; color: var(--text-light); }
+#loading-screen p { color: var(--text-dim); }
 
-#loading-screen h2 {
-    margin-top: 25px;
-    margin-bottom: 10px;
-    color: white;
-    font-size: 1.5em;
-}
-
-#loading-screen p {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 1em;
-    line-height: 1.5;
-    max-width: 80%; /* Apribojame teksto plotį, kad būtų lengviau skaityti */
-}
-
-/* Pataisytas suktukas */
 .spinner {
-    /* Užtikriname, kad jis turi dydį */
     display: block;
-    width: 60px;
-    height: 60px;
-    
-    /* Suktuko išvaizda */
-    border: 6px solid rgba(255, 255, 255, 0.2); /* Blankus ratas */
-    border-top-color: #fff; /* Ryški besisukanti dalis */
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.1);
+    border-top-color: var(--accent-red); /* Suktukas dabar raudonas! */
     border-radius: 50%;
-    
-    /* Animacija */
     animation: spin 1s linear infinite;
 }
+@keyframes spin { to { transform: rotate(360deg); } }
 
-@keyframes spin {
-    to { transform: rotate(360deg); }
+/* --- 13. QR Scanner & Toasts --- */
+#qr-scan-screen {
+    background-color: var(--primary-dark) !important;
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 500;
+    flex-direction: column; align-items: center;
 }
+#qr-scan-screen h2 {
+    position: absolute; top: 40px; z-index: 10; color: white; width: 100%; text-align: center;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+}
+#qr-reader {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    border: none !important;
+}
+/* Užtikriname, kad video užimtų visą ekraną */
+#qr-reader video {
+    width: 100% !important; height: 100% !important; object-fit: cover !important;
+}
+#cancel-scan-btn {
+    position: absolute; bottom: 40px; z-index: 10; width: 80%; max-width: 300px;
+}
+
+#toast-notification {
+    position: absolute; bottom: -100px; left: 50%; transform: translateX(-50%);
+    background-color: var(--accent-red); color: white;
+    padding: 12px 25px; border-radius: 20px; z-index: 1000; opacity: 0;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.2);
+}
+#toast-notification.show { opacity: 1; bottom: 30px; }
+
+/* --- 14. Animations --- */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+#npc-text.is-entering { animation: fadeIn 0.5s ease-in-out; }
+#current-dialogue-wrapper { position: relative; overflow: hidden; min-height: 1.5em; }
