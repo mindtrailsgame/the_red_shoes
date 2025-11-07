@@ -14,7 +14,7 @@ const APP_SHELL = [
     'html5-qrcode.min.js',
     'images/icon-192.png',
     'images/icon-512.png',
-    'opening_background',
+    'opening_background.png',
     'accusation_icon.png',
     'case_files.png',
     'main_game_background.png',    
