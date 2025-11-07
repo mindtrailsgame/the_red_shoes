@@ -1,3 +1,5 @@
+console.log("🚀 App.js is running!");
+
 document.addEventListener('DOMContentLoaded', () => {
 
     const MOTIVES = [
@@ -21,27 +23,28 @@ document.addEventListener('DOMContentLoaded', () => {
         "Victim asked to be killed (Euthanasia)", "To collect on a debt"
     ];
 
+    // --- SERVICE WORKER REGISTRATION ---
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('sw.js', { scope: './' })
+        // Naudojame absoliutų kelią nuo domeno šaknies, kad būtume tikri
+        navigator.serviceWorker.register('/the_red_shoes/sw.js', { scope: '/the_red_shoes/' })
             .then((registration) => {
-                console.log('Service Worker registered with scope:', registration.scope);
+                console.log('✅ Service Worker registered successfully with scope:', registration.scope);
 
-                // Optional: Check if it's installing and notify user when done
                 if (registration.installing) {
+                    console.log('⚙️ Service Worker is installing...');
                     const sw = registration.installing;
                     sw.addEventListener('statechange', (e) => {
                         if (e.target.state === 'activated') {
+                            console.log('🎉 Service Worker activated! Ready for offline.');
                             showToast("Game is ready for offline use! 📶🚫");
                         }
                     });
-                } 
-                // If it's already active from a previous visit
-                else if (registration.active) {
-                     console.log('Service Worker is already active.');
+                } else if (registration.active) {
+                     console.log('👍 Service Worker is already active.');
                 }
             })
             .catch((error) => {
-                console.error('Service Worker registration failed:', error);
+                console.error('❌ Service Worker registration failed:', error);
             });
     }
 
