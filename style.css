@@ -556,73 +556,64 @@ body {
 
 /* --- QR Scanner Screen --- */
 #qr-scan-screen {
-    /* 1. Pozicionavimas: fiksuotas virš visko */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 5000; /* Labai aukštas z-index, kad tikrai būtų viršuje */
-
-    /* 2. Fonas: visiškai juodas */
+    z-index: 5000;
     background-color: #000;
     
-    /* 3. Numatytoji būsena: paslėptas */
-    display: none;
+    /* Svarbu: naudojame flexbox elementų centravimui */
+    display: none; /* JS pakeis į 'flex' */
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Paskirsto vietą: viršus, vidurys, apačia */
+    
+    padding: 40px 20px; /* Saugūs atstumai nuo kraštų */
+    box-sizing: border-box;
 }
 
-/* Kai JS prideda .active klasę, rodome kaip bloką, NE flex */
 #qr-scan-screen.active {
-    display: block; 
+    display: flex; /* Rodome kaip flex konteinerį */
 }
 
 #qr-scan-screen h2 {
-    /* Tekstą pozicionuojame absoliučiai viršuje */
-    position: absolute;
-    top: 30px;
-    left: 0;
-    width: 100%;
-    
+    /* Tekstas viršuje */
+    color: white;
     text-align: center;
-    color: #fff;
-    z-index: 5002; /* Aukščiau už viską */
     margin: 0;
-    padding: 0 20px;
-    box-sizing: border-box;
+    z-index: 5002; /* Aukščiau už kamerą */
     text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    flex-shrink: 0; /* Neleidžiame susitraukti */
 }
 
 #cancel-scan-btn {
-    /* Mygtuką pozicionuojame absoliučiai apačioje */
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    
+    /* Mygtukas apačioje */
     width: 80%;
     max-width: 300px;
-    z-index: 5002; /* Aukščiau už viską */
+    z-index: 5002; /* Aukščiau už kamerą */
+    flex-shrink: 0; /* Neleidžiame susitraukti */
+    margin-bottom: 20px; /* Papildomas tarpas nuo apačios */
 }
 
-/* SVARBIAUSIA DALIS: Bibliotekos konteineris */
+/* KAMEROS KONTEINERIS */
 #qr-reader {
-    /* Užimti visą tėvinio elemento (ekrano) plotą */
+    /* Pozicionuojame absoliučiai, kad užimtų visą ekraną */
     position: absolute !important;
     top: 0;
     left: 0;
     width: 100% !important;
     height: 100% !important;
-    
     border: none !important;
-    z-index: 5001; /* Tarp fono ir tekstų */
+    z-index: 5001; /* Tarp fono ir mygtukų */
 }
 
 /* Priverstiniai stiliai pačiam <video> elementui */
 #qr-reader video {
-    /* Užpildyti visą plotą, išlaikant proporcijas (gali nukirpti kraštus) */
     width: 100% !important;
     height: 100% !important;
-    object-fit: cover !important; 
+    object-fit: cover !important; /* Užpildo visą ekraną */
     display: block !important;
 }
 
