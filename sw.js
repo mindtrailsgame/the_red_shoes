@@ -1,5 +1,5 @@
 
-const CACHE_NAME = 'red-shoes-v7';
+const CACHE_NAME = 'red-shoes-v8';
 
 
 // LIST ALL FILES REQUIRED FOR THE GAME HERE.
