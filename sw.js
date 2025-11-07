@@ -1,5 +1,5 @@
 
-const CACHE_NAME = 'red-shoes-v6';
+const CACHE_NAME = 'red-shoes-v7';
 
 
 // LIST ALL FILES REQUIRED FOR THE GAME HERE.
@@ -347,4 +347,5 @@ self.addEventListener('fetch', (event) => {
         })
     );
 });
+
 
