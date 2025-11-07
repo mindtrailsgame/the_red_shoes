@@ -744,8 +744,8 @@ function initializeQrScanner() {
         if (node.text !== null) {
             const npcName = (node.npc || gameState.currentConversation.npcId).toUpperCase();
             const dialogueText = node.text.replace(/(?<!\w)'|'(?!\w)/g, '"');
-            const newHtml = `<span class="npc-prefix">${npcName} – </span>${dialogueText}`;
-
+            const newHtml = `<span class="npc-prefix" data-speaker="${npcName}">${npcName} – </span>${dialogueText}`;
+          
             if (isAnimated) {
                 const oldTextEl = dom.npcText;
                 const newTextEl = document.createElement('p');
