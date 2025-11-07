@@ -4951,7 +4951,7 @@
   },
   "NUSIKALTIMO_VIETA2_intro": {
     "npc": "THE NARRATOR",
-    "text": "You discover something that looks like a set up for some sort of a ritual.",
+    "text": "You discover something that looks like a setup for some sort of a ritual.",
     "choices": [
       {
         "text": "(Examine the crime scene.)",
@@ -4965,7 +4965,7 @@
   },
   "NUSIKALTIMO_VIETA2_examine_1": {
     "npc": "THE LUNAR EYE",
-    "text": "The forest floor is covered with bits of wet, dead leaves, and particles of hard dirt -- the same that we recovered from the victim's toe pads.",
+    "text": "The forest floor is covered with bits of wet, dead leaves, and particles of hard dirt—the same that we recovered from the victim's toe pads",
     "is_key_statement": true,
     "statement_title": "Crime Scene Findings",
     "choices": [
@@ -4980,8 +4980,18 @@
     ]
   },
   "NUSIKALTIMO_VIETA2_examine_2": {
+    "npc": "THE NARRATOR",
+    "text": "And there it is! On one side of the setup, almost hidden by the dirt and leaves, you discover small traces of blood.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "NUSIKALTIMO_VIETA2_examine_3"
+      }
+    ]
+  },
+  "NUSIKALTIMO_VIETA2_examine_3": {
     "npc": "THE LUNAR EYE",
-    "text": "And there it is! On one side of the set up, almost hidden by the dirt and leaves, you discover small traces of blood. We can't say for sure that it belonged to the victim but it's very likely.",
+    "text": "We can't say for sure that it belonged to the victim but it's very likely.",
     "is_key_statement": true,
     "statement_title": "Crime Scene Findings",
     "choices": [
@@ -4993,7 +5003,7 @@
   },
   "NUSIKALTIMO_VIETA2_end": {
     "npc": "THE NARRATOR",
-    "text": "You step away from the ritual site.",
+    "text": "You step away from the site.",
     "is_end": true,
     "choices": []
   }
