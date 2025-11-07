@@ -2480,7 +2480,7 @@
         "target_node": "RICARDAS_Rc1_response_D"
       },
       {
-        "text": "'I see. Now I would like to ask you about Rapolas and the circumstances surrounding his death -- if that's okay with?",
+        "text": "'I see. Now I would like to ask you about Rapolas and the circumstances surrounding his death -- if that's okay with you?",
         "target_node": "RICARDAS_part2_hub_entry"
       }
     ]
@@ -2759,7 +2759,7 @@
   },
   "RICARDAS_Re2_response_B": {
     "npc": "RIČARDAS (THE SORCERER)",
-    "text": "- 'I don't want point fingers, especially if they have nothing to do with what happened, but, he lowers his voice, 'the werewolf was acting a bit strange that evening.'",
+    "text": "- 'I don't want to point fingers, especially if they have nothing to do with what happened, but, he lowers his voice, 'the werewolf was acting a bit strange that evening.'",
     "choices": [
       {
         "text": "...",
@@ -2814,7 +2814,7 @@
   },
   "RICARDAS_Rd2_response": {
     "npc": "RIČARDAS (THE SORCERER)",
-    "text": "– 'I did not kill Rapolas. I liked the little guy, and I hope you bring to just justice the one who took him away from us.'",
+    "text": "– 'I did not kill Rapolas. I liked the little guy, and I hope you bring to justice the one who took him away from us.'",
     "is_key_statement": true,
     "statement_title": "RIČARDAS's Testimony",
     "choices": [
@@ -2826,7 +2826,7 @@
   },
   "RICARDAS_Rd3_response_A": {
     "npc": "RIČARDAS (THE SORCERER)",
-    "text": "- He's taken by your question. 'It's good. Why do you ask?'",
+    "text": "- He's taken aback by your question. 'It's good. Why do you ask?'",
     "choices": [
       {
         "text": "...",
@@ -2962,7 +2962,7 @@
   },
   "RICARDAS_interrogate_start_C": {
     "npc": "THE INTERROGATOR",
-    "text": "It's a simple game -- like paper, rock, scissors but with animals. THE FIST: The Armadillo. A brute-force-solution. It crushes. THE FLAT HAND: The Spider. A trap. It covers and entangles. THE TWO FINGERS: The Scorpion. A precise weapon. It cuts. The Spider's web covers the Armadillo. (Spider wins) The Scorpion's sting cuts the Spider. (Scorpion wins) The Armadillo's shell crushes the Scorpion. (Armadillo wins). You will throw your sign on the signal. The first to win three rounds will have proven their point. I suggest you don't be the one who fails. Now, begin.",
+    "text": "It's a simple game -- like rock, paper, scissors but with animals. THE FIST: The Armadillo. A brute-force-solution. It crushes. THE FLAT HAND: The Spider. A trap. It covers and entangles. THE TWO FINGERS: The Scorpion. A precise weapon. It cuts. The Spider's web covers the Armadillo. (Spider wins) The Scorpion's sting cuts the Spider. (Scorpion wins) The Armadillo's shell crushes the Scorpion. (Armadillo wins). You will throw your sign on the signal. The first to win three rounds will have proven their point. I suggest you don't be the one who fails. Now, begin.",
     "choices": [
       {
         "text": "...",
@@ -3577,7 +3577,7 @@
   },
   "SIAURINIS_Sf1_response_A": {
     "npc": "ŠIAURINIS",
-    "text": "- \"For a couple months. I'm just very bad at remembering human names.\"",
+    "text": "- \"For a couple of months. I'm just very bad at remembering human names.\"",
     "choices": [
       {
         "text": "...",
@@ -4491,7 +4491,7 @@
   },
   "LAUME_Le7_sub2_response_A": {
     "npc": "LAUMĖ",
-    "text": "\"Well, Rampolas was having his attempt at bad poetry: \"I love, I serve, I strike,\" I think he said. And after that he loudly bragged that he knows you, detective. I suppose that's why THE DARK ONE called you for help.\"",
+    "text": "\"Well, Rapolas was having his attempt at bad poetry: \"I love, I serve, I strike,\" I think he said. And after that he loudly bragged that he knows you, detective. I suppose that's why THE DARK ONE called you for help.\"",
     "is_key_statement": true,
     "statement_title": "LAUMĖ's Testimony",
     "choices": [
@@ -4557,7 +4557,7 @@
   },
   "LAUME_interrogate_start_B": {
     "npc": "THE INTERROGATOR",
-    "text": "Just look at her! Only a true psychophath would respond to such an accusation like that. No doubt -- she killled Rapolas.",
+    "text": "Just look at her! Only a true psychopath would respond to such an accusation like that. No doubt -- she killled Rapolas.",
     "choices": [
       {
         "text": "...",
@@ -4620,7 +4620,7 @@
   },
   "LAUME_interrogate_ask_response_A": {
     "npc": "LAUMĖ",
-    "text": "She ignores the question. \"I was just observing you now. It looked to my like you were having a conversation with someone in your head. I think you should listen less to that voice and more -- to your heart. In any case GO AWAY.\"",
+    "text": "She ignores the question. \"I was just observing you now. It looked to me like you were having a conversation with someone in your head. I think you should listen less to that voice and more -- to your heart. In any case GO AWAY.\"",
     "choices": [
       {
         "text": "...",
@@ -4668,7 +4668,7 @@
   },
   "LAUME_interrogate_apologize_response_A": {
     "npc": "LAUMĖ",
-    "text": "She smiles. \"I was just observing you now. It looked to my like you were having a conversation with someone in your head. I think you should listen less to that voice and more -- to your heart. In any case GO AWAY.\"",
+    "text": "She smiles. \"I was just observing you now. It looked to me like you were having a conversation with someone in your head. I think you should listen less to that voice and more -- to your heart. In any case GO AWAY.\"",
     "choices": [
       {
         "text": "...",
