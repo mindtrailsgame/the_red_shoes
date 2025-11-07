@@ -1,4 +1,4 @@
-const CACHE_NAME = 'red-shoes-v1';
+const CACHE_NAME = 'red-shoes-v2';
 
 // LIST ALL FILES REQUIRED FOR THE GAME HERE.
 // Crucial: If a file is missing from this list, it won't work offline.
@@ -347,4 +347,5 @@ self.addEventListener('fetch', (event) => {
             });
         })
     );
+
 });
