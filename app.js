@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.warn("⚠️ Loading timed out, forcing start.");
             hideLoadingScreen();
         }
-    }, 10000); // 10 sekundžių limitas
+    }, 30000); // 10 sekundžių limitas
     // --- Story Data ---
     let storyData = {};
 
