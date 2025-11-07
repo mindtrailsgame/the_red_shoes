@@ -4870,6 +4870,78 @@
     "text": "You conclude the examination of Rapolas's body.",
     "is_end": true,
     "choices": []
+  },
+
+  
+"RAPOLAS_identity": {
+    "npc": "AGENT'S LOG (RAPOLAS)"
+  },
+  "RAPOLAS_intro": {
+    "npc": "THE NARRATOR",
+    "text": "You find a hidden, encrypted data pad concealed within Rapolas's personal effects. You manage to bypass the rudimentary lock. It seems Rapolas was more than just a facilitator.",
+    "choices": [
+      {
+        "text": "(Read the latest entry.)",
+        "target_node": "RAPOLAS_log_1"
+      }
+    ]
+  },
+  "RAPOLAS_log_1": {
+    "npc": "AGENT'S LOG",
+    "text": "AGENT'S FINAL ASSESSMENT - CONFIDENTIAL.\nSUBJECT: THE DARK ONE\nOPERATION: 'RED-SHOES'\n\nMy infiltration is complete. TPF Command's suspicions were not only correct but vastly understated. He is not planning an attack; he is composing one.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RAPOLAS_log_2"
+      }
+    ]
+  },
+  "RAPOLAS_log_2": {
+    "npc": "AGENT'S LOG",
+    "text": "His known power—the ability to induce a fatal dance psychosis in individuals—has been his sole focus. He no longer wishes to be physically present to cause this chaos. The 'band' is his new weapon.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RAPOLAS_log_3"
+      }
+    ]
+  },
+  "RAPOLAS_log_3": {
+    "npc": "AGENT'S LOG",
+    "text": "They are developing a specific musical frequency. I've heard it. It's—compelling. Addictive. It bypasses all higher-level thought and targets the brainstem directly. He has weaponized music.",
+    "is_key_statement": true,
+    "statement_title": "RAPOLAS'S SECRET",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RAPOLAS_log_4"
+      }
+    ]
+  },
+  "RAPOLAS_log_4": {
+    "npc": "AGENT'S LOG",
+    "text": "If this is ever performed or broadcast, it will cause a mass-casualty event on a scale we cannot comprehend. A 'death-by-dance' plague.",
+    "choices": [
+      {
+        "text": "...",
+        "target_node": "RAPOLAS_log_5"
+      }
+    ]
+  },
+  "RAPOLAS_log_5": {
+    "npc": "AGENT'S LOG",
+    "text": "Tonight is the final 'teambuilding' retreat. He insists I facilitate it. This is my last task before I report the findings to the TPF.",
+    "choices": [
+      {
+        "text": "(Close the log.)",
+        "target_node": "RAPOLAS_log_end"
+      }
+    ]
+  },
+  "RAPOLAS_log_end": {
+    "npc": "THE NARRATOR",
+    "text": "Rapolas was a mole working for the Thunder Police Force. If The Dark One—or any of the band members—found this out, they would have had an immediate, lethal motive.",
+    "is_end": true,
+    "choices": []
   }
 }
-  
