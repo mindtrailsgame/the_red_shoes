@@ -289,6 +289,24 @@ const APP_SHELL = [
     'audio/varnalesa/VARNALESA_Vc1_A.mp3',
     'audio/varnalesa/VARNALESA_wink_A.mp3',
     'audio/varnalesa/VARNALESA_wink_B.mp3',
+
+     // --- RAPOLAS AUDIO ---
+    'audio/rapolas/RAPOLAS_log_end.mp3',
+    'audio/rapolas/RAPOLAS_intro.mp3',
+    'audio/rapolas/RAPOLAS_log_1.mp3',
+    'audio/rapolas/RAPOLAS_log_2.mp3',
+    'audio/rapolas/RAPOLAS_log_3.mp3',
+    'audio/rapolas/RAPOLAS_log_4.mp3',
+    'audio/rapolas/RAPOLAS_log_5.mp3',
+
+    // --- NUSIKALTIMO VIETA 2 AUDIO ---
+
+    'audio/nusikaltimo_vieta2/NUSIKALTIMO_VIETA2_intro.mp3',
+    'audio/nusikaltimo_vieta2/NUSIKALTIMO_VIETA2_end.mp3',
+    'audio/nusikaltimo_vieta2/NUSIKALTIMO_VIETA2_examine_1.mp3',
+    'audio/nusikaltimo_vieta2/NUSIKALTIMO_VIETA2_examine_2.mp3',
+    'audio/nusikaltimo_vieta2/NUSIKALTIMO_VIETA2_examine_3.mp3',
+
 ];
 
 self.addEventListener('install', (event) => {
