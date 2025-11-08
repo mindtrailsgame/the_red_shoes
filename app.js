@@ -323,6 +323,10 @@ function playVoiceLine(nodeId) {
             folderName = 'rapolas_body';
         }
 
+        if (nodeId.startsWith('NUSIKALTIMO_VIETA2')) {
+            folderName = 'nusikaltimo_vieta2';
+        }
+
     // Sukuriame naują kelią
     const audioSrc = `audio/${folderName}/${nodeId}.mp3`;
     // --- PAKEISTOS LOGIKOS PABAIGA ---
