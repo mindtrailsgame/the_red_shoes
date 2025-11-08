@@ -2012,6 +2012,8 @@
   "VARNALESA_end_wink_note": {
     "npc": "THE NARRATOR",
     "text": "As you're leaving, the witch catches up to you and slips a note into your pocket. The note says: \"3 5 1\".",
+   "is_key_statement": true,
+    "statement_title": "VARNALĖŠA's Testimony",
     "choices": [
       {
         "text": "...",

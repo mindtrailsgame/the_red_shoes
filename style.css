@@ -838,3 +838,36 @@ body {
 @keyframes spin {
     to { transform: rotate(360deg); }
 }
+
+/* --- INSERT AT THE END OF style.css --- */
+
+/* --- Interactive Loading Screen States --- */
+#loading-screen.success {
+    background-color: #27ae60 !important; /* Force green for success */
+    transition: background-color 0.5s ease;
+}
+
+#loading-screen.error {
+    background-color: #c0392b !important; /* Force red for error */
+    transition: background-color 0.5s ease;
+}
+
+/* Big, tappable buttons for the loading screen */
+#loading-start-btn, #loading-retry-btn {
+    margin-top: 30px;
+    padding: 15px 40px;
+    font-size: 1.3em;
+    font-weight: bold;
+    background-color: white;
+    color: var(--primary-color);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease, background-color 0.2s;
+}
+
+#loading-start-btn:active, #loading-retry-btn:active {
+    transform: scale(0.95);
+    background-color: #f0f0f0;
+}

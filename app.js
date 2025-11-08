@@ -23,74 +23,108 @@ document.addEventListener('DOMContentLoaded', () => {
         "Victim asked to be killed (Euthanasia)", "To collect on a debt"
     ];
 
+    // --- LOADING SCREEN VARIABLES ---
     const loadingScreen = document.getElementById('loading-screen');
     const startScreen = document.getElementById('start-screen');
     let isGameLoaded = false;
 
-    // Pagalbinė funkcija krovimo ekranui paslėpti
-    function hideLoadingScreen() {
-        if (isGameLoaded) return; // Jei jau užkrauta, nieko nedarome
-        
-        console.log("🎬 Hiding loading screen...");
-        isGameLoaded = true;
+    // --- LOADING SCREEN FUNCTIONS ---
 
-        // Naudojame "grubią jėgą" - tiesiogiai paslepiame elementą
-        if (loadingScreen) {
-            loadingScreen.style.display = 'none'; 
-        }
+    // 1. Fast Start: For returning players who already have files cached.
+    // No need to wait, just open the game immediately.
+    function fastStart() {
+        if (isGameLoaded) return;
+        isGameLoaded = true;
+        console.log("⚡ Fast start triggered");
+        if (loadingScreen) loadingScreen.style.display = 'none';
+        if (startScreen) startScreen.classList.add('active');
+    }
+
+    // 2. Success Screen: For first-time setup. 
+    // Forces user to click "START" to confirm they saw the message.
+    function showLoadingSuccess() {
+        if (isGameLoaded) return;
+        // We DON'T set isGameLoaded = true here, we wait for the click.
         
-        // Parodome starto ekraną
-        if (startScreen) {
-            startScreen.classList.add('active');
+        console.log("✅ Showing success screen");
+        if (loadingScreen) {
+            loadingScreen.className = 'screen active success';
+            loadingScreen.innerHTML = `
+                <div style="font-size: 5em; margin-bottom: 20px;">✅</div>
+                <h2>Ready for Offline!</h2>
+                <p>All necessary files have been downloaded.</p>
+                <p>You can now safely turn off your internet and head into the field.</p>
+                <button id="loading-start-btn">START INVESTIGATION</button>
+            `;
+            
+            document.getElementById('loading-start-btn').addEventListener('click', () => {
+                fastStart(); // Reuse fastStart to actually enter the game
+            });
+        }
+    }
+
+    // 3. Error Screen: If something fails (no network, GitHub down, etc.)
+    function showLoadingError(errorMessage) {
+        if (isGameLoaded) return;
+        // We DON'T set isGameLoaded = true, we want them to retry.
+
+        console.error("❌ Showing error screen:", errorMessage);
+        if (loadingScreen) {
+            loadingScreen.className = 'screen active error';
+            loadingScreen.innerHTML = `
+                 <div style="font-size: 5em; margin-bottom: 20px;">⚠️</div>
+                <h2>Download Failed</h2>
+                <p>Could not download all game files. Offline mode might not work.</p>
+                <p style="font-size: 0.9em; opacity: 0.8; background: rgba(0,0,0,0.2); padding: 5px; border-radius: 5px;">Error: ${errorMessage}</p>
+                <button id="loading-retry-btn">RETRY</button>
+            `;
+             document.getElementById('loading-retry-btn').addEventListener('click', () => {
+                window.location.reload();
+            });
         }
     }
 
     // --- SERVICE WORKER REGISTRATION ---
     if ('serviceWorker' in navigator) {
-        // 1. GREITAS STARTAS: Jei žaidėjas grįžta ir SW jau veikia
+        // A) RETURNING USER: If already controlled, start immediately.
         if (navigator.serviceWorker.controller) {
-            console.log("⚡ Fast start (SW already controlling)");
-            hideLoadingScreen();
+            fastStart();
         }
 
         navigator.serviceWorker.register('/the_red_shoes/sw.js', { scope: '/the_red_shoes/' })
             .then((registration) => {
-                // 2. ANTRAS ŠANSAS: Kartais 'controller' dar nebūna, bet 'active' jau yra
-                if (registration.active && !navigator.serviceWorker.controller) {
-                     console.log("⚡ Fast start (SW active)");
-                     hideLoadingScreen();
-                }
-
+                // B) NEW INSTALL: Wait for activation
                 if (registration.installing) {
                     const sw = registration.installing;
                     sw.addEventListener('statechange', (e) => {
                         if (e.target.state === 'activated') {
-                            console.log("🎉 SW installed and activated!");
-                            showToast("Game ready for offline!");
-                            // 3. PORMAS KARTAS: Viskas atsisiuntė, slepiame ekraną
-                            hideLoadingScreen();
+                            showLoadingSuccess(); // <-- Show green screen & wait for click
                         }
                     });
+                } 
+                // C) ALREADY ACTIVE (but maybe lost controller temporarily)
+                else if (registration.active && !navigator.serviceWorker.controller) {
+                     fastStart();
                 }
             })
             .catch((error) => {
-                console.error('SW registration failed:', error);
-                // Svarbu: jei SW nulūžo, vis tiek leidžiame žaisti
-                hideLoadingScreen();
+                // D) REGISTRATION FAILED (e.g. no SSL, tough security settings)
+                showLoadingError(error.message || "SW Registration failed");
             });
     } else {
-        // Jei naršyklė sena ir nepalaiko SW
-        hideLoadingScreen();
+        // E) NO SUPPORT: Just let them play, but maybe warn them? 
+        // For now, we'll just let them in as it might be an old phone.
+        fastStart();
     }
 
-    // --- FAILSAFE (Atsarginis variantas) ---
-    // Jei dėl kokių nors priežasčių SW užstringa, po 10 sekundžių vis tiek paleidžiame žaidimą.
+    // --- FAILSAFE ---
+    // If nothing happens in 30 seconds, assume network is dead and show error.
     setTimeout(() => {
-        if (!isGameLoaded) {
-            console.warn("⚠️ Loading timed out, forcing start.");
-            hideLoadingScreen();
+        if (!isGameLoaded && loadingScreen && !loadingScreen.classList.contains('success')) {
+            showLoadingError("Connection timed out (30s limit reached).");
         }
-    }, 30000); // 10 sekundžių limitas
+    }, 30000);
+    
     // --- Story Data ---
     let storyData = {};
 
