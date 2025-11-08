@@ -442,36 +442,48 @@ body {
 }
 
 .case-files-header {
-    /* ... paliekame senus stilius ... */
-    align-items: center; /* Užtikriname, kad viskas lygiuotųsi vertikaliai centre */
-}
-
-.header-titles {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between; /* Išstumia tekstą į kairę, mygtuką į dešinę */
+    align-items: center; /* Vertikaliai centruoja elementus */
+    padding: 20px;
+    background-color: rgba(0,0,0,0.5);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    flex-shrink: 0;
 }
 
-.header-titles h2 {
-    margin: 0;
-    line-height: 1.1; /* Šiek tiek sumažiname tarpą tarp eilučių */
+/* Nauja klasė, kuri laiko pavadinimą ir komandos vardą stulpeliu */
+.header-text-container {
+    display: flex;
+    flex-direction: column; /* Rikiuoja "Case files" virš komandos vardo */
+    align-items: flex-start; /* Lygiuoja viską kairėje */
+}
+
+.header-text-container h2 {
+    margin: 0; /* Pašalina nereikalingus tarpus aplink pavadinimą */
+    line-height: 1.2;
 }
 
 #cf-team-name {
     font-size: 0.9em;
-    color: var(--accent-red); /* Naudojame akcentinę spalvą komandos pavadinimui */
+    color: var(--accent-red);
     font-weight: bold;
     opacity: 0.9;
+    margin-top: 4px; /* Nedidelis tarpelis tarp antraštės ir komandos vardo */
 }
 
+/* Šiek tiek patobulintas uždarymo mygtukas, kad būtų lengviau paspausti */
 .close-button {
     background: none;
     border: none;
-    color: var(--text-color);
-    font-size: 2.5em;
+    color: var(--text-dim);
+    font-size: 2.5em; /* Šiek tiek sumažinau, kad nebūtų per didelis */
     cursor: pointer;
-    line-height: 0.5;
-    opacity: 0.7;
+    line-height: 1;
+    padding: 0 10px; /* Prideda erdvės aplink mygtuką */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
 #case-files-content {
