@@ -329,13 +329,13 @@
     "npc": "THE INTERROGATOR",
     "text": null,
     "choices": [
+      { 
+        "text": "We lost the challenge.",
+        "target_node": "DAUMANTAS_interrogate_loss"
+      }, 
       {
         "text": "We won the challenge.",
         "target_node": "DAUMANTAS_interrogate_win_1"
-      },
-      {
-        "text": "We lost the challenge.",
-        "target_node": "DAUMANTAS_interrogate_loss"
       }
     ]
   },
@@ -2070,12 +2070,12 @@
     "text": null,
     "choices": [
       {
-        "text": "We won the challenge.",
-        "target_node": "VARNALESA_interrogate_win_1"
-      },
-      {
         "text": "We lost the challenge.",
         "target_node": "VARNALESA_interrogate_loss"
+      },
+      {
+        "text": "We won the challenge.",
+        "target_node": "VARNALESA_interrogate_win_1"
       }
     ]
   },
@@ -2983,12 +2983,12 @@
     "text": null,
     "choices": [
       {
-        "text": "We won the challenge.",
-        "target_node": "RICARDAS_interrogate_win_A"
-      },
-      {
         "text": "We lost the challenge.",
         "target_node": "RICARDAS_interrogate_loss_A"
+      },
+      {
+        "text": "We won the challenge.",
+        "target_node": "RICARDAS_interrogate_win_A"
       }
     ]
   },
@@ -3790,12 +3790,12 @@
     "text": null,
     "choices": [
       {
-        "text": "We won the challenge.",
-        "target_node": "SIAURINIS_interrogate_win_A"
-      },
-      {
         "text": "We lost the challenge.",
         "target_node": "SIAURINIS_interrogate_loss_A"
+      },
+      {
+        "text": "We won the challenge.",
+        "target_node": "SIAURINIS_interrogate_win_A"
       }
     ]
   },
