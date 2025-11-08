@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // If nothing happens in 30 seconds, assume network is dead and show error.
     setTimeout(() => {
         if (!isGameLoaded && loadingScreen && !loadingScreen.classList.contains('success')) {
-            showLoadingError("Connection timed out (30s limit reached).");
+            showLoadingError("Connection timed out (60s limit reached).");
         }
     }, 60000);
 
