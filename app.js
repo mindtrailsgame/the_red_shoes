@@ -123,6 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
         testConvoBtn: document.getElementById('test-convo-btn'),
         caseFilesBtn: document.getElementById('case-files-btn'),
         caseFilesPanel: document.getElementById('case-files-panel'),
+        cfTeamName: document.getElementById('cf-team-name'),
         closeCaseFilesBtn: document.getElementById('close-case-files-btn'),
         caseFilesContent: document.getElementById('case-files-content'),
 
@@ -1065,6 +1066,9 @@ function initializeQrScanner() {
 
 function renderCaseFiles() {
  // --- 1. Bylų generavimas (atnaujinta logika) ---
+    if (dom.cfTeamName) {
+                dom.cfTeamName.textContent = gameState.teamName || '';
+            }
     dom.caseFilesContent.innerHTML = ''; // Išvalome seną turinį
 
     // Patikriname, ar turime IŠ VISO kokių nors įrašų

@@ -442,20 +442,26 @@ body {
 }
 
 .case-files-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    /* PAKEISTA: Tamsi pusiau permatoma antraštė */
-    background-color: rgba(0,0,0,0.6);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    color: var(--text-color);
-    flex-shrink: 0;
+    /* ... paliekame senus stilius ... */
+    align-items: center; /* Užtikriname, kad viskas lygiuotųsi vertikaliai centre */
 }
 
-.case-files-header h2 {
+.header-titles {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header-titles h2 {
     margin: 0;
-    font-size: 1.2em;
+    line-height: 1.1; /* Šiek tiek sumažiname tarpą tarp eilučių */
+}
+
+#cf-team-name {
+    font-size: 0.9em;
+    color: var(--accent-red); /* Naudojame akcentinę spalvą komandos pavadinimui */
+    font-weight: bold;
+    opacity: 0.9;
 }
 
 .close-button {
