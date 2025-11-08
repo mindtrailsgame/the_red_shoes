@@ -123,8 +123,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!isGameLoaded && loadingScreen && !loadingScreen.classList.contains('success')) {
             showLoadingError("Connection timed out (30s limit reached).");
         }
-    }, 30000);
-    
+    }, 60000);
+
     // --- Story Data ---
     let storyData = {};
 
