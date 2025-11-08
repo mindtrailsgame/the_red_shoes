@@ -805,6 +805,8 @@
     "npc": "THE DARK ONE",
     "text": "'As you know, my kind don't suffer from this affliction that mortals call 'sleep'. But it saddens me to think that if I would have stayed Rapolas would surely still be alive.'",
     "is_chain_link": true,
+    "is_key_statement": true,
+    "statement_title": "THE DARK ONE'S Alibi",
     "choices": [
       {
         "text": "...",
@@ -1630,6 +1632,8 @@
   "VARNALESA_part2_q2_default_A": {
     "npc": "VARNALĖŠA (WITCH)",
     "text": "She visibly thinks for a moment. 'He was alive during the bulshit active listening exercise that he led -- and participated. I went to sleep not soon after it.'",
+    "is_key_statement": true,
+    "statement_title": "VARNALĖŠA's Timeline",
     "choices": [
       {
         "text": "...",
@@ -2670,6 +2674,8 @@
   "RICARDAS_Re4_response_A": {
     "npc": "RIČARDAS (THE SORCERER)",
     "text": "– 'Well, let's see. We talked about the challenges I'm facing as a young sorcerer; about how my talents are not being appreciated because of the old sorcerers in the community talking about me behind my back.'",
+    "is_key_statement": true,
+    "statement_title": "RIČARDAS's Motive",
     "choices": [
       {
         "text": "...",
@@ -4386,6 +4392,8 @@
   "LAUME_Le4_response_A": {
     "npc": "LAUMĖ",
     "text": "\"Were working together on a special musical project that requires- as THE DARK ONE keeps saying-everyones' full commitment and dedication. But each member in the band is only truly committed to their own ends. Sometimes it feels like we are working against each other.\"",
+    "is_key_statement": true,
+    "statement_title": "Band Dynamics",
     "choices": [
       {
         "text": "...",
